@@ -1,8 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
 
 ReactDOM.render(
-  <App title={"Stock Tracker App"} />,
-  document.getElementById("root")
+  React.createElement(App, { title: 'Stock Trader App' }),
+  document.getElementById('root')
 );
