@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const modeConfig = env => require(`./build-utils/webpack.${env.mode}.js`);
 
-module.exports = ({ mode }) =>
+module.exports = ({ mode } = { mode: 'production' }) =>
   webpackMerge(
     {
       mode,
@@ -16,13 +16,13 @@ module.exports = ({ mode }) =>
         new webpack.ProgressPlugin(),
       ],
       context: __dirname,
-      entry: './src/index.js',
+      entry: './src/index.tsx',
       output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
       },
       resolve: {
-        extensions: ['.js', '.jsx', '.json'],
+        extensions: ['.ts', '.tsx', '.js', '.json'],
       },
       module: {
         rules: [
