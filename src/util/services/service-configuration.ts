@@ -1,5 +1,5 @@
 export default interface ServiceConfiguration {
-  url: string;
-  type: string;
-  key?: string;
+  readonly url: string;
+  readonly type: string;
+  readonly key?: string;
 }

@@ -7,11 +7,10 @@ export const FetchNews = ({
 }: {
   companySymbol: string;
   last?: number;
-}) => {
-  return privateFetch({
+}): Promise<JSON> =>
+  privateFetch({
     endpoint: `stock/${companySymbol}/news/last/${last}`,
   });
-};
 
 export const FetchKeyStats = ({
   companySymbol,
@@ -21,24 +20,29 @@ export const FetchKeyStats = ({
   companySymbol: string;
   stat?: string;
   queryVariables?: string;
-}) => {
-  return privateFetch({
+}): Promise<JSON> =>
+  privateFetch({
     endpoint: `stock/${companySymbol}/stats/${stat}`,
     queryVariables: queryVariables,
   });
-};
 
-export const FetchPeers = ({ companySymbol }: { companySymbol: string }) => {
-  return privateFetch({
+export const FetchPeers = ({
+  companySymbol,
+}: {
+  companySymbol: string;
+}): Promise<JSON> =>
+  privateFetch({
     endpoint: `stock/${companySymbol}/peers`,
   });
-};
 
-export const FetchOverview = ({ companySymbol }: { companySymbol: string }) => {
-  return privateFetch({
+export const FetchOverview = ({
+  companySymbol,
+}: {
+  companySymbol: string;
+}): Promise<JSON> =>
+  privateFetch({
     endpoint: `stock/${companySymbol}/company`,
   });
-};
 
 export const FetchQuote = ({
   companySymbol,
@@ -46,12 +50,11 @@ export const FetchQuote = ({
 }: {
   companySymbol: string;
   queryVariables?: string;
-}) => {
-  return privateFetch({
+}): Promise<JSON> =>
+  privateFetch({
     endpoint: `stock/${companySymbol}/quote`,
     queryVariables: queryVariables,
   });
-};
 
 export const FetchEarnings = ({
   companySymbol,
@@ -61,12 +64,11 @@ export const FetchEarnings = ({
   companySymbol: string;
   timePeriod?: number;
   queryVariables?: string;
-}) => {
-  return privateFetch({
+}): Promise<JSON> =>
+  privateFetch({
     endpoint: `stock/${companySymbol}/earnings/${timePeriod}`,
     queryVariables: queryVariables,
   });
-};
 
 const privateFetch = ({
   endpoint,
@@ -74,12 +76,11 @@ const privateFetch = ({
 }: {
   endpoint: string;
   queryVariables?: string;
-}) => {
+}): Promise<JSON> => {
   const fetchConfig = {
     endpoint: endpoint,
     config: PRIVATE_SERVICE,
     queryVariables: queryVariables,
   };
-
   return CallApi(fetchConfig);
 };
