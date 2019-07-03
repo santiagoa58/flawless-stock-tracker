@@ -7,29 +7,38 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server",
-    "dev": "npm run webpack -- --env.mode development --watch",
-    "dev-server": "npm run webpack-dev-server -- --env.mode development --watch",
+    "dev": "npm run webpack-dev-server -- --env.mode development --hot",
     "prod": "npm run webpack -- --env.mode production",
-    "debug": "npm run webpack -- --inspect --debug-brk",
-    "prod:debug": "npm run debug -- --env.mode production",
-    "dev:debug": "npm run debug -- --env.mode development"
+    "start": "npm run dev"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vincent Boivin, Santiago Gomez",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gomezsantiago/flawless-stock-tracker.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
-    "babel-cli": "^6.26.0",
+    "@hot-loader/react-dom": "^16.8.6",
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
     "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
     "html-webpack-plugin": "^3.2.0",
     "prettier": "^1.18.2",
+    "prop-types": "^15.7.2",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.0.4",
+    "tsconfig-paths": "^3.8.0",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
   },
   "dependencies": {
     "react": "^16.8.6",
