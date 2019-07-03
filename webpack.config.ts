@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = ({ mode } = { mode: 'production' }) => ({
   mode,
@@ -10,6 +11,7 @@ module.exports = ({ mode } = { mode: 'production' }) => ({
       template: './src/index.html',
     }),
     new webpack.ProgressPlugin(),
+    new Dotenv(),
     new FriendlyErrorsWebpackPlugin(),
   ],
   context: __dirname,
