@@ -36,12 +36,12 @@ export const fetchNews = (
 export const fetchKeyStats = (
   companySymbol: string,
   stat?: string,
-  queryVariables?: QueryParameters<string>
+  parameters?: QueryParameters<string>
 ): Promise<KeyStats> =>
   genericFetch<KeyStats>(
     PRIVATE_SERVICE,
     `stock/${companySymbol}/stats/${stat}`,
-    queryVariables
+    parameters
   );
 
 export const fetchPeers = (companySymbol: string): Promise<Peers> =>
@@ -52,29 +52,29 @@ export const fetchOverview = (companySymbol: string): Promise<Overview> =>
 
 export const fetchQuote = (
   companySymbol: string,
-  queryVariables?: QueryParameters<string>
+  parameters?: QueryParameters<string>
 ): Promise<Quote> =>
   genericFetch<Quote>(
     PRIVATE_SERVICE,
     `stock/${companySymbol}/quote`,
-    queryVariables
+    parameters
   );
 
 export const fetchEarnings = (
   companySymbol: string,
   timePeriod?: number,
-  queryVariables?: QueryParameters<string>
+  parameters?: QueryParameters<string>
 ): Promise<Earnings> =>
   genericFetch<Earnings>(
     PRIVATE_SERVICE,
     `stock/${companySymbol}/earnings/${timePeriod}`,
-    queryVariables
+    parameters
   );
 
 const genericFetch = <T>(
   config: ServiceConfiguration,
-  endpoint: string,
-  queryVariables?: QueryParameters<string>
+  path: string,
+  parameters?: QueryParameters<string>
 ): Promise<T> => {
-  return fetchIex<T>(config, endpoint, queryVariables);
+  return fetchIex<T>(config, path, parameters);
 };

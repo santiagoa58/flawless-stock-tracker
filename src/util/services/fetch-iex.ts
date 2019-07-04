@@ -22,7 +22,7 @@ const createEndpoint = (
     case 'PUBLIC':
       return `${hostname}/${path}?${queryParameters}`;
     case 'PRIVATE' || 'DEV':
-      return `${hostname}/${path}?token=${key}&${parameters}`;
+      return `${hostname}/${path}?token=${key}&${queryParameters}`;
     default:
       throw new Error('Was not given a proper type to create the url');
   }
