@@ -1,34 +1,34 @@
 import { ServiceConfiguration } from './configurations';
-import { QueryParameters } from './types';
+import { MapObject } from './types';
 
 export const fetchIex = async <T>(
   configuration: ServiceConfiguration,
   path: string,
-  parameters?: QueryParameters<string>
+  parameters?: MapObject<string>
 ): Promise<T> => {
   const endpoint = createEndpoint(configuration, path, parameters);
   const response = await fetch(endpoint);
   return response.json();
 };
 
-const createEndpoint = (
+export const createEndpoint = (
   configuration: ServiceConfiguration,
   path: string,
-  parameters?: QueryParameters<string>
+  parameters?: MapObject<string>
 ): string => {
   const { hostname, type, key } = configuration;
-  const queryParameters = parameters ? createParameters(parameters) : '';
+  const MapObject = parameters ? createParameters(parameters) : '';
   switch (type) {
     case 'PUBLIC':
-      return `${hostname}/${path}?${queryParameters}`;
+      return `${hostname}/${path}?${MapObject}`;
     case 'PRIVATE' || 'DEV':
-      return `${hostname}/${path}?token=${key}&${queryParameters}`;
+      return `${hostname}/${path}?token=${key}&${MapObject}`;
     default:
       throw new Error('Was not given a proper type to create the url');
   }
 };
 
-const createParameters = (parameters: QueryParameters<string>): string => {
+export const createParameters = (parameters: MapObject<string>): string => {
   return Object.entries(parameters)
     .map(entry => {
       const [key, value] = entry;

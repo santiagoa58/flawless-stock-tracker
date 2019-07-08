@@ -1,7 +1,12 @@
+# third party modules
 node_modules/
+# cache folder, build folder and metadata folders
 .DS_Store
 .cache/
 dist/
 coverage/
 .vscode/
+# env variables files
 .env
+# npm debug file    
+npm-debug.log

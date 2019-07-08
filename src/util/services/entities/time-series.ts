@@ -1,5 +1,18 @@
-import { TimePoint } from './time-point';
-
 export interface TimeSeries {
-  timeSeries: Array<TimePoint>;
+  timeSeries: TimePoint[];
+}
+
+interface TimePoint {
+  date: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+  unadjustedVolume: number;
+  change: number;
+  changePercent: number;
+  vwap: number;
+  label: string;
+  changeOverTime: number;
 }

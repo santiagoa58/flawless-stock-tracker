@@ -4,7 +4,7 @@ import {
   PRIVATE_SERVICE,
   ServiceConfiguration,
 } from './services/configurations';
-import { QueryParameters } from './services/types';
+import { MapObject, TimeSeriesRange } from './services/types';
 import {
   TimeSeries,
   Quote,
@@ -17,7 +17,7 @@ import {
 
 export const fetchTimeSeries = (
   companySymbol: string,
-  range: string = ''
+  range: TimeSeriesRange = TimeSeriesRange.max
 ): Promise<TimeSeries> =>
   genericFetch<TimeSeries>(
     PUBLIC_SERVICE,
@@ -36,7 +36,7 @@ export const fetchNews = (
 export const fetchKeyStats = (
   companySymbol: string,
   stat?: string,
-  parameters?: QueryParameters<string>
+  parameters?: MapObject<string>
 ): Promise<KeyStats> =>
   genericFetch<KeyStats>(
     PRIVATE_SERVICE,
@@ -52,7 +52,7 @@ export const fetchOverview = (companySymbol: string): Promise<Overview> =>
 
 export const fetchQuote = (
   companySymbol: string,
-  parameters?: QueryParameters<string>
+  parameters?: MapObject<string>
 ): Promise<Quote> =>
   genericFetch<Quote>(
     PRIVATE_SERVICE,
@@ -63,7 +63,7 @@ export const fetchQuote = (
 export const fetchEarnings = (
   companySymbol: string,
   timePeriod?: number,
-  parameters?: QueryParameters<string>
+  parameters?: MapObject<string>
 ): Promise<Earnings> =>
   genericFetch<Earnings>(
     PRIVATE_SERVICE,
@@ -74,7 +74,7 @@ export const fetchEarnings = (
 const genericFetch = <T>(
   config: ServiceConfiguration,
   path: string,
-  parameters?: QueryParameters<string>
+  parameters?: MapObject<string>
 ): Promise<T> => {
   return fetchIex<T>(config, path, parameters);
 };
