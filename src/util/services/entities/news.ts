@@ -1,4 +1,8 @@
 export interface News {
+  news: Article[];
+}
+
+export interface Article {
   datetime: number;
   headline: string;
   source: string;
