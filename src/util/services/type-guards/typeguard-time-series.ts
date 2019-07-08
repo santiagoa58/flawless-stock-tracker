@@ -1,8 +1,8 @@
 import { isPartOf } from './common-typeguard';
 
-export const isTimeSeries = (testedObject: any): boolean => {
+export const areTimeSeries = (testedObject: any): boolean => {
   const timeSeriesProperties = ['timeSeries'];
-  const firstPoint = testedObject[0];
+  const firstPoint = testedObject.timeSeries[0];
   return (
     isTimePoint(firstPoint) && isPartOf(timeSeriesProperties, testedObject)
   );
