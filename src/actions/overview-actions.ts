@@ -1,32 +1,32 @@
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { ActionCreator } from 'redux';
 
-import { SET_OVERVIEW, SET_OVERVIEW_ERROR } from './constants';
+import { OVERVIEW_ACTION_TYPES } from './constants';
 import { ActionSet } from './defaults';
 import { Overview, fetchOverview } from '../util';
+import { OverviewState } from '../reducers/overview-reducer';
 
-export type OverviewAction = ActionSet<Overview> | ActionSet<string>;
+export type OverviewAction = ActionSet<OVERVIEW_ACTION_TYPES>;
 
-export const setOverview: ActionCreator<OverviewAction> = (
-  payload: Overview
-): OverviewAction => ({ type: SET_OVERVIEW, payload });
+export const setOverview: ActionCreator<OverviewAction> = (payload: Overview): OverviewAction => ({
+  type: OVERVIEW_ACTION_TYPES.SET_OVERVIEW,
+  payload,
+});
 
-export const setOverviewError: ActionCreator<OverviewAction> = (
-  payload: string
-): OverviewAction => ({ type: SET_OVERVIEW_ERROR, payload });
+export const setOverviewError: ActionCreator<OverviewAction> = (payload: string): OverviewAction => ({
+  type: OVERVIEW_ACTION_TYPES.SET_OVERVIEW_ERROR,
+  payload,
+});
 
-export const getOverview: ActionCreator<
-  ThunkAction<Promise<void>, {}, {}, OverviewAction>
-> = (
+export const getOverview: ActionCreator<ThunkAction<Promise<void>, OverviewState, {}, OverviewAction>> = (
   companySymbol: string
-): ThunkAction<Promise<void>, {}, {}, OverviewAction> => async (
-  dispatch: ThunkDispatch<{}, {}, OverviewAction>
-) => {
+): ThunkAction<Promise<void>, {}, {}, OverviewAction> => async (dispatch: ThunkDispatch<OverviewState, {}, OverviewAction>) => {
   fetchOverview(companySymbol)
-    .then(response => {
+    .then((response: Overview) => {
+      // need better understanding of what response is
       dispatch(setOverview(response));
     })
-    .catch(error => {
+    .catch((error: Error) => {
       dispatch(setOverviewError(error));
     });
 };

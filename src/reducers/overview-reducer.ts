@@ -1,20 +1,23 @@
 import { Reducer } from 'redux';
 import { OverviewAction } from '../actions/overview-actions';
+import { Overview } from '../util';
 
 export interface OverviewState {
-  overview: any | undefined;
+  overview: Overview;
   error: string | undefined;
   isLoading: boolean;
 }
 
 export const overviewState: OverviewState = {
-  overview: {},
+  overview: {} as Overview,
   error: undefined,
   isLoading: false,
 };
 
-export const overviewReducer: Reducer<OverviewState, OverviewAction> = (
-  state: any = overviewState,
+export type OverviewReducer = Reducer<OverviewState, OverviewAction>;
+
+export const overviewReducer: OverviewReducer = (
+  state: OverviewState = overviewState,
   { type, payload }: OverviewAction
 ): OverviewState => {
   switch (type) {

@@ -1,9 +1,16 @@
 import { combineReducers } from 'redux';
 
-import { newsReducer } from './news-reducer';
-import { overviewReducer } from './overview-reducer';
+import { newsReducer, NewsState } from './news-reducer';
+import { overviewReducer, OverviewState } from './overview-reducer';
+import { Reducer } from 'react';
+import { ApplicationActions } from '../actions';
 
-export const rootReducer = combineReducers<any>({
-  newsReducer,
-  overviewReducer,
+export interface ApplicationState {
+  news: NewsState;
+  overview: OverviewState;
+}
+
+export const rootReducer: Reducer<ApplicationState, ApplicationActions> = combineReducers({
+  news: newsReducer,
+  overview: overviewReducer,
 });

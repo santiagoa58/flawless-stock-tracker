@@ -2,21 +2,20 @@ import { Reducer } from 'redux';
 import { NewsAction } from '../actions/news-actions';
 
 export interface NewsState {
-  news: any | undefined;
+  news: any[];
   error: string | undefined;
   isLoading: boolean;
 }
 
 export const newsState: NewsState = {
-  news: {},
+  news: [],
   error: undefined,
   isLoading: false,
 };
 
-export const newsReducer: Reducer<NewsState, NewsAction> = (
-  state: any = newsState,
-  { type, payload }: NewsAction
-): NewsState => {
+export type NewsReducer = Reducer<NewsState, NewsAction>;
+
+export const newsReducer: NewsReducer = (state: NewsState = newsState, { type, payload }: NewsAction): NewsState => {
   switch (type) {
     case 'SET_NEWS':
       return { ...state, news: payload, isLoading: false };

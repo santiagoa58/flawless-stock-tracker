@@ -31,7 +31,7 @@ const mapStateToProps = ({ newsReducer }: RootReducer) => ({
   news: newsReducer.news,
 });
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, NewsAction>) => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<NewsState, {}, NewsAction>) => ({
   gNews: () => dispatch(getNews('aapl')),
 });
 
