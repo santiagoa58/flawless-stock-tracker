@@ -28,7 +28,7 @@ const App = ({ title, news, gNews }: AppProps) => {
 };
 
 const mapStateToProps = ({ newsReducer }: RootReducer) => ({
-  news: newsReducer.news,
+  news: newsReducer.news, // what? no no no passing reducers through
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<NewsState, {}, NewsAction>) => ({
