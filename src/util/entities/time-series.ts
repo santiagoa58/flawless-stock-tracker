@@ -2,7 +2,7 @@ export interface TimeSeries {
   timeSeries: TimePoint[];
 }
 
-interface TimePoint {
+export interface TimePoint {
   date: string;
   open: number;
   high: number;
