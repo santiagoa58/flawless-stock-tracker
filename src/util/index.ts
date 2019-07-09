@@ -12,6 +12,8 @@ export {
   TimeSeries,
   Quote,
   Earnings,
+  Earning,
+  TimePoint,
   KeyStats,
   Peers,
   Overview,
