@@ -13,7 +13,7 @@ import {
   Peers,
   Overview,
   News,
-} from './services/entities';
+} from './entities';
 
 export const fetchTimeSeries = (
   companySymbol: string,

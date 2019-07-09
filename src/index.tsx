@@ -1,8 +1,15 @@
-import { createElement } from 'react';
+import * as React from 'react';
 import { render } from 'react-dom';
-import App from './components/App';
+import { Provider } from 'react-redux';
+
+import { configureStore } from './store';
+import { DecoratedApp } from './components/App';
+
+const store = configureStore();
 
 render(
-  createElement(App, { title: 'Stock Tracker App' }),
+  <Provider store={store}>
+    <DecoratedApp title={'amazing page'} />
+  </Provider>,
   document.getElementById('root')
 );
