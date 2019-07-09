@@ -1,16 +1,16 @@
 import { HeaderLayout } from './headerLayout';
 import { connect } from 'react-redux';
 import { OverviewState } from '../../reducers/overview-reducer';
-import { KeyStatsState } from '../../reducers/keystats-reducer';
+import { QuoteState } from '../../reducers/quote-reducer';
 
 interface RootReducer {
   companyInfo: OverviewState;
-  companyStats: KeyStatsState;
+  companyQuote: QuoteState;
 }
 
-const mapStateToProps = ({ companyInfo, companyStats }: RootReducer) => ({
+const mapStateToProps = ({ companyInfo, companyQuote }: RootReducer) => ({
   overview: companyInfo.overview,
-  keyStats: companyStats.keyStats,
+  quote: companyQuote.quote,
 });
 
 export const HeaderContainer = connect(

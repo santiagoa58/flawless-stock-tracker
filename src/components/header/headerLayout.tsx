@@ -1,24 +1,24 @@
 import * as React from 'react';
 import { SearchContainer } from '../search/searchInputContainer';
-import { Overview, KeyStats } from '../../util';
+import { Overview, Quote } from '../../util';
 
 interface Header {
   title: string;
   overview: Overview;
-  keyStats: KeyStats;
+  quote: Quote;
 }
 
 export const HeaderLayout: React.FunctionComponent<Header> = ({
   title,
   overview,
-  keyStats,
+  quote,
 }: Header) => {
   return (
     <>
       <h1>{title}</h1>
       <div>
-        {keyStats && <span>Price: {keyStats.latestPrice}</span>}{' '}
-        {keyStats && <span>Change: {keyStats.changePercent}</span>}
+        {quote && <span>Price: {quote.latestPrice}</span>}{' '}
+        {quote && <span>Change: {quote.changePercent}</span>}
       </div>
       <SearchContainer
         companyName={overview ? overview.companyName : null}
