@@ -5,8 +5,6 @@ import {
   areNews,
   areEarnings,
   areTimeSeries,
-} from '../src/util/type-guards';
-import {
   Quote,
   Overview,
   KeyStats,

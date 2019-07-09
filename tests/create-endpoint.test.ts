@@ -1,8 +1,4 @@
-import { createEndpoint } from '../src/util/services/fetch-iex';
-import {
-  PUBLIC_SERVICE,
-  PRIVATE_SERVICE,
-} from '../src/util/services/configurations';
+import { createEndpoint, PUBLIC_SERVICE, PRIVATE_SERVICE } from '../src/util';
 
 const mockPath = 'stock/mock/test';
 const mockParameters = { testKey: 'testValue' };

@@ -1,4 +1,4 @@
-import { createParameters } from '../src/util/services/fetch-iex';
+import { createParameters } from '../src/util';
 
 const singleParameter = { testKey: 'testValue' };
 const doubleParameters = { testKey: 'testValue', testKey2: 'testValue2' };

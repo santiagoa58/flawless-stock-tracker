@@ -1,4 +1,13 @@
 export {
+  fetchIex,
+  createEndpoint,
+  createParameters,
+  PUBLIC_SERVICE,
+  PRIVATE_SERVICE,
+  DEV_SERVICE,
+} from './services';
+
+export {
   fetchTimeSeries,
   fetchNews,
   fetchKeyStats,
@@ -20,3 +29,12 @@ export {
   News,
   Article,
 } from './entities';
+
+export {
+  isQuote,
+  isOverview,
+  isKeyStats,
+  areNews,
+  areEarnings,
+  areTimeSeries,
+} from './type-guards';
