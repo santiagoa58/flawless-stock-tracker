@@ -15,17 +15,19 @@ export const setNewsError: ActionCreator<NewsAction> = (
   payload: string
 ): NewsAction => ({ type: SET_NEWS_ERROR, payload });
 
-export const getNews = (
+export const getNews: ActionCreator<
+  ThunkAction<Promise<void>, {}, {}, NewsAction>
+> = (
   companySymbol: string,
   last?: number
 ): ThunkAction<Promise<void>, {}, {}, NewsAction> => async (
   dispatch: ThunkDispatch<{}, {}, NewsAction>
 ) => {
-  try {
-    fetchNews(companySymbol, last).then(response => {
+  fetchNews(companySymbol, last)
+    .then(response => {
       dispatch(setNews(response));
+    })
+    .catch(error => {
+      dispatch(setNewsError(error));
     });
-  } catch (error) {
-    dispatch(setNewsError(error));
-  }
 };

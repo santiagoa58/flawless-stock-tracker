@@ -1,12 +1,20 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { getNews } from '../actions/news-actions';
+import { getNews, NewsAction } from '../actions/news-actions';
+import { ThunkDispatch } from 'redux-thunk';
+import { NewsState } from '../reducers/news-reducer';
+import { OverviewState } from '../reducers/overview-reducer';
 
 interface AppProps {
   title: string;
   news: any[];
   gNews: () => void;
+}
+
+interface RootReducer {
+  newsReducer: NewsState;
+  overviewReducer: OverviewState;
 }
 
 const App = ({ title, news, gNews }: AppProps) => {
@@ -19,11 +27,11 @@ const App = ({ title, news, gNews }: AppProps) => {
   );
 };
 
-const mapStateToProps = ({ newsReducer }: any) => ({
+const mapStateToProps = ({ newsReducer }: RootReducer) => ({
   news: newsReducer.news,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, NewsAction>) => ({
   gNews: () => dispatch(getNews('aapl')),
 });
 

@@ -15,16 +15,18 @@ export const setOverviewError: ActionCreator<OverviewAction> = (
   payload: string
 ): OverviewAction => ({ type: SET_OVERVIEW_ERROR, payload });
 
-export const getOverview = (
+export const getOverview: ActionCreator<
+  ThunkAction<Promise<void>, {}, {}, OverviewAction>
+> = (
   companySymbol: string
 ): ThunkAction<Promise<void>, {}, {}, OverviewAction> => async (
   dispatch: ThunkDispatch<{}, {}, OverviewAction>
 ) => {
-  try {
-    fetchOverview(companySymbol).then(response => {
+  fetchOverview(companySymbol)
+    .then(response => {
       dispatch(setOverview(response));
+    })
+    .catch(error => {
+      dispatch(setOverviewError(error));
     });
-  } catch (error) {
-    dispatch(setOverviewError(error));
-  }
 };
