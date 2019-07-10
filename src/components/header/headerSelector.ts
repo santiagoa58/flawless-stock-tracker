@@ -28,9 +28,9 @@ export function headerSelector(
     ? {
         sector: overview.sector,
         exchange: overview.exchange,
-        latestPrice: quote.latestUpdate,
-        change: quote.changePercent,
-        changePercent: quote.change,
+        latestPrice: quote.latestPrice,
+        change: quote.change,
+        changePercent: quote.changePercent,
         companyName: quote.companyName,
         symbol: overview.symbol,
       }
