@@ -4,6 +4,7 @@ import { getNews } from './news-actions';
 import { getTimeSeries } from './time-series-actions';
 import { getPeers } from './peers-actions';
 import { getKeyStats } from './keystats-actions';
+import { getQuote } from './quote-actions';
 import { getOverview } from './overview-actions';
 import { TimeSeriesRange } from '../util/services/types';
 import { SEARCH, SET_SEARCH_ERROR } from './constants';
@@ -25,6 +26,7 @@ export const search: ActionCreator<ThunkAction<void, {}, {}, SearchAction>> = (
   dispatch(getNews(companySymbol));
   dispatch(getPeers(companySymbol));
   dispatch(getKeyStats(companySymbol));
+  dispatch(getQuote(companySymbol));
   dispatch(getOverview(companySymbol));
   dispatch(getTimeSeries(companySymbol, TimeSeriesRange.hourly));
   dispatch(getTimeSeries(companySymbol, TimeSeriesRange.daily));
