@@ -24,7 +24,7 @@ export function headerSelector(
   { overview }: { overview: Overview },
   { quote }: { quote: Quote }
 ) {
-  return quote
+  return overview && quote
     ? {
         sector: overview.sector,
         exchange: overview.exchange,
