@@ -3,5 +3,6 @@ export enum TimeSeriesRange {
   daily = '5d',
   weekly = '1m',
   monthly = '1y',
-  max = '',
+  fiveyears = '5y',
+  max = 'max',
 }

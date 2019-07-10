@@ -1,9 +1,32 @@
 export interface KeyStats {
-  companyName: string;
-  marketcap: number;
+  week52change: number;
   week52high: number;
   week52low: number;
-  week52change: number;
-  peRatio: number;
+  marketcap: number;
+  employees: number;
+  day200MovingAvg: number;
+  day50MovingAvg: number;
+  float?: number;
+  avg10Volume: number;
+  avg30Volume: number;
+  ttmEPS: number;
+  ttmDividendRate: number;
+  companyName: string;
+  sharesOutstanding: number;
+  maxChangePercent: number;
+  year5ChangePercent: number;
+  year2ChangePercent: number;
+  year1ChangePercent: number;
+  ytdChangePercent: number;
+  month6ChangePercent: number;
+  month3ChangePercent: number;
+  month1ChangePercent: number;
+  day30ChangePercent: number;
+  day5ChangePercent: number;
+  nextDividendDate: number | null;
   dividendYield: number;
+  nextEarningsDate: string;
+  exDividendDate: string;
+  peRatio: number;
+  beta: number;
 }
