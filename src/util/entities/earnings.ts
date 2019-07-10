@@ -3,7 +3,7 @@ export interface Earnings {
   earnings: Earning[];
 }
 
-interface Earning {
+export interface Earning {
   actualEPS: number;
   consensusEPS: number;
   announceTime: string;
