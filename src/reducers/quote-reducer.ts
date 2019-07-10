@@ -1,11 +1,7 @@
 import { Reducer } from 'redux';
 import { QuoteAction } from '../actions/quote-actions';
 import { Quote } from '../util/';
-import {
-  SET_KEY_STATS,
-  GET_KEY_STATS,
-  SET_KEY_STATS_ERROR,
-} from '../actions/constants';
+import { SET_QUOTE, GET_QUOTE, SET_QUOTE_ERROR } from '../actions/constants';
 
 export interface QuoteState {
   quote: Quote;
@@ -24,11 +20,11 @@ export const quoteReducer: Reducer<QuoteState, QuoteAction> = (
   { type, payload }: QuoteAction
 ): QuoteState => {
   switch (type) {
-    case SET_KEY_STATS:
+    case SET_QUOTE:
       return { ...state, quote: payload, isLoading: false };
-    case SET_KEY_STATS_ERROR:
+    case SET_QUOTE_ERROR:
       return { ...state, error: payload, isLoading: false };
-    case GET_KEY_STATS:
+    case GET_QUOTE:
       return { ...state, isLoading: true };
     default:
       return state;
