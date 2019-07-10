@@ -10,7 +10,7 @@ export const CompanyTags: React.FunctionComponent<TagsProps> = ({
   sector,
 }: TagsProps) => {
   return (
-    <div>
+    <div className="company-tags">
       <span>{exchange}</span>
       <span>{sector}</span>
       <span>USD</span>
