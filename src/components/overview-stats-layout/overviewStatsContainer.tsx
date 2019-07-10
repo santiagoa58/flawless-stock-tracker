@@ -1,13 +1,10 @@
 import { connect } from 'react-redux';
 import { OverviewStatsLayout } from './overviewStatsLayout';
-// import { OverviewState } from '../../reducers/overview-reducer';
-// import { PeersState } from '../../reducers/peers-reducer';
+import { Overview } from '../../util';
 
 interface OverviewKeyStats {
-  // companyInfo: OverviewState;
-  // companyPeers: PeersState;
-  companyInfo: any;
-  companyPeers: any;
+  companyInfo: { overview: Overview };
+  companyPeers: { topPeers: string[] };
 }
 
 const mapStateToProps = ({ companyInfo, companyPeers }: OverviewKeyStats) => ({
