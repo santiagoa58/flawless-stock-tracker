@@ -1,6 +1,5 @@
 import { fetchIex } from './services/fetch-iex';
 import {
-  PUBLIC_SERVICE,
   PRIVATE_SERVICE,
   ServiceConfiguration,
 } from './services/configurations';
@@ -20,8 +19,8 @@ export const fetchTimeSeries = (
   range: TimeSeriesRange = TimeSeriesRange.max
 ): Promise<TimeSeries> =>
   genericFetch<TimeSeries>(
-    PUBLIC_SERVICE,
-    `stock/${companySymbol}/time-series/${range}`
+    PRIVATE_SERVICE,
+    `stock/${companySymbol}/chart/${range}`
   );
 
 export const fetchNews = (
