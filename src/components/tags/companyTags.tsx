@@ -1,14 +1,14 @@
 import * as React from 'react';
 
-interface Tags {
+interface TagsProps {
   exchange: string;
   sector: string;
 }
 
-export const CompanyTags: React.FunctionComponent<Tags> = ({
+export const CompanyTags: React.FunctionComponent<TagsProps> = ({
   exchange,
   sector,
-}: Tags) => {
+}: TagsProps) => {
   return (
     <div>
       <span>{exchange}</span>
