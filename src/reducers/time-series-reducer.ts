@@ -8,24 +8,24 @@ import {
 } from '../actions/constants';
 
 export interface TimeSeriesState {
-  timeSeries: TimeSeries;
+  range: TimeSeries;
   error: string | undefined;
   isLoading: boolean;
 }
 
 export const TimeSeriesState: TimeSeriesState = {
-  timeSeries: undefined,
+  range: undefined,
   error: undefined,
   isLoading: false,
 };
 
-export const timeSeriesReducer: Reducer<TimeSeriesState, TimeSeriesAction> = (
+export const timeSeriesReducer: Reducer<TimeSeriesState> = (
   state: any = TimeSeriesState,
-  { type, payload }: TimeSeriesAction
+  { type, payload, range }
 ): TimeSeriesState => {
   switch (type) {
     case SET_TIME_SERIES:
-      return { ...state, timeSeries: payload, isLoading: false };
+      return { ...state, [range]: payload, isLoading: false };
     case SET_TIME_SERIES_ERROR:
       return { ...state, error: payload, isLoading: false };
     case GET_TIME_SERIES:

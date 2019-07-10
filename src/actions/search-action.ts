@@ -5,6 +5,7 @@ import { getTimeSeries } from './time-series-actions';
 import { getPeers } from './peers-actions';
 import { getKeyStats } from './keystats-actions';
 import { getOverview } from './overview-actions';
+import { TimeSeriesRange } from '../util/services/types';
 import { SEARCH, SET_SEARCH_ERROR } from './constants';
 
 export interface SearchAction {
@@ -25,5 +26,10 @@ export const search: ActionCreator<ThunkAction<void, {}, {}, SearchAction>> = (
   dispatch(getPeers(companySymbol));
   dispatch(getKeyStats(companySymbol));
   dispatch(getOverview(companySymbol));
-  dispatch(getTimeSeries(companySymbol));
+  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.hourly));
+  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.daily));
+  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.weekly));
+  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.monthly));
+  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.fiveyears));
+  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.max));
 };
