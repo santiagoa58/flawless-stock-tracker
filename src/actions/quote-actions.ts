@@ -1,32 +1,32 @@
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { ActionCreator } from 'redux';
-
-import { SET_QUOTE, SET_QUOTE_ERROR } from './constants';
-import { ActionSet } from './defaults';
+import { QUOTE_ACTIONS_TYPES } from './constants';
+import {
+  createAction,
+  createThunkAction,
+  ActionType,
+  FetchError,
+} from './defaults';
 import { Quote, fetchQuote } from '../util';
+import { MapObject } from '../util/services/types';
 
-export type QuoteAction = ActionSet<Quote> | ActionSet<string>;
-
-export const setQuote: ActionCreator<QuoteAction> = (
-  payload: Quote
-): QuoteAction => ({ type: SET_QUOTE, payload });
-
-export const setQuoteError: ActionCreator<QuoteAction> = (
-  payload: string
-): QuoteAction => ({ type: SET_QUOTE_ERROR, payload });
-
-export const getQuote: ActionCreator<
-  ThunkAction<Promise<void>, {}, {}, QuoteAction>
-> = (
-  companySymbol: string
-): ThunkAction<Promise<void>, {}, {}, QuoteAction> => async (
-  dispatch: ThunkDispatch<{}, {}, QuoteAction>
-) => {
-  fetchQuote(companySymbol)
-    .then(response => {
-      dispatch(setQuote(response));
-    })
-    .catch(error => {
-      dispatch(setQuoteError(error));
-    });
+export const QuoteActions = {
+  setQuote: (type: QUOTE_ACTIONS_TYPES.SET_QUOTE, payload: Quote) =>
+    createAction({ type, payload }),
+  setQuoteError: (
+    type: QUOTE_ACTIONS_TYPES.SET_QUOTE_ERROR,
+    error: FetchError
+  ) => createAction({ type, error }),
 };
+
+export const getQuote = (
+  companySymbol: string,
+  parameters?: MapObject<string>
+) => {
+  const { setQuote, setQuoteError } = QuoteActions;
+  createThunkAction(
+    fetchQuote(companySymbol, parameters),
+    setQuote,
+    setQuoteError
+  );
+};
+
+export type QuoteAction = ActionType<Quote>;

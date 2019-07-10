@@ -1,33 +1,22 @@
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { ActionCreator } from 'redux';
-
-import { SET_NEWS, SET_NEWS_ERROR } from './constants';
-import { ActionSet } from './defaults';
+import { NEWS_ACTIONS_TYPES } from './constants';
+import {
+  createAction,
+  createThunkAction,
+  ActionType,
+  FetchError,
+} from './defaults';
 import { News, fetchNews } from '../util';
 
-export type NewsAction = ActionSet<News> | ActionSet<string>;
-
-export const setNews: ActionCreator<NewsAction> = (
-  payload: News
-): NewsAction => ({ type: SET_NEWS, payload });
-
-export const setNewsError: ActionCreator<NewsAction> = (
-  payload: string
-): NewsAction => ({ type: SET_NEWS_ERROR, payload });
-
-export const getNews: ActionCreator<
-  ThunkAction<Promise<void>, {}, {}, NewsAction>
-> = (
-  companySymbol: string,
-  last?: number
-): ThunkAction<Promise<void>, {}, {}, NewsAction> => async (
-  dispatch: ThunkDispatch<{}, {}, NewsAction>
-) => {
-  fetchNews(companySymbol, last)
-    .then(response => {
-      dispatch(setNews(response));
-    })
-    .catch(error => {
-      dispatch(setNewsError(error));
-    });
+export const NewsActions = {
+  setNews: (type: NEWS_ACTIONS_TYPES.SET_NEWS, payload: News) =>
+    createAction({ type, payload }),
+  setNewsError: (type: NEWS_ACTIONS_TYPES.SET_NEWS_ERROR, error: FetchError) =>
+    createAction({ type, error }),
 };
+
+export const getNews = (companySymbol: string, last?: number) => {
+  const { setNews, setNewsError } = NewsActions;
+  createThunkAction(fetchNews(companySymbol, last), setNews, setNewsError);
+};
+
+export type NewsAction = ActionType<News>;

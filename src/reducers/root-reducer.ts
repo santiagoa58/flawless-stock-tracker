@@ -1,16 +1,24 @@
-import { combineReducers } from 'redux';
-import { quoteReducer } from './quote-reducer';
-import { newsReducer } from './news-reducer';
-import { overviewReducer } from './overview-reducer';
-import { peersReducer } from './peers-reducer';
-import { keyStatsReducer } from './keystats-reducer';
-import { timeSeriesReducer } from './time-series-reducer';
+import { Reducer, combineReducers } from 'redux';
 
-export const rootReducer = combineReducers<any>({
-  latestNews: newsReducer,
-  companyInfo: overviewReducer,
-  companyPeers: peersReducer,
-  companyStats: keyStatsReducer,
-  chartData: timeSeriesReducer,
-  companyQuote: quoteReducer,
+import {
+  newsReducer,
+  overviewReducer,
+  peersReducer,
+  keyStatsReducer,
+  timeSeriesReducer,
+  quoteReducer,
+} from './';
+import { ApplicationState } from '../states';
+import { ApplicationAction } from '../actions';
+
+export const rootReducer: Reducer<
+  ApplicationState,
+  ApplicationAction
+> = combineReducers({
+  news: newsReducer,
+  overview: overviewReducer,
+  peers: peersReducer,
+  keyStats: keyStatsReducer,
+  timeSeries: timeSeriesReducer,
+  quote: quoteReducer,
 });

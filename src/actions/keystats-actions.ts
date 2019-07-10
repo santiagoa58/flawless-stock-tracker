@@ -1,32 +1,35 @@
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { ActionCreator } from 'redux';
-
-import { SET_KEY_STATS, SET_KEY_STATS_ERROR } from './constants';
-import { ActionSet } from './defaults';
+import { KEY_STATS_ACTIONS_TYPES } from './constants';
+import {
+  createAction,
+  createThunkAction,
+  ActionType,
+  FetchError,
+} from './defaults';
 import { KeyStats, fetchKeyStats } from '../util';
+import { MapObject } from '../util/services/types';
+import { KeyStatsState } from '../reducers/keystats-reducer';
 
-export type KeyStatsAction = ActionSet<KeyStats> | ActionSet<string>;
+export type KeyStatsAction = ActionType<KeyStats>;
 
-export const setKeyStats: ActionCreator<KeyStatsAction> = (
-  payload: KeyStats
-): KeyStatsAction => ({ type: SET_KEY_STATS, payload });
-
-export const setKeyStatsError: ActionCreator<KeyStatsAction> = (
-  payload: string
-): KeyStatsAction => ({ type: SET_KEY_STATS_ERROR, payload });
-
-export const getKeyStats: ActionCreator<
-  ThunkAction<Promise<void>, {}, {}, KeyStatsAction>
-> = (
-  companySymbol: string
-): ThunkAction<Promise<void>, {}, {}, KeyStatsAction> => async (
-  dispatch: ThunkDispatch<{}, {}, KeyStatsAction>
-) => {
-  fetchKeyStats(companySymbol)
-    .then(response => {
-      dispatch(setKeyStats(response));
-    })
-    .catch(error => {
-      dispatch(setKeyStatsError(error));
-    });
+export const KeyStatsActions = {
+  setPayload: (
+    type: KEY_STATS_ACTIONS_TYPES.SET_KEY_STATS,
+    payload: KeyStats
+  ) => createAction({ type, payload }),
+  setError: (
+    type: KEY_STATS_ACTIONS_TYPES.SET_KEY_STATS_ERROR,
+    error: FetchError
+  ) => createAction({ type, error }),
+  getData: (
+    companySymbol: string,
+    last?: string,
+    parameters?: MapObject<string>
+  ) => {
+    const { setPayload, setError } = KeyStatsActions;
+    createThunkAction<KeyStatsAction, KeyStats, KeyStatsState>(
+      fetchKeyStats(companySymbol, last, parameters),
+      setPayload,
+      setError
+    );
+  },
 };
