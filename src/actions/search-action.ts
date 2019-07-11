@@ -20,5 +20,9 @@ export const search = (companySymbol: string) => (dispatch: Dispatch<any>) => {
   dispatch(peersActions.getData(companySymbol));
   dispatch(keyStatsActions.getData(companySymbol));
   dispatch(overviewActions.getData(companySymbol));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange.hourly));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange.daily));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange.weekly));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange.monthly));
   dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange.fiveyears));
 };

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Header } from './headerSelector';
 import { PriceSearchLayout } from '../layout-components/priceSearchLayout';
 import { CompanyTags } from '../tags/companyTags';
+import { LogoTabsLayout } from '../layout-components/logoTabsLayout';
 import './header.css';
 
 export const HeaderLayout: React.FunctionComponent<Header> = ({
@@ -13,7 +14,8 @@ export const HeaderLayout: React.FunctionComponent<Header> = ({
   companyName,
   symbol,
 }) => (
-  <>
+  <div className="header-wrapper">
+    <LogoTabsLayout />
     <PriceSearchLayout
       latestPrice={latestPrice}
       change={change}
@@ -22,5 +24,5 @@ export const HeaderLayout: React.FunctionComponent<Header> = ({
       companyName={companyName}
     />
     {sector && <CompanyTags sector={sector} exchange={exchange} />}
-  </>
+  </div>
 );
