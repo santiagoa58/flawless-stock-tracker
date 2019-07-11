@@ -1,6 +1,6 @@
-import { Quote, Overview } from '../../util';
+import { Overview, Quote } from '../../util';
 
-interface Header {
+export interface Header {
   sector: string;
   exchange: string;
   latestPrice: number;
@@ -20,10 +20,7 @@ const defaultSelector: Header = {
   symbol: undefined,
 };
 
-export function headerSelector(
-  { overview }: { overview: Overview },
-  { quote }: { quote: Quote }
-) {
+export function headerSelector(overview: Overview, quote: Quote) {
   return overview && quote
     ? {
         sector: overview.sector,
