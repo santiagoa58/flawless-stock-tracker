@@ -11,7 +11,7 @@ export const NewsGraphLayout: React.FunctionComponent<LatestNewsProps> = ({
 }: LatestNewsProps) => {
   return (
     <div className="section-chart-news">
-      {<GraphContainer />}
+      {/* {<GraphContainer />} */}
       {newsList && <NewsList newsList={newsList} />}
     </div>
   );

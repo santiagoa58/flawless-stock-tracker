@@ -1,18 +1,13 @@
 import { connect } from 'react-redux';
+import { ApplicationState } from '../../states';
+import { getOverview, getPeers } from '../../selectors';
 import { OverviewStatsLayout } from './overviewStatsLayout';
-import { Overview } from '../../util';
 
-interface OverviewKeyStats {
-  companyInfo: { overview: Overview };
-  companyPeers: { topPeers: string[] };
-}
-
-const mapStateToProps = ({ companyInfo, companyPeers }: OverviewKeyStats) => ({
-  overview: companyInfo.overview,
-  topPeers: companyPeers.topPeers,
+const mapStateToProps = (state: ApplicationState) => ({
+  overview: getOverview(state),
+  topPeers: getPeers(state),
 });
 
-export const OverviewStatsContainer = connect(
-  mapStateToProps,
-  null
-)(OverviewStatsLayout);
+export const OverviewStatsContainer = connect(mapStateToProps)(
+  OverviewStatsLayout
+);

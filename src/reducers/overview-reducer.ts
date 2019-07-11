@@ -7,17 +7,13 @@ export const overviewReducer: Reducer<OverviewState, OverviewAction> = (
   state: OverviewState = overviewDefaultState,
   { type, payload, error }: OverviewAction
 ): OverviewState => {
-  const {
-    SET_OVERVIEW,
-    SET_OVERVIEW_ERROR,
-    GET_OVERVIEW,
-  } = OVERVIEW_ACTIONS_TYPES;
+  const { resolve, reject, get } = OVERVIEW_ACTIONS_TYPES;
   switch (type) {
-    case SET_OVERVIEW:
+    case resolve:
       return { ...state, overview: payload, isLoading: false };
-    case SET_OVERVIEW_ERROR:
+    case reject:
       return { ...state, error: error, isLoading: false };
-    case GET_OVERVIEW:
+    case get:
       return { ...state, isLoading: true };
     default:
       return state;

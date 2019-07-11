@@ -20,6 +20,8 @@ npm update
 npm run start
 ```
 
+- The application is now accessible on localhost:8080
+
 ## Running Tests
 
 - Run tests with this command :

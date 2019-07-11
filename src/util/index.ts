@@ -40,3 +40,5 @@ export {
 } from './type-guards';
 
 export { MapObject, TimeSeriesRange } from './types';
+
+export { Loader } from './loader/loader';

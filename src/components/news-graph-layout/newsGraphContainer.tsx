@@ -1,16 +1,11 @@
-import { NewsState } from '../../reducers/news-reducer';
 import { connect } from 'react-redux';
+
 import { NewsGraphLayout } from './newsGraphLayout';
+import { ApplicationState } from '../../states';
+import { getNews } from '../../selectors';
 
-interface LatestNews {
-  latestNews: NewsState;
-}
-
-const mapStateToProps = ({ latestNews }: LatestNews) => {
-  return { newsList: latestNews.news };
+const mapStateToProps = (state: ApplicationState) => {
+  return { newsList: getNews(state) };
 };
 
-export const NewsGraphContainer = connect(
-  mapStateToProps,
-  null
-)(NewsGraphLayout);
+export const NewsGraphContainer = connect(mapStateToProps)(NewsGraphLayout);

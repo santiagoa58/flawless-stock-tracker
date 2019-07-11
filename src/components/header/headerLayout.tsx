@@ -1,17 +1,18 @@
 import * as React from 'react';
+
 import { PriceSearchLayout } from '../search-price-layout/priceSearchLayout';
 import { CompanyTags } from '../tags/companyTags';
 import './header.css';
 
 interface Header {
-  title: string;
-  sector: string;
-  exchange: string;
-  latestPrice: number;
-  change: number;
-  changePercent: number;
-  symbol: string;
-  companyName: string;
+  title?: string;
+  sector?: string;
+  exchange?: string;
+  latestPrice?: number;
+  change?: number;
+  changePercent?: number;
+  symbol?: string;
+  companyName?: string;
 }
 
 export const HeaderLayout: React.FunctionComponent<Header> = ({

@@ -1,18 +1,11 @@
 import { connect } from 'react-redux';
 import { KeyStatsList } from './keyStatsList';
 import { keyStatsSelector } from './keyStatsSelector';
-import { Quote, KeyStats } from '../../util';
+import { ApplicationState } from '../../states';
+import { getQuote, getKeyStats } from '../../selectors';
 
-interface StatsQuote {
-  companyStats: { keyStats: KeyStats };
-  companyQuote: { quote: Quote };
-}
-
-const mapStateToProps = ({ companyStats, companyQuote }: StatsQuote) => {
-  return keyStatsSelector(companyStats.keyStats, companyQuote.quote);
+const mapStateToProps = (state: ApplicationState) => {
+  return keyStatsSelector(getKeyStats(state), getQuote(state));
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(KeyStatsList);
+export default connect(mapStateToProps)(KeyStatsList);

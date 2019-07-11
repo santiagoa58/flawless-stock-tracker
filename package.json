@@ -4,7 +4,7 @@
   "description": "App for tracking a company's stock price and its information",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose",
+    "tests": "jest --verbose",
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server",
     "start": "npm run webpack-dev-server -- --env.mode development --hot --open"

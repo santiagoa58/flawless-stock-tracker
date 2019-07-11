@@ -7,13 +7,13 @@ export const quoteReducer: Reducer<QuoteState, QuoteAction> = (
   state: QuoteState = quoteDefaultState,
   { type, payload, error }: QuoteAction
 ): QuoteState => {
-  const { SET_QUOTE, SET_QUOTE_ERROR, GET_QUOTE } = QUOTE_ACTIONS_TYPES;
+  const { resolve, reject, get } = QUOTE_ACTIONS_TYPES;
   switch (type) {
-    case SET_QUOTE:
+    case resolve:
       return { ...state, quote: payload, isLoading: false };
-    case SET_QUOTE_ERROR:
+    case reject:
       return { ...state, error: error, isLoading: false };
-    case GET_QUOTE:
+    case get:
       return { ...state, isLoading: true };
     default:
       return state;

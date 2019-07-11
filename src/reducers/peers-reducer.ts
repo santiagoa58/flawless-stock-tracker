@@ -7,17 +7,13 @@ export const peersReducer: Reducer<PeersState, PeersAction> = (
   state: PeersState = peersDefaultState,
   { type, payload, error }: PeersAction
 ): PeersState => {
-  const {
-    SET_TOP_PEERS,
-    SET_TOP_PEERS_ERROR,
-    GET_TOP_PEERS,
-  } = PEERS_ACTIONS_TYPES;
+  const { resolve, reject, get } = PEERS_ACTIONS_TYPES;
   switch (type) {
-    case SET_TOP_PEERS:
+    case resolve:
       return { ...state, peers: payload, isLoading: false };
-    case SET_TOP_PEERS_ERROR:
+    case reject:
       return { ...state, error: error, isLoading: false };
-    case GET_TOP_PEERS:
+    case get:
       return { ...state, isLoading: true };
     default:
       return state;

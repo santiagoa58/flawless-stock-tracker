@@ -10,7 +10,7 @@ import {
 } from 'recharts';
 
 interface GraphProps {
-  data: any[];
+  data: any;
   isHourly: boolean;
 }
 
@@ -18,19 +18,9 @@ export const Graph: React.SFC<GraphProps> = ({
   data,
   isHourly,
 }: GraphProps) => {
-  console.log(data);
   const datakey = isHourly ? 'Hour' : 'Date';
   return (
     <div className="chart">
-      <div className="chart__select">
-        <a href="#"> 1D </a>
-        <a href="#"> 5D </a>
-        <a href="#"> 1M </a>
-        <a href="#"> 1Y </a>
-        <a href="#"> 5Y </a>
-        <a href="#"> MAX </a>
-      </div>
-
       <ResponsiveContainer width="100%" aspect={2}>
         <AreaChart
           data={data}
@@ -47,7 +37,6 @@ export const Graph: React.SFC<GraphProps> = ({
               <stop offset="85%" stopColor="#8884d8" stopOpacity={0} />
             </linearGradient>
           </defs>
-
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey={datakey}

@@ -21,12 +21,11 @@ export const timeSeriesActions = {
     }),
   setError: (type: TIME_SERIES_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
-  getData: (companySymbol: string, range?: TimeSeriesRange) => {
-    const { setPayload, setError } = timeSeriesActions;
-    return createThunkAction<TimeSeriesAction, TimeSeries, TimeSeriesState>(
+  setLoading: (type: TIME_SERIES_ACTIONS_TYPES) => ({ type }),
+  getData: (companySymbol: string, range?: TimeSeriesRange) =>
+    createThunkAction<TimeSeriesAction, TimeSeries, TimeSeriesState>(
       fetchTimeSeries(companySymbol, range),
-      setPayload,
-      setError
-    );
-  },
+      timeSeriesActions,
+      TIME_SERIES_ACTIONS_TYPES
+    ),
 };

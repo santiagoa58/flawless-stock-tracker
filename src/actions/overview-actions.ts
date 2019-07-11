@@ -18,12 +18,11 @@ export const overviewActions = {
     }),
   setError: (type: OVERVIEW_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
-  getData: (companySymbol: string) => {
-    const { setPayload, setError } = overviewActions;
-    return createThunkAction<OverviewAction, Overview, OverviewState>(
+  setLoading: (type: OVERVIEW_ACTIONS_TYPES) => ({ type }),
+  getData: (companySymbol: string) =>
+    createThunkAction<OverviewAction, Overview, OverviewState>(
       fetchOverview(companySymbol),
-      setPayload,
-      setError
-    );
-  },
+      overviewActions,
+      OVERVIEW_ACTIONS_TYPES
+    ),
 };

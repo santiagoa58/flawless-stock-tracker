@@ -45,11 +45,6 @@ export function keyStatsSelector(stats: KeyStats, quote: Quote) {
             name: 'Total Avg Volume',
           },
           {
-            //TODO change to actualEPS when data is available
-            value: stats.ttmEPS,
-            name: 'Earnings Per Share',
-          },
-          {
             value: `${Number(stats.dividendYield * 100).toFixed(2)}%`,
             name: 'Dividend & Yield',
           },

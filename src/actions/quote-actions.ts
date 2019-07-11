@@ -10,18 +10,15 @@ import {
 export type QuoteAction = ActionType<QUOTE_ACTIONS_TYPES, Quote>;
 
 export const quoteActions = {
-  setQuote: (type: QUOTE_ACTIONS_TYPES.SET_QUOTE, payload: Quote) =>
+  setPayload: (type: QUOTE_ACTIONS_TYPES, payload: Quote) =>
     createAction({ type, payload }),
-  setQuoteError: (
-    type: QUOTE_ACTIONS_TYPES.SET_QUOTE_ERROR,
-    error: FetchError
-  ) => createAction({ type, error }),
-  getData: (companySymbol: string, parameters: MapObject<string>) => {
-    const { setQuote, setQuoteError } = quoteActions;
-    return createThunkAction(
+  setError: (type: QUOTE_ACTIONS_TYPES, error: FetchError) =>
+    createAction({ type, error }),
+  setLoading: (type: QUOTE_ACTIONS_TYPES) => ({ type }),
+  getData: (companySymbol: string, parameters?: MapObject<string>) =>
+    createThunkAction(
       fetchQuote(companySymbol, parameters),
-      setQuote,
-      setQuoteError
-    );
-  },
+      quoteActions,
+      QUOTE_ACTIONS_TYPES
+    ),
 };

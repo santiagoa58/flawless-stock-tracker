@@ -2,11 +2,10 @@ import * as React from 'react';
 import { CompanyInfo } from '../overview/companyInfo';
 import KeyStatsContainer from '../key-stats/keyStatsContainer';
 import { TopPeers } from '../peers/topPeers';
-import { Overview } from '../../util/';
 
 interface OverviewStatsProps {
-  topPeers: string[];
-  overview: Overview;
+  topPeers: any;
+  overview: any;
 }
 
 export const OverviewStatsLayout: React.FunctionComponent<

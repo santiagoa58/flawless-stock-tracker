@@ -15,12 +15,11 @@ export const peersActions = {
     createAction({ type, payload }),
   setError: (type: PEERS_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
-  getData: (companySymbol: string) => {
-    const { setPayload, setError } = peersActions;
-    return createThunkAction<PeersAction, Peers, PeersState>(
+  setLoading: (type: PEERS_ACTIONS_TYPES) => ({ type }),
+  getData: (companySymbol: string) =>
+    createThunkAction<PeersAction, Peers, PeersState>(
       fetchPeers(companySymbol),
-      setPayload,
-      setError
-    );
-  },
+      peersActions,
+      PEERS_ACTIONS_TYPES
+    ),
 };

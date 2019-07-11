@@ -15,12 +15,11 @@ export const newsActions = {
     createAction({ type, payload }),
   setError: (type: NEWS_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
-  getData: (companySymbol: string, last?: number) => {
-    const { setPayload, setError } = newsActions;
-    return createThunkAction<NewsAction, News, NewsState>(
+  setLoading: (type: NEWS_ACTIONS_TYPES) => createAction({ type }),
+  getData: (companySymbol: string, last?: number) =>
+    createThunkAction<NewsAction, News, NewsState>(
       fetchNews(companySymbol, last),
-      setPayload,
-      setError
-    );
-  },
+      newsActions,
+      NEWS_ACTIONS_TYPES
+    ),
 };

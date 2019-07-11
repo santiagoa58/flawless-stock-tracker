@@ -18,16 +18,15 @@ export const keyStatsActions = {
     }),
   setError: (type: KEY_STATS_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
+  setLoading: (type: KEY_STATS_ACTIONS_TYPES) => ({ type }),
   getData: (
     companySymbol: string,
     last?: string,
     parameters?: MapObject<string>
-  ) => {
-    const { setPayload, setError } = keyStatsActions;
-    return createThunkAction<KeyStatsAction, KeyStats, KeyStatsState>(
+  ) =>
+    createThunkAction<KeyStatsAction, KeyStats, KeyStatsState>(
       fetchKeyStats(companySymbol, last, parameters),
-      setPayload,
-      setError
-    );
-  },
+      keyStatsActions,
+      KEY_STATS_ACTIONS_TYPES
+    ),
 };
