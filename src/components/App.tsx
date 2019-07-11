@@ -10,7 +10,7 @@ import { Loader } from '../util';
 const App: React.SFC = ({ areNewsLoading, isOverviewLoading }: any) => {
   return (
     <>
-      <HeaderContainer title="Stock Tracker App" />
+      <HeaderContainer />
       <div className="section-data">
         {areNewsLoading && <Loader />}
         {!areNewsLoading && <NewsGraphContainer />}
