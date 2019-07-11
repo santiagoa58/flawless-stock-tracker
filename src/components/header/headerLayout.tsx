@@ -1,29 +1,38 @@
 import * as React from 'react';
-import { SearchContainer } from '../search/searchInputContainer';
-import { Overview, Quote } from '../../util';
+import { PriceSearchLayout } from '../search-price-layout/priceSearchLayout';
+import { CompanyTags } from '../tags/companyTags';
+import './header.css';
 
 interface Header {
   title: string;
-  overview: Overview;
-  quote: Quote;
+  sector: string;
+  exchange: string;
+  latestPrice: number;
+  change: number;
+  changePercent: number;
+  symbol: string;
+  companyName: string;
 }
 
 export const HeaderLayout: React.FunctionComponent<Header> = ({
   title,
-  overview,
-  quote,
-}: Header) => {
-  return (
-    <>
-      <h1>{title}</h1>
-      <div>
-        {quote && <span>Price: {quote.latestPrice}</span>}{' '}
-        {quote && <span>Change: {quote.changePercent}</span>}
-      </div>
-      <SearchContainer
-        companyName={overview ? overview.companyName : null}
-        symbol={overview ? overview.symbol : null}
-      />
-    </>
-  );
-};
+  latestPrice,
+  change,
+  changePercent,
+  sector,
+  exchange,
+  companyName,
+  symbol,
+}: Header) => (
+  <>
+    <h1>{title}</h1>
+    <PriceSearchLayout
+      latestPrice={latestPrice}
+      change={change}
+      changePercent={changePercent}
+      symbol={symbol}
+      companyName={companyName}
+    />
+    {sector && <CompanyTags sector={sector} exchange={exchange} />}
+  </>
+);

@@ -13,8 +13,8 @@ export interface Quote {
   latestTime: string;
   latestUpdate: number;
   latestVolume: number;
-  iexRealTimePrice: number;
-  iexRealTimeSize: number;
+  iexRealtimePrice: number;
+  iexRealtimeSize: number;
   iexLastUpdated: number;
   delayedPrice: number;
   delayedPriceTime: number;
@@ -37,4 +37,5 @@ export interface Quote {
   week52High: number;
   week52Low: number;
   ytdChange: number;
+  lastTradeTime: number;
 }

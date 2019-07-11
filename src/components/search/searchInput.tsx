@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { isNull } from 'util';
 
 interface Search {
   search: (symbol: string) => void;
@@ -29,7 +28,7 @@ export const SearchInput: React.FunctionComponent<Search> = ({
         value={searchText}
         onChange={input => setSearchText(input.target.value)}
         placeholder={
-          isNull(companyName) ? 'search' : `${companyName} (${symbol})`
+          companyName == null ? 'search' : `${companyName} (${symbol})`
         }
       />
     </form>

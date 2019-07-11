@@ -9,7 +9,4 @@ const mapStateToProps = (state: ApplicationState) => ({
   quote: getQuote(state),
 });
 
-export const HeaderContainer = connect(
-  mapStateToProps,
-  null
-)(HeaderLayout);
+export const HeaderContainer = connect(mapStateToProps)(HeaderLayout);
