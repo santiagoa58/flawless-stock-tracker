@@ -2,11 +2,9 @@ import { connect } from 'react-redux';
 
 import { HeaderLayout } from './headerLayout';
 import { ApplicationState } from '../../states';
-import { getOverview, getQuote } from '../../selectors';
+import { headerSelector } from './headerSelector';
 
-const mapStateToProps = (state: ApplicationState) => ({
-  overview: getOverview(state),
-  quote: getQuote(state),
-});
+const mapStateToProps = ({ overviewState, quoteState }: ApplicationState) =>
+  headerSelector(overviewState.overview, quoteState.quote);
 
 export const HeaderContainer = connect(mapStateToProps)(HeaderLayout);
