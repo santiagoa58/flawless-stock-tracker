@@ -1,33 +1,22 @@
 import { Reducer } from 'redux';
-import { KeyStatsAction } from '../actions/keystats-actions';
-import { KeyStats } from '../util/';
-import {
-  SET_KEY_STATS,
-  GET_KEY_STATS,
-  SET_KEY_STATS_ERROR,
-} from '../actions/constants';
 
-export interface KeyStatsState {
-  keyStats: KeyStats;
-  error: string | undefined;
-  isLoading: boolean;
-}
-
-export const defaultState: KeyStatsState = {
-  keyStats: undefined,
-  error: undefined,
-  isLoading: false,
-};
+import { KeyStatsAction, KEY_STATS_ACTIONS_TYPES } from '../actions';
+import { KeyStatsState, keyStatsDefaultState } from '../states';
 
 export const keyStatsReducer: Reducer<KeyStatsState, KeyStatsAction> = (
-  state: any = defaultState,
-  { type, payload }: KeyStatsAction
+  state: KeyStatsState = keyStatsDefaultState,
+  { type, payload, error }: KeyStatsAction
 ): KeyStatsState => {
+  const {
+    SET_KEY_STATS,
+    SET_KEY_STATS_ERROR,
+    GET_KEY_STATS,
+  } = KEY_STATS_ACTIONS_TYPES;
   switch (type) {
     case SET_KEY_STATS:
       return { ...state, keyStats: payload, isLoading: false };
     case SET_KEY_STATS_ERROR:
-      return { ...state, error: payload, isLoading: false };
+      return { ...state, error: error, isLoading: false };
     case GET_KEY_STATS:
       return { ...state, isLoading: true };
     default:

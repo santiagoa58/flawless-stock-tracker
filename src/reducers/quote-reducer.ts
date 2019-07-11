@@ -1,29 +1,18 @@
 import { Reducer } from 'redux';
-import { QuoteAction } from '../actions/quote-actions';
-import { Quote } from '../util/';
-import { SET_QUOTE, GET_QUOTE, SET_QUOTE_ERROR } from '../actions/constants';
 
-export interface QuoteState {
-  quote: Quote;
-  error: string | undefined;
-  isLoading: boolean;
-}
-
-export const defaultState: QuoteState = {
-  quote: undefined,
-  error: undefined,
-  isLoading: false,
-};
+import { QuoteAction, QUOTE_ACTIONS_TYPES } from '../actions';
+import { QuoteState, quoteDefaultState } from '../states';
 
 export const quoteReducer: Reducer<QuoteState, QuoteAction> = (
-  state: any = defaultState,
-  { type, payload }: QuoteAction
+  state: QuoteState = quoteDefaultState,
+  { type, payload, error }: QuoteAction
 ): QuoteState => {
+  const { SET_QUOTE, SET_QUOTE_ERROR, GET_QUOTE } = QUOTE_ACTIONS_TYPES;
   switch (type) {
     case SET_QUOTE:
       return { ...state, quote: payload, isLoading: false };
     case SET_QUOTE_ERROR:
-      return { ...state, error: payload, isLoading: false };
+      return { ...state, error: error, isLoading: false };
     case GET_QUOTE:
       return { ...state, isLoading: true };
     default:

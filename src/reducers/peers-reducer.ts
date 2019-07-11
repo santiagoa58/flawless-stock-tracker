@@ -1,33 +1,22 @@
 import { Reducer } from 'redux';
-import { PeersAction } from '../actions/peers-actions';
-import { Peers } from '../util/';
-import {
-  SET_TOP_PEERS,
-  SET_TOP_PEERS_ERROR,
-  GET_TOP_PEERS,
-} from '../actions/constants';
 
-export interface PeersState {
-  topPeers: Peers;
-  error: string | undefined;
-  isLoading: boolean;
-}
-
-export const defaultState: PeersState = {
-  topPeers: undefined,
-  error: undefined,
-  isLoading: false,
-};
+import { PeersAction, PEERS_ACTIONS_TYPES } from '../actions';
+import { PeersState, peersDefaultState } from '../states';
 
 export const peersReducer: Reducer<PeersState, PeersAction> = (
-  state: any = defaultState,
-  { type, payload }: PeersAction
+  state: PeersState = peersDefaultState,
+  { type, payload, error }: PeersAction
 ): PeersState => {
+  const {
+    SET_TOP_PEERS,
+    SET_TOP_PEERS_ERROR,
+    GET_TOP_PEERS,
+  } = PEERS_ACTIONS_TYPES;
   switch (type) {
     case SET_TOP_PEERS:
-      return { ...state, topPeers: payload, isLoading: false };
+      return { ...state, peers: payload, isLoading: false };
     case SET_TOP_PEERS_ERROR:
-      return { ...state, error: payload, isLoading: false };
+      return { ...state, error: error, isLoading: false };
     case GET_TOP_PEERS:
       return { ...state, isLoading: true };
     default:
