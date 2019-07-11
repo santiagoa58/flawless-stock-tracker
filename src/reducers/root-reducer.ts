@@ -9,16 +9,16 @@ import {
   quoteReducer,
 } from './';
 import { ApplicationState } from '../states';
-import { ApplicationAction } from '../actions';
+import { ApplicationActions } from '../actions';
 
 export const rootReducer: Reducer<
   ApplicationState,
-  ApplicationAction
+  ApplicationActions
 > = combineReducers({
-  news: newsReducer,
-  overview: overviewReducer,
-  peers: peersReducer,
-  keyStats: keyStatsReducer,
-  timeSeries: timeSeriesReducer,
-  quote: quoteReducer,
+  newsState: newsReducer,
+  overviewState: overviewReducer,
+  peersState: peersReducer,
+  keyStatsState: keyStatsReducer,
+  timeSeriesState: timeSeriesReducer,
+  quoteState: quoteReducer,
 });

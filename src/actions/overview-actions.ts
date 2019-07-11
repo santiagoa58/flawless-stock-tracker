@@ -1,28 +1,29 @@
 import { OVERVIEW_ACTIONS_TYPES } from './constants';
+import { Overview, fetchOverview } from '../util';
 import {
   createAction,
   createThunkAction,
   ActionType,
   FetchError,
-} from './defaults';
-import { Overview, fetchOverview } from '../util';
+} from '../action-creators';
+import { OverviewState } from '../states';
 
-export const OverviewActions = {
-  setOverview: (type: OVERVIEW_ACTIONS_TYPES.SET_OVERVIEW, payload: Overview) =>
-    createAction({ type, payload }),
-  setError: (
-    type: OVERVIEW_ACTIONS_TYPES.SET_OVERVIEW_ERROR,
-    error: FetchError
-  ) => createAction({ type, error }),
-};
+export type OverviewAction = ActionType<OVERVIEW_ACTIONS_TYPES, Overview>;
 
-export const OverviewThunkActions = {
-  getOverview: (companySymbol: string) =>
-    createThunkAction(
+export const overviewActions = {
+  setPayload: (type: OVERVIEW_ACTIONS_TYPES, payload: Overview) =>
+    createAction({
+      type,
+      payload,
+    }),
+  setError: (type: OVERVIEW_ACTIONS_TYPES, error: FetchError) =>
+    createAction({ type, error }),
+  getData: (companySymbol: string) => {
+    const { setPayload, setError } = overviewActions;
+    createThunkAction<OverviewAction, Overview, OverviewState>(
       fetchOverview(companySymbol),
-      OverviewActions.setOverview,
-      OverviewActions.setError
-    ),
+      setPayload,
+      setError
+    );
+  },
 };
-
-export type OverviewAction = ActionType<Overview>;

@@ -1,28 +1,26 @@
 import { PEERS_ACTIONS_TYPES } from './constants';
+import { Peers, fetchPeers } from '../util';
 import {
   createAction,
   createThunkAction,
   ActionType,
   FetchError,
-} from './defaults';
-import { Peers, fetchPeers } from '../util';
+} from '../action-creators';
+import { PeersState } from '../states';
 
-export const PeersActions = {
-  setPeers: (type: PEERS_ACTIONS_TYPES.SET_TOP_PEERS, payload: Peers) =>
+export type PeersAction = ActionType<PEERS_ACTIONS_TYPES, Peers>;
+
+export const peersActions = {
+  setPayload: (type: PEERS_ACTIONS_TYPES, payload: Peers) =>
     createAction({ type, payload }),
-  setError: (
-    type: PEERS_ACTIONS_TYPES.SET_TOP_PEERS_ERROR,
-    error: FetchError
-  ) => createAction({ type, error }),
-};
-
-export const PeersThunkActions = {
-  getPeers: (companySymbol: string) =>
-    createThunkAction(
+  setError: (type: PEERS_ACTIONS_TYPES, error: FetchError) =>
+    createAction({ type, error }),
+  getData: (companySymbol: string) => {
+    const { setPayload, setError } = peersActions;
+    createThunkAction<PeersAction, Peers, PeersState>(
       fetchPeers(companySymbol),
-      PeersActions.setPeers,
-      PeersActions.setError
-    ),
+      setPayload,
+      setError
+    );
+  },
 };
-
-export type PeersAction = ActionType<Peers>;

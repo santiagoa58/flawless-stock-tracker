@@ -1,15 +1,22 @@
 import { OverviewState } from './overview-state';
-import { PeersState } from './peers-states';
+import { PeersState } from './peers-state';
 import { QuoteState } from './quote-state';
-import { NewsState } from '../reducers/news-reducer';
-import { KeyStatsState } from '../reducers/keystats-reducer';
-import { TimeSeriesState } from '../reducers/time-series-reducer';
+import { NewsState } from './news-state';
+import { KeyStatsState } from './keystats-state';
+import { TimeSeriesState } from './time-series-state';
+
+export { OverviewState, overviewDefaultState } from './overview-state';
+export { PeersState, peersDefaultState } from './peers-state';
+export { QuoteState, quoteDefaultState } from './quote-state';
+export { NewsState, newsDefaultState } from './news-state';
+export { KeyStatsState, keyStatsDefaultState } from './keystats-state';
+export { TimeSeriesState, timeSeriesDefaultState } from './time-series-state';
 
 export interface ApplicationState {
-  overview: OverviewState;
-  peers: PeersState;
-  quote: QuoteState;
-  news: NewsState;
-  keyStats: KeyStatsState;
-  timeSeries: TimeSeriesState;
+  newsState: NewsState;
+  overviewState: OverviewState;
+  peersState: PeersState;
+  quoteState: QuoteState;
+  keyStatsState: KeyStatsState;
+  timeSeriesState: TimeSeriesState;
 }

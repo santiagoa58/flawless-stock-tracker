@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
-import { SearchInput } from './searchInput';
-import { search, SearchAction } from '../../actions/search-action';
 import { ThunkDispatch } from 'redux-thunk';
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, SearchAction>) => ({
+import { SearchInput } from './searchInput';
+import { search, ApplicationActions } from '../../actions';
+
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<{}, {}, ApplicationActions>
+) => ({
   search: (symbol: string) => dispatch(search(symbol)),
 });
 

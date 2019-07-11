@@ -1,33 +1,25 @@
 import { Reducer } from 'redux';
-import { TimeSeriesAction } from '../actions/time-series-actions';
-import { TimeSeries } from '../util';
+
+import { TimeSeriesAction, TIME_SERIES_ACTIONS_TYPES } from '../actions';
 import {
-  SET_TIME_SERIES,
-  SET_TIME_SERIES_ERROR,
-  GET_TIME_SERIES,
-} from '../actions/constants';
+  TimeSeriesState,
+  timeSeriesDefaultState,
+} from '../states/time-series-state';
 
-export interface TimeSeriesState {
-  range: TimeSeries;
-  error: string | undefined;
-  isLoading: boolean;
-}
-
-export const TimeSeriesState: TimeSeriesState = {
-  range: undefined,
-  error: undefined,
-  isLoading: false,
-};
-
-export const timeSeriesReducer: Reducer<TimeSeriesState> = (
-  state: any = TimeSeriesState,
-  { type, payload, range }
+export const timeSeriesReducer: Reducer<TimeSeriesState, TimeSeriesAction> = (
+  state: TimeSeriesState = timeSeriesDefaultState,
+  { type, payload, error }: TimeSeriesAction
 ): TimeSeriesState => {
+  const {
+    SET_TIME_SERIES,
+    SET_TIME_SERIES_ERROR,
+    GET_TIME_SERIES,
+  } = TIME_SERIES_ACTIONS_TYPES;
   switch (type) {
     case SET_TIME_SERIES:
-      return { ...state, [range]: payload, isLoading: false };
+      return { ...state, timeSeries: payload, isLoading: false };
     case SET_TIME_SERIES_ERROR:
-      return { ...state, error: payload, isLoading: false };
+      return { ...state, error: error, isLoading: false };
     case GET_TIME_SERIES:
       return { ...state, isLoading: true };
     default:

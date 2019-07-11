@@ -1,5 +1,5 @@
 import { ServiceConfiguration } from './configurations';
-import { MapObject } from './types';
+import { MapObject } from '../types';
 
 export const fetchIex = async <T>(
   configuration: ServiceConfiguration,

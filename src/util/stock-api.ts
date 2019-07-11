@@ -1,9 +1,5 @@
-import { fetchIex } from './services/fetch-iex';
-import {
-  PRIVATE_SERVICE,
-  ServiceConfiguration,
-} from './services/configurations';
-import { MapObject, TimeSeriesRange } from './services/types';
+import { fetchIex, PRIVATE_SERVICE, ServiceConfiguration } from './services';
+import { MapObject, TimeSeriesRange } from './types';
 import {
   TimeSeries,
   Quote,

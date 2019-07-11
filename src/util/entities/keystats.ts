@@ -6,7 +6,6 @@ export interface KeyStats {
   employees: number;
   day200MovingAvg: number;
   day50MovingAvg: number;
-  float?: number;
   avg10Volume: number;
   avg30Volume: number;
   ttmEPS: number;

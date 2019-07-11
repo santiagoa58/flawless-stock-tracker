@@ -2,9 +2,9 @@ import { Quote } from '../util';
 import { FetchError } from '../actions/defaults';
 
 export interface QuoteState {
-  quote: Quote;
-  error: FetchError | undefined;
-  isLoading: boolean;
+  quote?: Quote;
+  error?: FetchError;
+  isLoading?: boolean;
 }
 
 export const quoteDefaultState: QuoteState = {

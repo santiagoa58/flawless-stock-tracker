@@ -1,32 +1,27 @@
 import { QUOTE_ACTIONS_TYPES } from './constants';
+import { Quote, fetchQuote, MapObject } from '../util';
 import {
   createAction,
   createThunkAction,
   ActionType,
   FetchError,
-} from './defaults';
-import { Quote, fetchQuote } from '../util';
-import { MapObject } from '../util/services/types';
+} from '../action-creators';
 
-export const QuoteActions = {
+export type QuoteAction = ActionType<QUOTE_ACTIONS_TYPES, Quote>;
+
+export const quoteActions = {
   setQuote: (type: QUOTE_ACTIONS_TYPES.SET_QUOTE, payload: Quote) =>
     createAction({ type, payload }),
   setQuoteError: (
     type: QUOTE_ACTIONS_TYPES.SET_QUOTE_ERROR,
     error: FetchError
   ) => createAction({ type, error }),
+  getData: (companySymbol: string, parameters: MapObject<string>) => {
+    const { setQuote, setQuoteError } = quoteActions;
+    createThunkAction(
+      fetchQuote(companySymbol, parameters),
+      setQuote,
+      setQuoteError
+    );
+  },
 };
-
-export const getQuote = (
-  companySymbol: string,
-  parameters?: MapObject<string>
-) => {
-  const { setQuote, setQuoteError } = QuoteActions;
-  createThunkAction(
-    fetchQuote(companySymbol, parameters),
-    setQuote,
-    setQuoteError
-  );
-};
-
-export type QuoteAction = ActionType<Quote>;

@@ -5,7 +5,7 @@
     "strict": true,
     "noImplicitAny": true,
     "jsx": "react",
-    "strictNullChecks": false
+    "strictNullChecks": true
   },
   "include": ["./src/**/*"]
 }

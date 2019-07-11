@@ -38,3 +38,5 @@ export {
   areEarnings,
   areTimeSeries,
 } from './type-guards';
+
+export { MapObject, TimeSeriesRange } from './types';
