@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Header } from './headerSelector';
-import { PriceSearchLayout } from '../search-price-layout/priceSearchLayout';
+import { PriceSearchLayout } from '../layout-components/priceSearchLayout';
 import { CompanyTags } from '../tags/companyTags';
 import './header.css';
 

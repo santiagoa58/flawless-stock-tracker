@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { HeaderContainer } from './header/headerContainer';
-import { NewsGraphContainer } from './news-graph-layout/newsGraphContainer';
-import { OverviewStatsContainer } from './overview-stats-layout/overviewStatsContainer';
+import { NewsGraphContainer } from './layout-components/newsGraphContainer';
+import { OverviewStatsContainer } from './layout-components/OverviewStatsContainer';
 import '../app-css/App.css';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../states';
