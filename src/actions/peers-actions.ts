@@ -17,7 +17,7 @@ export const peersActions = {
     createAction({ type, error }),
   getData: (companySymbol: string) => {
     const { setPayload, setError } = peersActions;
-    createThunkAction<PeersAction, Peers, PeersState>(
+    return createThunkAction<PeersAction, Peers, PeersState>(
       fetchPeers(companySymbol),
       setPayload,
       setError

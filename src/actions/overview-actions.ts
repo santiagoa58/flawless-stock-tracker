@@ -20,7 +20,7 @@ export const overviewActions = {
     createAction({ type, error }),
   getData: (companySymbol: string) => {
     const { setPayload, setError } = overviewActions;
-    createThunkAction<OverviewAction, Overview, OverviewState>(
+    return createThunkAction<OverviewAction, Overview, OverviewState>(
       fetchOverview(companySymbol),
       setPayload,
       setError

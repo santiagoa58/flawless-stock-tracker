@@ -1,13 +1,11 @@
 import { Reducer, combineReducers } from 'redux';
 
-import {
-  newsReducer,
-  overviewReducer,
-  peersReducer,
-  keyStatsReducer,
-  timeSeriesReducer,
-  quoteReducer,
-} from './';
+import { newsReducer } from './news-reducer';
+import { overviewReducer } from './overview-reducer';
+import { peersReducer } from './peers-reducer';
+import { keyStatsReducer } from './keystats-reducer';
+import { timeSeriesReducer } from './time-series-reducer';
+import { quoteReducer } from './quote-reducer';
 import { ApplicationState } from '../states';
 import { ApplicationActions } from '../actions';
 

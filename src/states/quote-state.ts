@@ -1,5 +1,5 @@
 import { Quote } from '../util';
-import { FetchError } from '../actions/defaults';
+import { FetchError } from '../action-creators';
 
 export interface QuoteState {
   quote?: Quote;

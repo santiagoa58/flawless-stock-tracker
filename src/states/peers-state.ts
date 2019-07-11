@@ -1,4 +1,5 @@
-import { Peers, FetchError } from '../util';
+import { Peers } from '../util';
+import { FetchError } from '../action-creators';
 
 export interface PeersState {
   peers?: Peers;

@@ -18,7 +18,7 @@ export const quoteActions = {
   ) => createAction({ type, error }),
   getData: (companySymbol: string, parameters: MapObject<string>) => {
     const { setQuote, setQuoteError } = quoteActions;
-    createThunkAction(
+    return createThunkAction(
       fetchQuote(companySymbol, parameters),
       setQuote,
       setQuoteError

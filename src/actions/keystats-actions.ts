@@ -24,7 +24,7 @@ export const keyStatsActions = {
     parameters?: MapObject<string>
   ) => {
     const { setPayload, setError } = keyStatsActions;
-    createThunkAction<KeyStatsAction, KeyStats, KeyStatsState>(
+    return createThunkAction<KeyStatsAction, KeyStats, KeyStatsState>(
       fetchKeyStats(companySymbol, last, parameters),
       setPayload,
       setError

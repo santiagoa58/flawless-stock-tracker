@@ -17,7 +17,7 @@ export const newsActions = {
     createAction({ type, error }),
   getData: (companySymbol: string, last?: number) => {
     const { setPayload, setError } = newsActions;
-    createThunkAction<NewsAction, News, NewsState>(
+    return createThunkAction<NewsAction, News, NewsState>(
       fetchNews(companySymbol, last),
       setPayload,
       setError

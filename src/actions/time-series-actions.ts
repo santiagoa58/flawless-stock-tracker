@@ -23,7 +23,7 @@ export const timeSeriesActions = {
     createAction({ type, error }),
   getData: (companySymbol: string, range?: TimeSeriesRange) => {
     const { setPayload, setError } = timeSeriesActions;
-    createThunkAction<TimeSeriesAction, TimeSeries, TimeSeriesState>(
+    return createThunkAction<TimeSeriesAction, TimeSeries, TimeSeriesState>(
       fetchTimeSeries(companySymbol, range),
       setPayload,
       setError

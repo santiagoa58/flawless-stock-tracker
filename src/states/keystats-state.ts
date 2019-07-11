@@ -1,4 +1,5 @@
-import { KeyStats, FetchError } from '../util';
+import { KeyStats } from '../util';
+import { FetchError } from '../action-creators';
 
 export interface KeyStatsState {
   keyStats?: KeyStats;

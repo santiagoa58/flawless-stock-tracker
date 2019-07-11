@@ -1,5 +1,5 @@
-import { FetchError } from '../actions/defaults';
 import { TimeSeries } from '../util';
+import { FetchError } from '../action-creators';
 
 export interface TimeSeriesState {
   timeSeries?: TimeSeries;
