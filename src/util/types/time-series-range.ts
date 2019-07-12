@@ -1,8 +1,8 @@
 export enum TimeSeriesRange {
-  hourly = '1d',
-  daily = '5dm',
-  weekly = '1m',
-  monthly = '1y',
-  fiveyears = '5y',
-  max = 'max',
+  '1d' = '1d',
+  '1m' = '1m',
+  '5dm' = '5dm',
+  '1y' = '1y',
+  '5y' = '5y',
+  'max' = 'max',
 }
