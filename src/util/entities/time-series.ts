@@ -1,18 +1,8 @@
-export interface TimeSeries {
-  [k: string]: TimePoint[];
-}
+export type TimeSeries = TimePoint[];
 
 export interface TimePoint {
   date: string;
-  open: number;
-  high: number;
-  low: number;
+  minute?: string;
   close: number;
-  volume: number;
-  unadjustedVolume: number;
-  change: number;
-  changePercent: number;
-  vwap: number;
   label: string;
-  changeOverTime: number;
 }
