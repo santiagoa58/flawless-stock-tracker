@@ -19,10 +19,15 @@ export type TimeSeriesAction = ActionType<
 >;
 
 export const timeSeriesActions = {
-  setPayload: (type: TIME_SERIES_ACTIONS_TYPES, payload: TimeSeries) =>
+  setPayload: (
+    type: TIME_SERIES_ACTIONS_TYPES,
+    payload: TimeSeries,
+    key: string
+  ) =>
     createAction({
       type,
       payload,
+      key,
     }),
   setError: (type: TIME_SERIES_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
@@ -31,6 +36,7 @@ export const timeSeriesActions = {
     createThunkAction<TimeSeriesAction, TimeSeries, TimeSeriesState>(
       fetchTimeSeries(companySymbol, range, timeSeriesFilter),
       timeSeriesActions,
-      TIME_SERIES_ACTIONS_TYPES
+      TIME_SERIES_ACTIONS_TYPES,
+      range
     ),
 };

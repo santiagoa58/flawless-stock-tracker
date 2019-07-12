@@ -8,12 +8,12 @@ import {
 
 export const timeSeriesReducer: Reducer<TimeSeriesState, TimeSeriesAction> = (
   state: TimeSeriesState = timeSeriesDefaultState,
-  { type, payload, error }: TimeSeriesAction
+  { type, payload, error, key }: TimeSeriesAction
 ): TimeSeriesState => {
   const { resolve, reject, get } = TIME_SERIES_ACTIONS_TYPES;
   switch (type) {
     case resolve:
-      return { ...state, timeSeries: payload, isLoading: false };
+      return { ...state, [`${key}`]: payload, isLoading: false };
     case reject:
       return { ...state, error: error, isLoading: false };
     case get:

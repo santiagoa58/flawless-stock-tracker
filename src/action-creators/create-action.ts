@@ -4,8 +4,10 @@ export const createAction = <T extends string, P, E>({
   type,
   payload,
   error,
+  key,
 }: {
   type: T;
   payload?: P;
   error?: E;
-}): FluxStandardAction<T, P, E> => ({ type, payload, error });
+  key?: string;
+}): FluxStandardAction<T, P, E> => ({ type, payload, error, key });

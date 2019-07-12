@@ -8,4 +8,5 @@ export interface FluxStandardAction<T, P, E> {
   readonly type: T;
   readonly payload?: P;
   readonly error?: E;
+  readonly key?: string;
 }

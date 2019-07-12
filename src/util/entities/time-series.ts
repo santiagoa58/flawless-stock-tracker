@@ -1,5 +1,5 @@
 export interface TimeSeries {
-  timeSeries: TimePoint[];
+  [k: string]: TimePoint[];
 }
 
 export interface TimePoint {

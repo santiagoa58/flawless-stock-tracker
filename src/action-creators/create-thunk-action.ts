@@ -6,7 +6,8 @@ import { FetchError } from './action-type';
 export const createThunkAction = <A extends Action, T extends any, S>(
   fn: Promise<T>,
   actions: ThunkCreatorActions,
-  types: DispatchTypes
+  types: DispatchTypes,
+  key?: string
 ): ThunkAction<void, S, {}, A> => async (
   dispatch: ThunkDispatch<S, {}, A>
 ): Promise<void> => {
@@ -14,7 +15,9 @@ export const createThunkAction = <A extends Action, T extends any, S>(
   const { setPayload, setError, setLoading } = actions;
   dispatch(setLoading(get));
   fn.then((response: T) => {
-    dispatch(setPayload(resolve, response));
+    key
+      ? dispatch(setPayload(resolve, response, key))
+      : dispatch(setPayload(resolve, response));
   }).catch((error: FetchError) => {
     dispatch(setError(reject, error));
   });
