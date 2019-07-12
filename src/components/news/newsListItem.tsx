@@ -14,7 +14,7 @@ export const NewsListItem: React.FunctionComponent<NewsItemProps> = ({
 
   return (
     <li>
-      <a href={url} className="section-news__list-link">
+      <a href={url} target="_blank" className="section-news__list-link">
         {headline}
         <span className="section-news__list-timestamp">
           {timeAgo} - {source}

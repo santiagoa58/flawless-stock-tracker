@@ -18,7 +18,7 @@ export const CompanyInfo: React.FunctionComponent<OverviewProps> = ({
         {companyName} {symbol ? `(${symbol})` : ''}
       </h2>
       <span>
-        <a className="section-companyinfo__link" href={website}>
+        <a className="section-companyinfo__link" target="_blank" href={website}>
           {urlFormatter(website)}
         </a>
       </span>
