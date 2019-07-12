@@ -1,5 +1,10 @@
 import { TIME_SERIES_ACTIONS_TYPES } from './constants';
-import { TimeSeries, fetchTimeSeries, TimeSeriesRange } from '../util';
+import {
+  TimeSeries,
+  fetchTimeSeries,
+  TimeSeriesRange,
+  timeSeriesFilter,
+} from '../util';
 import {
   createAction,
   createThunkAction,
@@ -24,7 +29,7 @@ export const timeSeriesActions = {
   setLoading: (type: TIME_SERIES_ACTIONS_TYPES) => ({ type }),
   getData: (companySymbol: string, range?: TimeSeriesRange) =>
     createThunkAction<TimeSeriesAction, TimeSeries, TimeSeriesState>(
-      fetchTimeSeries(companySymbol, range),
+      fetchTimeSeries(companySymbol, range, timeSeriesFilter),
       timeSeriesActions,
       TIME_SERIES_ACTIONS_TYPES
     ),

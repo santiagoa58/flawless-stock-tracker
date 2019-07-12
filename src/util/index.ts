@@ -42,3 +42,5 @@ export {
 export { MapObject, TimeSeriesRange } from './types';
 
 export { Loader } from './loader/loader';
+
+export { timeSeriesFilter } from './filters/filters';
