@@ -8,23 +8,31 @@ import {
   CartesianGrid,
   Tooltip,
 } from 'recharts';
+import { TimeSeries } from '../../util';
 
 interface GraphProps {
-  data: any;
-  isHourly: boolean;
+  oneDay: TimeSeries;
+  oneMonth: TimeSeries;
+  fiveDay: TimeSeries;
+  oneYear: TimeSeries;
+  fiveYear: TimeSeries;
+  max: TimeSeries;
 }
 
 export const Graph: React.SFC<GraphProps> = ({
-  data,
-  isHourly,
+  oneDay,
+  oneMonth,
+  fiveDay,
+  oneYear,
+  fiveYear,
+  max,
 }: GraphProps) => {
-  const datakey = isHourly ? 'Hour' : 'Date';
   return (
     <div className="chart">
-      {data && (
+      {oneDay[0] && (
         <ResponsiveContainer width="100%" aspect={2}>
           <AreaChart
-            data={data}
+            data={oneMonth}
             margin={{
               top: 0,
               right: 0,
@@ -40,12 +48,7 @@ export const Graph: React.SFC<GraphProps> = ({
             </defs>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
-              dataKey={datakey}
-              interval={'preserveStart'}
-              tick={{ stroke: '#f4f6f9', strokeWidth: 0.1 }}
-            />
-            <XAxis
-              dataKey="dateTime"
+              dataKey={'label'}
               interval={'preserveStart'}
               tick={{ stroke: '#f4f6f9', strokeWidth: 0.1 }}
             />
@@ -60,7 +63,7 @@ export const Graph: React.SFC<GraphProps> = ({
             />
             <Area
               type="monotone"
-              dataKey="Price"
+              dataKey={'close'}
               stroke="#8884d8"
               fill="url(#colorPrice)"
               fillOpacity={0.3}
