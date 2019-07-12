@@ -21,7 +21,9 @@ export const createEndpoint = (
   switch (type) {
     case 'PUBLIC':
       return `${hostname}/${path}?${MapObject}`;
-    case 'PRIVATE' || 'DEV':
+    case 'DEV':
+      return `${hostname}/${path}?token=${key}&${MapObject}`;
+    case 'PRIVATE':
       return `${hostname}/${path}?token=${key}&${MapObject}`;
     default:
       throw new Error('Was not given a proper type to create the url');
