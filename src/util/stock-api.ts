@@ -70,7 +70,7 @@ export const fetchEarnings = (
 ): Promise<Earnings> =>
   genericFetch<Earnings>(
     PRIVATE_SERVICE,
-    `stock/${companySymbol}/earnings/${timePeriod}`,
+    `stock/${companySymbol}/earnings/${timePeriod ? timePeriod : 1}`,
     parameters
   );
 
