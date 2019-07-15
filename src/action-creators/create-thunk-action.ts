@@ -4,23 +4,22 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { FetchError } from './action-type';
 
 export const createThunkAction = <A extends Action, T extends any, S>(
-  fn: Promise<T>,
+  promise: Promise<T>,
   actions: ThunkCreatorActions,
   types: DispatchTypes,
   key?: string
-): ThunkAction<void, S, {}, A> => async (
-  dispatch: ThunkDispatch<S, {}, A>
-): Promise<void> => {
+): ThunkAction<void, S, {}, A> => async (dispatch: ThunkDispatch<S, {}, A>) => {
   const { resolve, reject, get } = types;
   const { setPayload, setError, setLoading } = actions;
   dispatch(setLoading(get));
-  fn.then((response: T) => {
+  try {
+    const response = await promise;
     key
       ? dispatch(setPayload(resolve, response, key))
       : dispatch(setPayload(resolve, response));
-  }).catch((error: FetchError) => {
+  } catch (error) {
     dispatch(setError(reject, error));
-  });
+  }
 };
 
 interface DispatchTypes {
