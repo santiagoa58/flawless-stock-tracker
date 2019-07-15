@@ -4,8 +4,16 @@ import { keyStatsSelector } from './keyStatsSelector';
 import { ApplicationState } from '../../states';
 import { getQuote, getKeyStats } from '../../selectors';
 
-const mapStateToProps = (state: ApplicationState) => {
-  return keyStatsSelector(getKeyStats(state), getQuote(state));
+const mapStateToProps = ({
+  keyStatsState,
+  quoteState,
+  earningsState,
+}: ApplicationState) => {
+  return keyStatsSelector(
+    keyStatsState.keyStats,
+    quoteState.quote,
+    earningsState.earnings
+  );
 };
 
 export default connect(mapStateToProps)(KeyStatsList);

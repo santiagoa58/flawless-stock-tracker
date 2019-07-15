@@ -1,6 +1,10 @@
-import { Quote, KeyStats } from '../../util';
+import { Quote, KeyStats, Earnings } from '../../util';
 
-export function keyStatsSelector(stats: KeyStats, quote: Quote) {
+export function keyStatsSelector(
+  stats: KeyStats,
+  quote: Quote,
+  earnings: Earnings
+) {
   return stats && quote
     ? {
         companyStatsLeft: [
@@ -43,6 +47,10 @@ export function keyStatsSelector(stats: KeyStats, quote: Quote) {
           {
             value: quote.avgTotalVolume.toLocaleString(),
             name: 'Total Avg Volume',
+          },
+          {
+            value: earnings.earnings[0].actualEPS,
+            name: 'Earnings Per Share',
           },
           {
             value: `${Number(stats.dividendYield * 100).toFixed(2)}%`,
