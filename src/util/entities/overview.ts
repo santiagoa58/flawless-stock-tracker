@@ -8,7 +8,7 @@ export interface Overview {
   CEO: string;
   securityName: string;
   issueType: string;
-  setor: string;
+  sector: string;
   employees: number;
   tags: Array<string>;
 }

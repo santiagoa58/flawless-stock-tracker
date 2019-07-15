@@ -38,3 +38,9 @@ export {
   areEarnings,
   areTimeSeries,
 } from './type-guards';
+
+export { MapObject, TimeSeriesRange } from './types';
+
+export { Loader } from './loader/loader';
+
+export { timeSeriesFilter } from './filters/filters';

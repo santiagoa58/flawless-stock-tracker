@@ -1,35 +1,29 @@
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { ActionCreator } from 'redux';
-import { getNews } from './news-actions';
-import { getTimeSeries } from './time-series-actions';
-import { getPeers } from './peers-actions';
-import { getKeyStats } from './keystats-actions';
-import { getOverview } from './overview-actions';
-import { TimeSeriesRange } from '../util/services/types';
-import { SEARCH, SET_SEARCH_ERROR } from './constants';
+import { Dispatch } from 'react';
 
-export interface SearchAction {
-  type: typeof SEARCH | typeof SET_SEARCH_ERROR;
-  payload: string;
-}
+import { SEARCH_ACTIONS_TYPES } from './constants';
+import {
+  newsActions,
+  peersActions,
+  keyStatsActions,
+  overviewActions,
+  timeSeriesActions,
+} from './';
+import { TimeSeriesRange } from '../util';
+import { ActionType } from '../action-creators';
+import { quoteActions } from './quote-actions';
 
-export const setSearchError: ActionCreator<SearchAction> = (
-  payload: string
-): SearchAction => ({ type: SET_SEARCH_ERROR, payload });
+export type SearchAction = ActionType<SEARCH_ACTIONS_TYPES, any>;
 
-export const search: ActionCreator<ThunkAction<void, {}, {}, SearchAction>> = (
-  companySymbol: string
-): ThunkAction<void, {}, {}, SearchAction> => (
-  dispatch: ThunkDispatch<{}, {}, SearchAction>
-) => {
-  dispatch(getNews(companySymbol));
-  dispatch(getPeers(companySymbol));
-  dispatch(getKeyStats(companySymbol));
-  dispatch(getOverview(companySymbol));
-  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.hourly));
-  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.daily));
-  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.weekly));
-  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.monthly));
-  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.fiveyears));
-  dispatch(getTimeSeries(companySymbol, TimeSeriesRange.max));
+export const search = (companySymbol: string) => (dispatch: Dispatch<any>) => {
+  dispatch(newsActions.getData(companySymbol));
+  dispatch(quoteActions.getData(companySymbol));
+  dispatch(peersActions.getData(companySymbol));
+  dispatch(keyStatsActions.getData(companySymbol));
+  dispatch(overviewActions.getData(companySymbol));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange.max));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['1d']));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['5dm']));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['1m']));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['1y']));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['5y']));
 };

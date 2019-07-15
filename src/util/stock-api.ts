@@ -1,10 +1,10 @@
-import { fetchIex } from './services/fetch-iex';
 import {
-  PUBLIC_SERVICE,
+  fetchIex,
+  DEV_SERVICE,
   PRIVATE_SERVICE,
   ServiceConfiguration,
-} from './services/configurations';
-import { MapObject, TimeSeriesRange } from './services/types';
+} from './services';
+import { MapObject, TimeSeriesRange } from './types';
 import {
   TimeSeries,
   Quote,
@@ -17,12 +17,15 @@ import {
 
 export const fetchTimeSeries = (
   companySymbol: string,
-  range: TimeSeriesRange = TimeSeriesRange.max
-): Promise<TimeSeries> =>
-  genericFetch<TimeSeries>(
-    PUBLIC_SERVICE,
-    `stock/${companySymbol}/time-series/${range}`
+  range: TimeSeriesRange = TimeSeriesRange.max,
+  parameter: MapObject<string>
+): Promise<TimeSeries> => {
+  return genericFetch<TimeSeries>(
+    DEV_SERVICE,
+    `stock/${companySymbol}/chart/${range}`,
+    parameter
   );
+};
 
 export const fetchNews = (
   companySymbol: string,

@@ -1,32 +1,25 @@
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { ActionCreator } from 'redux';
-
-import { SET_TOP_PEERS, SET_TOP_PEERS_ERROR } from './constants';
-import { ActionSet } from './defaults';
+import { PEERS_ACTIONS_TYPES } from './constants';
 import { Peers, fetchPeers } from '../util';
+import {
+  createAction,
+  createThunkAction,
+  ActionType,
+  FetchError,
+} from '../action-creators';
+import { PeersState } from '../states';
 
-export type PeersAction = ActionSet<Peers> | ActionSet<string>;
+export type PeersAction = ActionType<PEERS_ACTIONS_TYPES, Peers>;
 
-export const setPeers: ActionCreator<PeersAction> = (
-  payload: Peers
-): PeersAction => ({ type: SET_TOP_PEERS, payload });
-
-export const setPeersError: ActionCreator<PeersAction> = (
-  payload: string
-): PeersAction => ({ type: SET_TOP_PEERS_ERROR, payload });
-
-export const getPeers: ActionCreator<
-  ThunkAction<Promise<void>, {}, {}, PeersAction>
-> = (
-  companySymbol: string
-): ThunkAction<Promise<void>, {}, {}, PeersAction> => async (
-  dispatch: ThunkDispatch<{}, {}, PeersAction>
-) => {
-  fetchPeers(companySymbol)
-    .then(response => {
-      dispatch(setPeers(response));
-    })
-    .catch(error => {
-      dispatch(setPeersError(error));
-    });
+export const peersActions = {
+  setPayload: (type: PEERS_ACTIONS_TYPES, payload: Peers) =>
+    createAction({ type, payload }),
+  setError: (type: PEERS_ACTIONS_TYPES, error: FetchError) =>
+    createAction({ type, error }),
+  setLoading: (type: PEERS_ACTIONS_TYPES) => ({ type }),
+  getData: (companySymbol: string) =>
+    createThunkAction<PeersAction, Peers, PeersState>(
+      fetchPeers(companySymbol),
+      peersActions,
+      PEERS_ACTIONS_TYPES
+    ),
 };
