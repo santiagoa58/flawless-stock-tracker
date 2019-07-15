@@ -113,6 +113,19 @@
   display: flex;
   justify-content: space-between;
 }
+
+.header-bottom .last-update {
+  color: var(--color-dimmed);
+}
+
+.header-bottom .fa-sun {
+  color: orange;
+}
+
+.header-bottom .fa-moon {
+  color: #cccccc;
+}
+
 .company-tags span {
   display: inline-block;
   background-color: var(--tags-color);

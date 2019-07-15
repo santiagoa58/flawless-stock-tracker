@@ -8,6 +8,7 @@ export interface Header {
   changePercent: number;
   symbol: string;
   companyName: string;
+  timeOfLatestUpdate: number;
 }
 
 const defaultSelector: Header = {
@@ -18,6 +19,7 @@ const defaultSelector: Header = {
   changePercent: undefined,
   companyName: undefined,
   symbol: undefined,
+  timeOfLatestUpdate: undefined,
 };
 
 export function headerSelector(overview: Overview, quote: Quote) {
@@ -30,6 +32,7 @@ export function headerSelector(overview: Overview, quote: Quote) {
         changePercent: quote.changePercent,
         companyName: quote.companyName,
         symbol: overview.symbol,
+        timeOfLatestUpdate: quote.latestUpdate,
       }
     : defaultSelector;
 }
