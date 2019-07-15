@@ -6,7 +6,7 @@ type GraphProps = {
   [key: string]: TimeSeries;
 };
 
-export const Graph: React.SFC<GraphProps> = (props: GraphProps) => {
+export const Graph: React.FC<GraphProps> = (props: GraphProps) => {
   const [dataChoice, setData] = React.useState('oneDay');
 
   function selectChartData(dataSelect: string) {
@@ -18,24 +18,54 @@ export const Graph: React.SFC<GraphProps> = (props: GraphProps) => {
       {props.oneDay[0] && (
         <>
           <div className="chart__select">
-            <a href="#" onClick={() => selectChartData('oneDay')}>
-              {'1D'}
-            </a>
-            <a href="#" onClick={() => selectChartData('fiveDay')}>
-              {'5D'}
-            </a>
-            <a href="#" onClick={() => selectChartData('oneMonth')}>
-              {'1M'}
-            </a>
-            <a href="#" onClick={() => selectChartData('oneYear')}>
-              {'1Y'}
-            </a>
-            <a href="#" onClick={() => selectChartData('fiveYear')}>
-              {'5Y'}
-            </a>
-            <a href="#" onClick={() => selectChartData('max')}>
-              {'MAX'}
-            </a>
+            <label>
+              <input
+                type="radio"
+                name="one-day"
+                onClick={() => selectChartData('oneDay')}
+              />
+              <span className="chart__select--button">1d</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="one-day"
+                onClick={() => selectChartData('fiveDay')}
+              />
+              <span className="chart__select--button">5d</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="one-day"
+                onClick={() => selectChartData('oneMonth')}
+              />
+              <span className="chart__select--button">1m</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="one-day"
+                onClick={() => selectChartData('oneYear')}
+              />
+              <span className="chart__select--button">1y</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="one-day"
+                onClick={() => selectChartData('fiveYear')}
+              />
+              <span className="chart__select--button">5y</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="one-day"
+                onClick={() => selectChartData('max')}
+              />
+              <span className="chart__select--button">max</span>
+            </label>
           </div>
           <GraphDisplay
             data={props[`${dataChoice}`]}

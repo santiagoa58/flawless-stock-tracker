@@ -73,15 +73,20 @@ body {
   text-align: right;
 }
 
-.chart__select a {
+.chart__select label {
   margin: 0rem 0rem 1rem 0.5rem;
   display: inline-block;
   color: inherit;
   text-decoration: none;
   font-weight: 100;
+  text-transform: uppercase;
+  cursor: pointer;
 }
-.chart__select a:target,
-.chart__select a:hover {
+.chart__select input {
+  display: none;
+}
+.chart__select input:checked ~ .chart__select--button,
+.chart__select label:hover {
   font-weight: 300;
   color: var(--color-white);
 }
