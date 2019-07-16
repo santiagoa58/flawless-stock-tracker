@@ -2,6 +2,7 @@ import * as React from 'react';
 import { HeaderContainer } from './header/headerContainer';
 import { NewsGraphContainer } from './layout-components/newsGraphContainer';
 import { OverviewStatsContainer } from './layout-components/OverviewStatsContainer';
+import { Footer } from './footer/footer';
 import '../app-css/App.css';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../states';
@@ -10,12 +11,15 @@ import { Loader } from '../util';
 const App: React.SFC = ({ areNewsLoading, isOverviewLoading }: any) => {
   return (
     <>
-      <HeaderContainer />
-      <div className="section-data">
-        {areNewsLoading && <Loader />}
-        {!areNewsLoading && <NewsGraphContainer />}
-        {!areNewsLoading && <OverviewStatsContainer />}
+      <div className="main-content">
+        <HeaderContainer />
+        <div className="section-data">
+          {areNewsLoading && <Loader />}
+          {!areNewsLoading && <NewsGraphContainer />}
+          {!areNewsLoading && <OverviewStatsContainer />}
+        </div>
       </div>
+      <Footer />
     </>
   );
 };

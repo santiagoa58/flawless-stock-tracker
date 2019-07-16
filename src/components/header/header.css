@@ -38,15 +38,6 @@
   background-color: var(--color-highlight);
 }
 
-/* 
-.error {
-  display: block;
-  color: red;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-} */
-
 /*SEARCH LAYOUT*/
 .header__price.negative {
   color: var(--color-red);
@@ -70,7 +61,7 @@
 }
 
 .header__price--change span {
-  padding-left: 0.8rem;
+  padding-left: 0.5rem;
 }
 .header__price .icon--small {
   padding: 0;
@@ -80,7 +71,7 @@
 }
 .header__price--change span:not(:last-child) {
   border-right: solid rgba(178, 37, 46, 0.45) 2px;
-  padding-right: 0.8rem;
+  padding-right: 0.5rem;
 }
 .header__price.positive .header__price--change span:not(:last-child) {
   border-right: solid rgba(37, 178, 112, 0.45) 2px;
