@@ -7,6 +7,7 @@ import { keyStatsReducer } from './keystats-reducer';
 import { timeSeriesReducer } from './time-series-reducer';
 import { quoteReducer } from './quote-reducer';
 import { EarningsReducer } from './earnings-reducer';
+import { favoritesReducer } from './favorites-reducer';
 import { ApplicationState } from '../states';
 import { ApplicationActions } from '../actions';
 
@@ -21,4 +22,5 @@ export const rootReducer: Reducer<
   timeSeriesState: timeSeriesReducer,
   quoteState: quoteReducer,
   earningsState: EarningsReducer,
+  favoritesState: favoritesReducer,
 });

@@ -44,3 +44,9 @@ export enum SEARCH_ACTIONS_TYPES {
   SEARCH = 'SEARCH',
   SET_SEARCH_ERROR = 'SET_SEARCH_ERROR',
 }
+
+export enum FAVORITES_ACTIONS_TYPES {
+  resolve = 'SET_FAVORITES',
+  reject = 'SET_FAVORITES_ERROR',
+  get = 'GET_FAVORITES',
+}

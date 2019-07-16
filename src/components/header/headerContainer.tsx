@@ -2,7 +2,11 @@ import { connect } from 'react-redux';
 
 import { HeaderLayout } from './headerLayout';
 import { ApplicationState } from '../../states';
-import { quoteActions, ApplicationActions } from '../../actions';
+import {
+  quoteActions,
+  ApplicationActions,
+  favoritesActions,
+} from '../../actions';
 import { headerSelector } from './headerSelector';
 import { ThunkDispatch } from 'redux-thunk';
 
@@ -12,6 +16,9 @@ const mapStateToProps = ({ overviewState, quoteState }: ApplicationState) =>
 const mapDispatchToProps = (
   dispatch: ThunkDispatch<{}, {}, ApplicationActions>
 ) => ({
+  getFavorites: () =>
+    dispatch(favoritesActions.getData('fb,aapl,amzn,ko,nflx')),
+
   getLatestUpdate: (symbol: string) => dispatch(quoteActions.getData(symbol)),
 });
 

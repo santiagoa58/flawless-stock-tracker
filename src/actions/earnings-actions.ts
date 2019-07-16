@@ -15,7 +15,7 @@ export const earningsActions = {
   setError: (type: EARNINGS_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
   setLoading: (type: EARNINGS_ACTIONS_TYPES) => ({ type }),
-  getData: (companySymbol: string, parameters?: MapObject<string>) =>
+  getData: (companySymbol: string) =>
     createThunkAction(
       fetchEarnings(companySymbol),
       earningsActions,

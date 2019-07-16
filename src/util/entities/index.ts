@@ -5,3 +5,4 @@ export { Earnings, Earning } from './earnings';
 export { Peers } from './peers';
 export { News, Article } from './news';
 export { KeyStats } from './keystats';
+export { Favorites } from './favorites';
