@@ -24,13 +24,14 @@ export const HeaderLayout: React.FunctionComponent<HeaderLayoutProps> = ({
   timeOfLatestUpdate,
   getLatestUpdate,
 }) => {
-  {
-    symbol &&
-      isMarketOpen(new Date()) &&
-      setInterval(() => {
+  React.useEffect(() => {
+    const intervalID = setInterval(() => {
+      if (symbol && isMarketOpen(new Date())) {
         getLatestUpdate(symbol);
-      }, 60000);
-  }
+      }
+    }, 2000);
+    return () => clearInterval(intervalID);
+  }, [symbol]);
 
   return (
     <div className="header-wrapper">
