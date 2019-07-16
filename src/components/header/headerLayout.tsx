@@ -29,7 +29,7 @@ export const HeaderLayout: React.FunctionComponent<HeaderLayoutProps> = ({
       isMarketOpen(new Date()) &&
       setInterval(() => {
         getLatestUpdate(symbol);
-      }, 5000);
+      }, 60000);
   }
 
   return (
