@@ -49,7 +49,7 @@ export function keyStatsSelector(
             name: 'Total Avg Volume',
           },
           {
-            value: earnings.earnings[0].actualEPS,
+            value: earnings ? earnings.earnings[0].actualEPS : 0,
             name: 'Earnings Per Share',
           },
           {
