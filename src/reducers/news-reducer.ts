@@ -1,12 +1,10 @@
-import { Reducer } from 'redux';
-
 import { NewsAction, NEWS_ACTIONS_TYPES } from '../actions';
-import { NewsState, newsDefaultState } from '../states';
+import { newsDefaultState } from '../states';
 
-export const newsReducer: Reducer<NewsState, NewsAction> = (
-  state: NewsState = newsDefaultState,
+export const newsReducer = (
+  state = newsDefaultState,
   { type, payload, error }: NewsAction
-): NewsState => {
+) => {
   const { resolve, reject, get } = NEWS_ACTIONS_TYPES;
   switch (type) {
     case resolve:

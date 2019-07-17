@@ -1,7 +1,5 @@
-import { Action, ActionCreator } from 'redux';
+import { Action } from 'redux';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-
-import { FetchError } from './action-type';
 
 export const createThunkAction = <A extends Action, T extends any, S>(
   promise: Promise<T>,

@@ -123,27 +123,3 @@
   margin-right: 1rem;
   padding: 0.25rem 1rem;
 }
-
-/*SEARCH LIST SUGGESTIONS*/
-ul.header__search-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 10;
-
-  list-style: none;
-  overflow: auto;
-  height: auto;
-  width: 50%;
-  background-color: var(--color-secondary);
-}
-
-.header__search-list li {
-  padding: 1rem;
-  font-size: 1rem;
-}
-
-.header__search-list li:hover {
-  background-color: var(--color-dimmed);
-  color: var(--color-white);
-}

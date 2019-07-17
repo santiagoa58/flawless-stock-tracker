@@ -119,22 +119,12 @@ const mockEarnings: Earnings = {
 
 const mockTimePoint: TimePoint = {
   date: '',
-  open: 0,
-  high: 0,
-  low: 0,
   close: 0,
-  volume: 0,
-  unadjustedVolume: 0,
-  change: 0,
-  changePercent: 0,
-  vwap: 0,
   label: '',
-  changeOverTime: 0,
+  minute: '',
 };
 
-const mockTimeSeries: TimeSeries = {
-  timeSeries: [mockTimePoint],
-};
+const mockTimeSeries: TimeSeries = [mockTimePoint];
 
 test('Succesfully detect that mockQuote is an implementation of Quote', () => {
   expect(isQuote(mockQuote)).toBe(true);

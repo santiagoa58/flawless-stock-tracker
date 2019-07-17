@@ -24,7 +24,7 @@ export const search = (companySymbol: string) => (dispatch: Dispatch<any>) => {
   dispatch(earningsActions.getData(companySymbol));
   dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange.max));
   dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['1d']));
-  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['5dm']));
+  dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['5d']));
   dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['1m']));
   dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['1y']));
   dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['5y']));

@@ -1,12 +1,10 @@
-import { Reducer } from 'redux';
-
 import { KeyStatsAction, KEY_STATS_ACTIONS_TYPES } from '../actions';
-import { KeyStatsState, keyStatsDefaultState } from '../states';
+import { keyStatsDefaultState } from '../states';
 
-export const keyStatsReducer: Reducer<KeyStatsState, KeyStatsAction> = (
-  state: KeyStatsState = keyStatsDefaultState,
+export const keyStatsReducer = (
+  state = keyStatsDefaultState,
   { type, payload, error }: KeyStatsAction
-): KeyStatsState => {
+) => {
   const { resolve, reject, get } = KEY_STATS_ACTIONS_TYPES;
   switch (type) {
     case resolve:

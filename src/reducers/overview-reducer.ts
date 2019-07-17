@@ -1,12 +1,10 @@
-import { Reducer } from 'redux';
-
 import { OverviewAction, OVERVIEW_ACTIONS_TYPES } from '../actions';
-import { OverviewState, overviewDefaultState } from '../states';
+import { overviewDefaultState } from '../states';
 
-export const overviewReducer: Reducer<OverviewState, OverviewAction> = (
-  state: OverviewState = overviewDefaultState,
+export const overviewReducer = (
+  state = overviewDefaultState,
   { type, payload, error }: OverviewAction
-): OverviewState => {
+) => {
   const { resolve, reject, get } = OVERVIEW_ACTIONS_TYPES;
   switch (type) {
     case resolve:
