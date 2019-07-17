@@ -12,8 +12,8 @@ export interface TimeSeriesState extends TimeSeriesData {
 
 export const timeSeriesDefaultState: TimeSeriesState = {
   ['1d']: [],
+  ['5d']: [],
   ['1m']: [],
-  ['5dm']: [],
   ['1y']: [],
   ['5y']: [],
   ['max']: [],

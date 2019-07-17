@@ -1,12 +1,10 @@
-import { Reducer } from 'redux';
-
 import { PeersAction, PEERS_ACTIONS_TYPES } from '../actions';
-import { PeersState, peersDefaultState } from '../states';
+import { peersDefaultState } from '../states';
 
-export const peersReducer: Reducer<PeersState, PeersAction> = (
-  state: PeersState = peersDefaultState,
+export const peersReducer = (
+  state = peersDefaultState,
   { type, payload, error }: PeersAction
-): PeersState => {
+) => {
   const { resolve, reject, get } = PEERS_ACTIONS_TYPES;
   switch (type) {
     case resolve:
