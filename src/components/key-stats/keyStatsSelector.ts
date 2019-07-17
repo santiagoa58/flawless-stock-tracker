@@ -1,11 +1,15 @@
-import { Quote, KeyStats } from '../../util';
+import { Quote, KeyStats, Earnings } from '../../util';
 
-export function keyStatsSelector(stats: KeyStats, quote: Quote) {
+export function keyStatsSelector(
+  stats: KeyStats,
+  quote: Quote,
+  earnings: Earnings
+) {
   return stats && quote
     ? {
         companyStatsLeft: [
           {
-            value: quote.close,
+            value: quote.previousClose,
             name: 'Previous Close',
           },
           {
@@ -16,11 +20,15 @@ export function keyStatsSelector(stats: KeyStats, quote: Quote) {
             },
           },
           {
-            value: quote.latestVolume.toLocaleString(),
+            value: quote.latestVolume
+              ? quote.latestVolume.toLocaleString()
+              : undefined,
             name: 'Volume',
           },
           {
-            value: quote.marketCap.toLocaleString(),
+            value: quote.marketCap
+              ? quote.marketCap.toLocaleString()
+              : undefined,
             name: 'Market Cap',
           },
           {
@@ -41,8 +49,14 @@ export function keyStatsSelector(stats: KeyStats, quote: Quote) {
             },
           },
           {
-            value: quote.avgTotalVolume.toLocaleString(),
+            value: quote.avgTotalVolume
+              ? quote.avgTotalVolume.toLocaleString()
+              : undefined,
             name: 'Total Avg Volume',
+          },
+          {
+            value: earnings ? earnings.earnings[0].actualEPS : 0,
+            name: 'Earnings Per Share',
           },
           {
             value: `${Number(stats.dividendYield * 100).toFixed(2)}%`,

@@ -13,6 +13,7 @@ import {
   Peers,
   Overview,
   News,
+  Favorites,
 } from './entities';
 
 export const fetchTimeSeries = (
@@ -63,6 +64,12 @@ export const fetchQuote = (
     parameters
   );
 
+export const fetchFavorites = (
+  parameters: MapObject<string>,
+  companySymbols?: string
+): Promise<Favorites> =>
+  genericFetch<Favorites>(PRIVATE_SERVICE, `stock/market/batch`, parameters);
+
 export const fetchEarnings = (
   companySymbol: string,
   timePeriod?: number,
@@ -70,7 +77,7 @@ export const fetchEarnings = (
 ): Promise<Earnings> =>
   genericFetch<Earnings>(
     PRIVATE_SERVICE,
-    `stock/${companySymbol}/earnings/${timePeriod}`,
+    `stock/${companySymbol}/earnings/${timePeriod ? timePeriod : 1}`,
     parameters
   );
 

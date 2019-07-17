@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Article } from '../../util';
-import { getTimePublishedFormat } from './getTimePublishedFormat';
+import { getTimePublishedFormat } from './format-time-published';
 
 interface NewsItemProps {
   news: Article;

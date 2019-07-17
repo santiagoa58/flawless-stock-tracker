@@ -7,6 +7,7 @@ import {
   keyStatsActions,
   overviewActions,
   timeSeriesActions,
+  earningsActions,
 } from './';
 import { TimeSeriesRange } from '../util';
 import { ActionType } from '../action-creators';
@@ -20,6 +21,7 @@ export const search = (companySymbol: string) => (dispatch: Dispatch<any>) => {
   dispatch(peersActions.getData(companySymbol));
   dispatch(keyStatsActions.getData(companySymbol));
   dispatch(overviewActions.getData(companySymbol));
+  dispatch(earningsActions.getData(companySymbol));
   dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange.max));
   dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['1d']));
   dispatch(timeSeriesActions.getData(companySymbol, TimeSeriesRange['5d']));

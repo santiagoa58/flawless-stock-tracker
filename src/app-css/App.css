@@ -28,17 +28,27 @@ html {
 
 body {
   position: relative;
-
   background-image: linear-gradient(
     to bottom right,
     var(--color-primary),
     var(--color-secondary)
   );
   background-repeat: no-repeat;
-
   color: var(--color-white);
   font-family: 'Lato', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-content {
   padding: 0 5rem;
+  width: 100%;
 }
 
 .section-data {
