@@ -20,11 +20,15 @@ export function keyStatsSelector(
             },
           },
           {
-            value: quote.latestVolume.toLocaleString(),
+            value: quote.latestVolume
+              ? quote.latestVolume.toLocaleString()
+              : undefined,
             name: 'Volume',
           },
           {
-            value: quote.marketCap.toLocaleString(),
+            value: quote.marketCap
+              ? quote.marketCap.toLocaleString()
+              : undefined,
             name: 'Market Cap',
           },
           {
@@ -45,7 +49,9 @@ export function keyStatsSelector(
             },
           },
           {
-            value: quote.avgTotalVolume.toLocaleString(),
+            value: quote.avgTotalVolume
+              ? quote.avgTotalVolume.toLocaleString()
+              : undefined,
             name: 'Total Avg Volume',
           },
           {
