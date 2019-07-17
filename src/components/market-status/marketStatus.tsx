@@ -2,22 +2,28 @@ import * as React from 'react';
 import { getDateTimeString, isMarketOpen } from '../../util/marketStatusUtil';
 
 export interface MarketStatusProps {
-  dateNow: Date;
+  timeOfLatestUpdate: number;
 }
 
-export const MarketStatus: React.SFC<MarketStatusProps> = ({ dateNow }) => {
-  const dateTime: string = getDateTimeString(dateNow);
+export const MarketStatus: React.SFC<MarketStatusProps> = ({
+  timeOfLatestUpdate,
+}) => {
+  const dateTime: string = getDateTimeString(new Date(timeOfLatestUpdate));
   const sun = <i className="far fa-sun"></i>;
   const moon = <i className="far fa-moon"></i>;
 
-  return (
+  return timeOfLatestUpdate ? (
     <div>
       <span className="last-update">Real-Time Price as of {dateTime}</span>
       <span>{` `}</span>
       <span>
-        {isMarketOpen(dateNow) ? sun : moon} Market{' '}
-        {isMarketOpen(dateNow) ? 'Open' : 'Closed'}
+        {isMarketOpen(timeOfLatestUpdate) ? sun : moon} Market{' '}
+        {isMarketOpen(timeOfLatestUpdate) ? 'Open' : 'Closed'}
       </span>
+    </div>
+  ) : (
+    <div>
+      <span>Time Of Last Update Is Not Available</span>
     </div>
   );
 };

@@ -16,7 +16,8 @@ function getLocalTimeZone(dateNow: Date): string {
   return timeZoneCaptialLetters.join('');
 }
 
-export const isMarketOpen = (dateNow: Date): boolean => {
+export const isMarketOpen = (timeInMilliseconds: number): boolean => {
+  const dateNow = new Date(timeInMilliseconds);
   const marketOpen = new Date().setUTCHours(13, 30, 0, 0);
   const marketClose = new Date().setUTCHours(20, 0, 0, 0);
 
