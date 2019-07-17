@@ -1,6 +1,14 @@
 import * as React from 'react';
-import { TimeSeries, TimeSeriesRange } from '../../util';
-import { GraphDisplay } from './graphDisplay';
+import { TimeSeries } from '../../util';
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+} from 'recharts';
 
 type GraphProps = {
   [key: string]: TimeSeries;
@@ -12,10 +20,12 @@ export const Graph: React.FC<GraphProps> = (props: GraphProps) => {
   function selectChartData(dataSelect: string) {
     setDataChoice(dataSelect);
   }
+  const dataKey = 'close';
+  const xAxisTimeFrameKey = 'label';
 
   return (
     <div className="chart">
-      {props.oneDay[0] && (
+      {props.max.length !== 0 && (
         <>
           <div className="chart__select">
             <label>
@@ -68,11 +78,46 @@ export const Graph: React.FC<GraphProps> = (props: GraphProps) => {
               <span className="chart__select--button">max</span>
             </label>
           </div>
-          <GraphDisplay
-            data={props[`${dataChoice}`]}
-            dataName="close"
-            timeFrame="label"
-          />
+          <ResponsiveContainer width="100%" aspect={2}>
+            <AreaChart
+              data={props[`${dataChoice}`]}
+              margin={{
+                top: 0,
+                right: 0,
+                left: 0,
+                bottom: 0,
+              }}
+            >
+              <defs>
+                <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="15%" stopColor="#8884d8" stopOpacity={1} />
+                  <stop offset="85%" stopColor="#8884d8" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis
+                dataKey={xAxisTimeFrameKey}
+                interval={'preserveStart'}
+                tick={{ stroke: '#f4f6f9', strokeWidth: 0.1 }}
+              />
+              <YAxis
+                orientation="right"
+                domain={['dataMin', 'auto']}
+                tick={{ stroke: '#f4f6f9', strokeWidth: 0.1 }}
+              />
+              <Tooltip
+                cursor={{ stroke: 'orange', strokeWidth: 2 }}
+                labelStyle={{ color: 'black' }}
+              />
+              <Area
+                type="monotone"
+                dataKey={dataKey}
+                stroke="#8884d8"
+                fill="url(#colorPrice)"
+                fillOpacity={0.3}
+              />
+            </AreaChart>
+          </ResponsiveContainer>
         </>
       )}
     </div>
