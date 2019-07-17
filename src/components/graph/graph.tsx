@@ -7,10 +7,10 @@ type GraphProps = {
 };
 
 export const Graph: React.FC<GraphProps> = (props: GraphProps) => {
-  const [dataChoice, setData] = React.useState('oneDay');
+  const [dataChoice, setDataChoice] = React.useState('oneMonth');
 
   function selectChartData(dataSelect: string) {
-    setData(dataSelect);
+    setDataChoice(dataSelect);
   }
 
   return (
@@ -38,6 +38,7 @@ export const Graph: React.FC<GraphProps> = (props: GraphProps) => {
               <input
                 type="radio"
                 name="one-day"
+                defaultChecked={true}
                 onClick={() => selectChartData('oneMonth')}
               />
               <span className="chart__select--button">1m</span>

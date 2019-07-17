@@ -34,7 +34,19 @@ export enum TIME_SERIES_ACTIONS_TYPES {
   get = 'GET_TIME_SERIES',
 }
 
+export enum EARNINGS_ACTIONS_TYPES {
+  resolve = 'SET_EARNINGS',
+  reject = 'SET_EARNINGS_ERROR',
+  get = 'GET_EARNINGS',
+}
+
 export enum SEARCH_ACTIONS_TYPES {
   SEARCH = 'SEARCH',
   SET_SEARCH_ERROR = 'SET_SEARCH_ERROR',
+}
+
+export enum FAVORITES_ACTIONS_TYPES {
+  resolve = 'SET_FAVORITES',
+  reject = 'SET_FAVORITES_ERROR',
+  get = 'GET_FAVORITES',
 }

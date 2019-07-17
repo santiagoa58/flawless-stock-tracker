@@ -15,6 +15,7 @@ export {
   fetchOverview,
   fetchQuote,
   fetchEarnings,
+  fetchFavorites,
 } from './stock-api';
 
 export {
@@ -28,6 +29,7 @@ export {
   Overview,
   News,
   Article,
+  Favorites,
 } from './entities';
 
 export {
@@ -43,4 +45,4 @@ export { MapObject, TimeSeriesRange } from './types';
 
 export { Loader } from './loader/loader';
 
-export { timeSeriesFilter } from './filters/filters';
+export { timeSeriesFilter, favoritesFilter } from './filters/filters';

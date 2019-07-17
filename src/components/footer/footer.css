@@ -1,0 +1,49 @@
+.footer {
+  text-transform: uppercase;
+  background-color: #164083;
+}
+
+.footer h3 {
+  font-weight: 300;
+}
+
+.footer ul {
+  list-style: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.footer li {
+  display: inline-block;
+  padding-right: 1rem;
+}
+
+.footer h3 {
+  padding-bottom: 0.5em;
+}
+
+.footer__markets,
+.footer__favorites {
+  width: 50%;
+  padding: 0.75rem 1.5rem;
+}
+
+.footer__markets div,
+.footer__favorites div {
+  display: inline;
+}
+
+.footer__markets {
+  display: inline-block;
+  border-right: solid rgb(105, 137, 175, 0.35) 3px;
+}
+
+.footer__stock-symbol {
+  padding-right: 1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.footer__favorites {
+  display: inline-block;
+}
