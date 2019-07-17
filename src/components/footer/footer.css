@@ -10,7 +10,8 @@
 .footer ul {
   list-style: none;
   white-space: nowrap;
-  overflow: hidden;
+  transform: translateX(90%);
+  animation: scroll 13s infinite linear;
 }
 
 .footer li {
@@ -26,6 +27,7 @@
 .footer__favorites {
   width: 50%;
   padding: 0.75rem 1.5rem;
+  overflow: hidden;
 }
 
 .footer__markets div,
@@ -38,12 +40,23 @@
   border-right: solid rgb(105, 137, 175, 0.35) 3px;
 }
 
-.footer__stock-symbol {
-  padding-right: 1rem;
+.footer__stock {
   font-weight: 700;
-  color: white;
+}
+
+.footer__stock--symbol {
+  padding-right: 1rem;
 }
 
 .footer__favorites {
   display: inline-block;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(-130%);
+  }
 }

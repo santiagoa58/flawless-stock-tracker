@@ -13,8 +13,8 @@ export const FavoritesListItem: React.SFC<FavoritesType> = ({
 }) => {
   return (
     <li>
-      <div>
-        <span className="footer__stock-symbol">{symbol}</span>
+      <div className="footer__stock">
+        <span className="footer__stock--symbol">{symbol}</span>
         <TickerPrice
           latestPrice={latestPrice}
           change={change}

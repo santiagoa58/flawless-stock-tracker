@@ -55,7 +55,10 @@ export function keyStatsSelector(
             name: 'Total Avg Volume',
           },
           {
-            value: earnings ? earnings.earnings[0].actualEPS : 0,
+            value:
+              earnings && earnings.hasOwnProperty('earnings')
+                ? earnings.earnings[0].actualEPS
+                : undefined,
             name: 'Earnings Per Share',
           },
           {

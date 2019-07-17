@@ -11,7 +11,7 @@ export const Footer = () => {
         <ul>
           <li>
             <div>
-              <span className="footer__stock-symbol">NASDAQ</span>
+              <span className="footer__stock--symbol">NASDAQ</span>
               <TickerPrice
                 latestPrice={6850.05}
                 change={72.89}
@@ -21,7 +21,7 @@ export const Footer = () => {
           </li>
           <li>
             <div>
-              <span className="footer__stock-symbol">DJIA</span>
+              <span className="footer__stock--symbol">DJIA</span>
               <TickerPrice
                 latestPrice={23026.35}
                 change={165.89}
@@ -31,7 +31,7 @@ export const Footer = () => {
           </li>
           <li>
             <div>
-              <span className="footer__stock-symbol">{'S&P'}</span>
+              <span className="footer__stock--symbol">{'S&P'}</span>
               <TickerPrice
                 latestPrice={2605.35}
                 change={23.35}
