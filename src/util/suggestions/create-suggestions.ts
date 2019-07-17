@@ -1,10 +1,5 @@
 import * as companies from './symbols.json';
-import { sanitizeLabel } from '../sanitizers/label-sanitizer';
-
-interface Company {
-  label: string;
-  id: string;
-}
+import { sanitizeLabel } from '../sanitizers';
 
 export const createSuggestions = (input: string, limit: number = 10) => {
   const upperCaseInput = input.toUpperCase();
@@ -27,3 +22,8 @@ export const createSuggestions = (input: string, limit: number = 10) => {
   }
   return suggestions;
 };
+
+interface Company {
+  label: string;
+  id: string;
+}

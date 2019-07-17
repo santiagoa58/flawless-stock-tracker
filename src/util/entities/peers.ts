@@ -1,3 +1,1 @@
-export interface Peers {
-  peers: string[];
-}
+export type Peers = string[];

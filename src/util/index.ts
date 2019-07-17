@@ -43,6 +43,12 @@ export {
 
 export { MapObject, TimeSeriesRange } from './types';
 
-export { Loader } from './loader/loader';
+export { Loader } from './loader';
 
-export { timeSeriesFilter, favoritesFilter } from './filters/filters';
+export { timeSeriesFilter, favoritesFilter } from './filters';
+
+export { sanitizeLabel, sanitizeSearch } from './sanitizers';
+
+export { createSuggestions } from './suggestions';
+
+export { getDateTimeString, isMarketOpen } from './marketStatusUtil';
