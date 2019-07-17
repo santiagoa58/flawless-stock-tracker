@@ -19,7 +19,7 @@ const defaultSelector: Header = {
   changePercent: undefined,
   companyName: undefined,
   symbol: undefined,
-  timeOfLatestUpdate: undefined,
+  timeOfLatestUpdate: Date.now(),
 };
 
 export function headerSelector(overview: Overview, quote: Quote) {
