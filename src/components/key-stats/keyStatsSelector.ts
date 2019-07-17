@@ -9,7 +9,7 @@ export function keyStatsSelector(
     ? {
         companyStatsLeft: [
           {
-            value: quote.close,
+            value: quote.previousClose,
             name: 'Previous Close',
           },
           {
