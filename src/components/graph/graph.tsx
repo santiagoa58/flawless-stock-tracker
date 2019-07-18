@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { TimeSeries, TimeSeriesRange } from '../../util';
+
+import { TimeSeries } from '../../util';
 import { GraphDisplay } from './graphDisplay';
 
 type GraphProps = {

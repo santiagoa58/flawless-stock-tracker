@@ -3,21 +3,24 @@ import { Peers, fetchPeers } from '../util';
 import {
   createAction,
   createThunkAction,
-  ActionType,
   FetchError,
+  FluxStandardAction,
 } from '../action-creators';
-import { PeersState } from '../states';
 
-export type PeersAction = ActionType<PEERS_ACTIONS_TYPES, Peers>;
+export type PeersAction = FluxStandardAction<
+  PEERS_ACTIONS_TYPES,
+  Peers,
+  FetchError
+>;
 
 export const peersActions = {
   setPayload: (type: PEERS_ACTIONS_TYPES, payload: Peers) =>
     createAction({ type, payload }),
   setError: (type: PEERS_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
-  setLoading: (type: PEERS_ACTIONS_TYPES) => ({ type }),
+  setLoading: (type: PEERS_ACTIONS_TYPES) => createAction({ type }),
   getData: (companySymbol: string) =>
-    createThunkAction<PeersAction, Peers, PeersState>(
+    createThunkAction(
       fetchPeers(companySymbol),
       peersActions,
       PEERS_ACTIONS_TYPES

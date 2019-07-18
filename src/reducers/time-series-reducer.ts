@@ -10,7 +10,7 @@ export const timeSeriesReducer = (
     case resolve:
       return { ...state, [key]: payload, isLoading: false };
     case reject:
-      return { ...state, error: error, isLoading: false };
+      return { ...state, error, isLoading: false };
     case get:
       return { ...state, isLoading: true };
     default:

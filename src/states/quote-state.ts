@@ -2,13 +2,13 @@ import { Quote } from '../util';
 import { FetchError } from '../action-creators';
 
 export interface QuoteState {
-  quote?: Quote;
-  error?: FetchError;
+  payload: Quote;
+  error: FetchError;
   isLoading?: boolean;
 }
 
 export const quoteDefaultState: QuoteState = {
-  quote: undefined,
+  payload: undefined,
   error: undefined,
   isLoading: false,
 };

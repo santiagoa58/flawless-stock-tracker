@@ -1,19 +1,16 @@
 import * as React from 'react';
+
 import { FavoritesListItem } from './favoritesListItem';
 import { FavoritesState } from '../../states';
+import { Favorites } from '../../util';
 
-export interface FavoriteListProps extends FavoritesState {
-  getFavorites: () => void;
-}
-
-export const FavoritesList: React.FunctionComponent<FavoriteListProps> = ({
+export const FavoritesList = ({
   favorites,
   getFavorites,
-}) => {
+}: FavoriteListProps) => {
   React.useEffect(() => {
     getFavorites();
   }, []);
-
   return (
     <ul>
       {favorites &&
@@ -29,3 +26,8 @@ export const FavoritesList: React.FunctionComponent<FavoriteListProps> = ({
     </ul>
   );
 };
+
+export interface FavoriteListProps extends FavoritesState {
+  favorites: Favorites;
+  getFavorites: () => void;
+}

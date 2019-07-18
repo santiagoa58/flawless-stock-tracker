@@ -6,7 +6,7 @@ export type TimeSeriesData = {
 };
 
 export interface TimeSeriesState extends TimeSeriesData {
-  error?: FetchError;
+  error: FetchError;
   isLoading?: boolean;
 }
 
@@ -16,7 +16,7 @@ export const timeSeriesDefaultState: TimeSeriesState = {
   ['1m']: [],
   ['1y']: [],
   ['5y']: [],
-  ['max']: [],
+  max: [],
   error: undefined,
   isLoading: false,
 };

@@ -8,9 +8,9 @@ export const newsReducer = (
   const { resolve, reject, get } = NEWS_ACTIONS_TYPES;
   switch (type) {
     case resolve:
-      return { ...state, news: payload, isLoading: false };
+      return { ...state, payload, isLoading: false };
     case reject:
-      return { ...state, error: error, isLoading: false };
+      return { ...state, error, isLoading: false };
     case get:
       return { ...state, isLoading: true };
     default:

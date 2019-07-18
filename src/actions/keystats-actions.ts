@@ -3,12 +3,15 @@ import { KeyStats, fetchKeyStats, MapObject } from '../util';
 import {
   createAction,
   createThunkAction,
-  ActionType,
   FetchError,
+  FluxStandardAction,
 } from '../action-creators';
-import { KeyStatsState } from '../states';
 
-export type KeyStatsAction = ActionType<KEY_STATS_ACTIONS_TYPES, KeyStats>;
+export type KeyStatsAction = FluxStandardAction<
+  KEY_STATS_ACTIONS_TYPES,
+  KeyStats,
+  FetchError
+>;
 
 export const keyStatsActions = {
   setPayload: (type: KEY_STATS_ACTIONS_TYPES, payload: KeyStats) =>
@@ -18,13 +21,13 @@ export const keyStatsActions = {
     }),
   setError: (type: KEY_STATS_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
-  setLoading: (type: KEY_STATS_ACTIONS_TYPES) => ({ type }),
+  setLoading: (type: KEY_STATS_ACTIONS_TYPES) => createAction({ type }),
   getData: (
     companySymbol: string,
     last?: string,
     parameters?: MapObject<string>
   ) =>
-    createThunkAction<KeyStatsAction, KeyStats, KeyStatsState>(
+    createThunkAction(
       fetchKeyStats(companySymbol, last, parameters),
       keyStatsActions,
       KEY_STATS_ACTIONS_TYPES

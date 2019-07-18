@@ -5,6 +5,7 @@ import { sanitizeLabel, sanitizeSearch } from '../../util';
 
 export const SearchInput = ({ search, companyName, symbol }: SearchProps) => {
   const [searchText, setSearchText] = React.useState('');
+  const listName = 'suggestions';
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     search(sanitizeSearch(searchText));
@@ -15,14 +16,14 @@ export const SearchInput = ({ search, companyName, symbol }: SearchProps) => {
       <i onClick={handleSubmit} className="fas fa-search"></i>
       <input
         type="text"
-        list="suggestions"
+        list={listName}
         value={searchText}
         onChange={input => setSearchText(input.target.value)}
         placeholder={
           companyName ? `${sanitizeLabel(companyName)} (${symbol})` : 'Search'
         }
       />
-      <SearchOptions limit={10} symbol={searchText} />
+      <SearchOptions limit={10} symbol={searchText} listName={listName} />
     </form>
   );
 };

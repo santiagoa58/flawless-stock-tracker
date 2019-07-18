@@ -1,5 +1,3 @@
-import { Dispatch } from 'react';
-
 import { SEARCH_ACTIONS_TYPES } from './constants';
 import {
   newsActions,
@@ -9,13 +7,17 @@ import {
   timeSeriesActions,
   earningsActions,
 } from './';
-import { TimeSeriesRange } from '../util';
-import { ActionType } from '../action-creators';
 import { quoteActions } from './quote-actions';
+import { FluxStandardAction, FetchError, TD } from '../action-creators';
+import { TimeSeriesRange } from '../util';
 
-export type SearchAction = ActionType<SEARCH_ACTIONS_TYPES, any>;
+export type SearchAction = FluxStandardAction<
+  SEARCH_ACTIONS_TYPES,
+  void,
+  FetchError
+>;
 
-export const search = (companySymbol: string) => (dispatch: Dispatch<any>) => {
+export const search = (companySymbol: string) => (dispatch: TD) => {
   dispatch(newsActions.getData(companySymbol));
   dispatch(quoteActions.getData(companySymbol));
   dispatch(peersActions.getData(companySymbol));

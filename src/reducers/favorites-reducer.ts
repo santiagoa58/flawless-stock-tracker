@@ -8,9 +8,9 @@ export const favoritesReducer = (
   const { resolve, reject, get } = FAVORITES_ACTIONS_TYPES;
   switch (type) {
     case resolve:
-      return { ...state, favorites: payload, isLoading: false };
+      return { ...state, payload, isLoading: false };
     case reject:
-      return { ...state, error: error, isLoading: false };
+      return { ...state, error, isLoading: false };
     case get:
       return { ...state, isLoading: true };
     default:

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
+
 import { KeyStatsList } from './keyStatsList';
 import { keyStatsSelector } from './keyStatsSelector';
 import { ApplicationState } from '../../states';
-import { getQuote, getKeyStats } from '../../selectors';
 
 const mapStateToProps = ({
   keyStatsState,
@@ -10,9 +10,9 @@ const mapStateToProps = ({
   earningsState,
 }: ApplicationState) => {
   return keyStatsSelector(
-    keyStatsState.keyStats,
-    quoteState.quote,
-    earningsState.earnings
+    keyStatsState.payload,
+    quoteState.payload,
+    earningsState.payload
   );
 };
 

@@ -1,10 +1,10 @@
 import { FluxStandardAction } from './action-type';
 
-export const createAction = <T extends string, P, E>({
+export const createAction = <T, P, E>({
   type,
   payload,
-  error,
   key,
+  error,
 }: {
   type: T;
   payload?: P;

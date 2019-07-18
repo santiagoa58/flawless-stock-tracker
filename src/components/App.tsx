@@ -5,9 +5,9 @@ import { HeaderContainer } from './header/headerContainer';
 import { NewsGraphContainer } from './layout-components/newsGraphContainer';
 import { OverviewStatsContainer } from './layout-components/overviewStatsContainer';
 import { Footer } from './footer/footer';
-import '../app-css/App.css';
 import { ApplicationState } from '../states';
 import { Loader } from '../util';
+import '../app-css/App.css';
 
 const App = ({ areNewsLoading, isOverviewLoading }: AppProps) => (
   <>
