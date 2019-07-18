@@ -4,18 +4,15 @@ import {
   fetchTimeSeries,
   TimeSeriesRange,
   timeSeriesFilter,
-} from '../util';
-import {
-  createAction,
-  createThunkAction,
-  ActionType,
+  FluxStandardAction,
   FetchError,
-} from '../action-creators';
-import { TimeSeriesState } from '../states';
+} from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
-export type TimeSeriesAction = ActionType<
+export type TimeSeriesAction = FluxStandardAction<
   TIME_SERIES_ACTIONS_TYPES,
-  TimeSeries
+  TimeSeries,
+  FetchError
 >;
 
 export const timeSeriesActions = {
@@ -31,9 +28,9 @@ export const timeSeriesActions = {
     }),
   setError: (type: TIME_SERIES_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
-  setLoading: (type: TIME_SERIES_ACTIONS_TYPES) => ({ type }),
+  setLoading: (type: TIME_SERIES_ACTIONS_TYPES) => createAction({ type }),
   getData: (companySymbol: string, range?: TimeSeriesRange) =>
-    createThunkAction<TimeSeriesAction, TimeSeries, TimeSeriesState>(
+    createThunkAction(
       fetchTimeSeries(companySymbol, range, timeSeriesFilter),
       timeSeriesActions,
       TIME_SERIES_ACTIONS_TYPES,

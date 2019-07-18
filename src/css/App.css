@@ -209,3 +209,7 @@ body {
 .section-topPeers__peer:not(:last-child) {
   margin-right: 1rem;
 }
+
+i:hover {
+  cursor: pointer;
+}

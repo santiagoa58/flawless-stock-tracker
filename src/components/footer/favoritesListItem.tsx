@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { TickerPrice, PriceOutputProps } from '../ticker-price/tickerPrice';
 
 export interface FavoritesType extends PriceOutputProps {

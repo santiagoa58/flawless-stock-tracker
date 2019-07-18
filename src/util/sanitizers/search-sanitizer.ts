@@ -1,5 +1,5 @@
 export const sanitizeSearch = (input: string) => {
-  if (!input) {
+  if (!input.includes('(')) {
     return input;
   }
   const symbolWithParentheses = input.split('(')[1];

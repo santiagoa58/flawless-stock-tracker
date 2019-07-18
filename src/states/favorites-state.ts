@@ -1,14 +1,13 @@
-import { Favorites } from '../util';
-import { FetchError } from '../action-creators';
+import { Favorites, FetchError } from '../util';
 
 export interface FavoritesState {
-  favorites?: Favorites;
+  payload?: Favorites;
   error?: FetchError;
   isLoading?: boolean;
 }
 
 export const favoritesDefaultState: FavoritesState = {
-  favorites: undefined,
+  payload: undefined,
   error: undefined,
   isLoading: false,
 };

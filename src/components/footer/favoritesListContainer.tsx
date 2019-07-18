@@ -1,16 +1,15 @@
 import { connect } from 'react-redux';
+
 import { FavoritesList } from './favoritesList';
 import { ApplicationState } from '../../states';
-import { ThunkDispatch } from 'redux-thunk';
-import { ApplicationActions, favoritesActions } from '../../actions';
+import { favoritesActions } from '../../actions';
+import { TD } from '../../util';
 
 const mapStateToProps = ({ favoritesState }: ApplicationState) => {
-  return { favorites: favoritesState.favorites };
+  return { favorites: favoritesState.payload };
 };
 
-const mapDispatchToProps = (
-  dispatch: ThunkDispatch<{}, {}, ApplicationActions>
-) => ({
+const mapDispatchToProps = (dispatch: TD) => ({
   getFavorites: () =>
     dispatch(favoritesActions.getData('fb,aapl,amzn,ko,nflx')),
 });

@@ -1,6 +1,4 @@
-export interface News {
-  news: Article[];
-}
+export type News = Article[];
 
 export interface Article {
   datetime: number;

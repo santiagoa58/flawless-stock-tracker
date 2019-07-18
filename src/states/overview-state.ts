@@ -1,14 +1,13 @@
-import { Overview } from '../util';
-import { FetchError } from '../action-creators';
+import { Overview, FetchError } from '../util';
 
 export interface OverviewState {
-  overview?: Overview;
-  error?: FetchError;
+  payload: Overview;
+  error: FetchError;
   isLoading?: boolean;
 }
 
 export const overviewDefaultState: OverviewState = {
-  overview: undefined,
+  payload: undefined,
   error: undefined,
   isLoading: false,
 };
