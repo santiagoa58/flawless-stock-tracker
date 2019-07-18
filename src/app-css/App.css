@@ -36,6 +36,7 @@ body {
   background-repeat: no-repeat;
   color: var(--color-white);
   font-family: 'Lato', sans-serif;
+  overflow: auto;
 }
 
 #root {
@@ -196,6 +197,7 @@ body {
 .section-companyinfo__description {
   padding-top: 0.7rem;
   line-height: 1.5;
+  overflow: auto;
 }
 
 /* Top Peers Styles */
