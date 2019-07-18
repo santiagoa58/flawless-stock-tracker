@@ -41,7 +41,14 @@ export {
   areTimeSeries,
 } from './type-guards';
 
-export { MapObject, TimeSeriesRange } from './types';
+export {
+  MapObject,
+  TimeSeriesRange,
+  TD,
+  TA,
+  FluxStandardAction,
+  FetchError,
+} from './types';
 
 export { Loader } from './loader';
 

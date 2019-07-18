@@ -1,11 +1,12 @@
 import { FAVORITES_ACTIONS_TYPES } from './constants';
-import { Favorites, fetchFavorites, favoritesFilter } from '../util';
 import {
-  createAction,
-  createThunkAction,
-  FetchError,
+  Favorites,
+  fetchFavorites,
+  favoritesFilter,
   FluxStandardAction,
-} from '../action-creators';
+  FetchError,
+} from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
 export type FavoritesAction = FluxStandardAction<
   FAVORITES_ACTIONS_TYPES,

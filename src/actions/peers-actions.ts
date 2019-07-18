@@ -1,11 +1,6 @@
 import { PEERS_ACTIONS_TYPES } from './constants';
-import { Peers, fetchPeers } from '../util';
-import {
-  createAction,
-  createThunkAction,
-  FetchError,
-  FluxStandardAction,
-} from '../action-creators';
+import { Peers, fetchPeers, FluxStandardAction, FetchError } from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
 export type PeersAction = FluxStandardAction<
   PEERS_ACTIONS_TYPES,

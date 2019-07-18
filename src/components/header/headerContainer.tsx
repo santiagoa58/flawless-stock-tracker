@@ -4,7 +4,7 @@ import { HeaderLayout } from './headerLayout';
 import { ApplicationState } from '../../states';
 import { quoteActions, favoritesActions } from '../../actions';
 import { headerSelector } from './headerSelector';
-import { TD } from '../../action-creators';
+import { TD } from '../../util';
 
 const mapStateToProps = ({ overviewState, quoteState }: ApplicationState) =>
   headerSelector(overviewState.payload, quoteState.payload);

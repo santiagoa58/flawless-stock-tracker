@@ -1,11 +1,12 @@
 import { KEY_STATS_ACTIONS_TYPES } from './constants';
-import { KeyStats, fetchKeyStats, MapObject } from '../util';
 import {
-  createAction,
-  createThunkAction,
-  FetchError,
+  KeyStats,
+  fetchKeyStats,
+  MapObject,
   FluxStandardAction,
-} from '../action-creators';
+  FetchError,
+} from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
 export type KeyStatsAction = FluxStandardAction<
   KEY_STATS_ACTIONS_TYPES,

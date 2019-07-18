@@ -4,13 +4,10 @@ import {
   fetchTimeSeries,
   TimeSeriesRange,
   timeSeriesFilter,
-} from '../util';
-import {
-  createAction,
-  createThunkAction,
-  FetchError,
   FluxStandardAction,
-} from '../action-creators';
+  FetchError,
+} from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
 export type TimeSeriesAction = FluxStandardAction<
   TIME_SERIES_ACTIONS_TYPES,

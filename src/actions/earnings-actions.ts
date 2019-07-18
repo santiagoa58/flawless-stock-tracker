@@ -1,11 +1,11 @@
 import { EARNINGS_ACTIONS_TYPES } from './constants';
-import { Earnings, fetchEarnings } from '../util';
 import {
-  createAction,
-  createThunkAction,
+  Earnings,
+  fetchEarnings,
   FetchError,
   FluxStandardAction,
-} from '../action-creators';
+} from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
 export type EarningsAction = FluxStandardAction<
   EARNINGS_ACTIONS_TYPES,

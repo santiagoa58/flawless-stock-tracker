@@ -8,8 +8,7 @@ import {
   earningsActions,
 } from './';
 import { quoteActions } from './quote-actions';
-import { FluxStandardAction, FetchError, TD } from '../action-creators';
-import { TimeSeriesRange } from '../util';
+import { TimeSeriesRange, FluxStandardAction, FetchError, TD } from '../util';
 
 export type SearchAction = FluxStandardAction<
   SEARCH_ACTIONS_TYPES,

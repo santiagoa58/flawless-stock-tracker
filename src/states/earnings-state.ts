@@ -1,5 +1,4 @@
-import { Earnings } from '../util';
-import { FetchError } from '../action-creators';
+import { Earnings, FetchError } from '../util';
 
 export interface EarningsState {
   payload: Earnings;

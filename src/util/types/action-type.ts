@@ -1,7 +1,7 @@
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
-import { ApplicationState } from '../states';
-import { ApplicationActions } from '../actions';
+import { ApplicationState } from '../../states';
+import { ApplicationActions } from '../../actions';
 
 export interface FetchError {
   code: number;

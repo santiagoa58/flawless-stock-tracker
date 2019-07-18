@@ -1,11 +1,11 @@
 import { OVERVIEW_ACTIONS_TYPES } from './constants';
-import { Overview, fetchOverview } from '../util';
 import {
-  createAction,
-  createThunkAction,
+  Overview,
+  fetchOverview,
   FetchError,
   FluxStandardAction,
-} from '../action-creators';
+} from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
 export type OverviewAction = FluxStandardAction<
   OVERVIEW_ACTIONS_TYPES,

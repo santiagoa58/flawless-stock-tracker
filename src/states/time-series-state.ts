@@ -1,5 +1,4 @@
-import { TimeSeries, TimeSeriesRange } from '../util';
-import { FetchError } from '../action-creators';
+import { TimeSeries, TimeSeriesRange, FetchError } from '../util';
 
 export type TimeSeriesData = {
   [key in TimeSeriesRange]: TimeSeries;

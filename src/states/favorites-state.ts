@@ -1,5 +1,4 @@
-import { Favorites } from '../util';
-import { FetchError } from '../action-creators';
+import { Favorites, FetchError } from '../util';
 
 export interface FavoritesState {
   payload?: Favorites;

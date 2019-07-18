@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { FavoritesList } from './favoritesList';
 import { ApplicationState } from '../../states';
 import { favoritesActions } from '../../actions';
-import { TD } from '../../action-creators';
+import { TD } from '../../util';
 
 const mapStateToProps = ({ favoritesState }: ApplicationState) => {
   return { favorites: favoritesState.payload };

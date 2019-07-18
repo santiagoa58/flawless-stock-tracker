@@ -1,5 +1,4 @@
-import { News } from '../util';
-import { FetchError } from '../action-creators';
+import { News, FetchError } from '../util';
 
 export interface NewsState {
   payload: News;

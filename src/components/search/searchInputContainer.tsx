@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { SearchInput } from './searchInput';
 import { search } from '../../actions';
-import { TD } from '../../action-creators';
+import { TD } from '../../util';
 
 const mapDispatchToProps = (dispatch: TD) => ({
   search: (symbol: string) => dispatch(search(symbol)),

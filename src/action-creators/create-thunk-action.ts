@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 
-import { FetchError, TD, TA } from './action-type';
+import { FetchError, TD, TA } from '../util';
 
 export const createThunkAction = <T extends string, P>(
   promise: Promise<P>,

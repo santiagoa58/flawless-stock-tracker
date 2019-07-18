@@ -1,11 +1,12 @@
 import { QUOTE_ACTIONS_TYPES } from './constants';
-import { Quote, fetchQuote, MapObject } from '../util';
 import {
-  createAction,
-  createThunkAction,
+  Quote,
+  fetchQuote,
+  MapObject,
   FetchError,
   FluxStandardAction,
-} from '../action-creators';
+} from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
 export type QuoteAction = FluxStandardAction<
   QUOTE_ACTIONS_TYPES,

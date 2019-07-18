@@ -1,5 +1,4 @@
-import { Quote } from '../util';
-import { FetchError } from '../action-creators';
+import { Quote, FetchError } from '../util';
 
 export interface QuoteState {
   payload: Quote;

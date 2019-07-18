@@ -1,11 +1,6 @@
 import { NEWS_ACTIONS_TYPES } from './constants';
-import { News, fetchNews } from '../util';
-import {
-  createAction,
-  createThunkAction,
-  FetchError,
-  FluxStandardAction,
-} from '../action-creators';
+import { News, fetchNews, FluxStandardAction, FetchError } from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
 export type NewsAction = FluxStandardAction<
   NEWS_ACTIONS_TYPES,

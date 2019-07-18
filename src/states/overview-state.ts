@@ -1,5 +1,4 @@
-import { Overview } from '../util';
-import { FetchError } from '../action-creators';
+import { Overview, FetchError } from '../util';
 
 export interface OverviewState {
   payload: Overview;
