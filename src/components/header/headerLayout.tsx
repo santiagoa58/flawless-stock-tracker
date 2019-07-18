@@ -9,6 +9,7 @@ import './header.css';
 
 interface HeaderFunctionsProps {
   getLatestUpdate: (symbol: string) => void;
+  getFavorites: () => void;
 }
 
 type HeaderLayoutProps = HeaderFunctionsProps & Header;
@@ -23,11 +24,13 @@ export const HeaderLayout: React.FunctionComponent<HeaderLayoutProps> = ({
   symbol,
   timeOfLatestUpdate,
   getLatestUpdate,
+  getFavorites,
 }) => {
   React.useEffect(() => {
     const intervalID = setInterval(() => {
-      if (symbol && isMarketOpen(new Date())) {
-        getLatestUpdate(symbol);
+      if (isMarketOpen(timeOfLatestUpdate)) {
+        if (symbol) getLatestUpdate(symbol);
+        getFavorites();
       }
     }, 2000);
     return () => clearInterval(intervalID);
@@ -46,7 +49,7 @@ export const HeaderLayout: React.FunctionComponent<HeaderLayoutProps> = ({
       {sector && (
         <div className="header-bottom">
           <CompanyTags sector={sector} exchange={exchange} />
-          <MarketStatus dateNow={new Date(timeOfLatestUpdate)} />
+          <MarketStatus timeOfLatestUpdate={timeOfLatestUpdate} />
         </div>
       )}
     </div>

@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-
 import { HeaderContainer } from './header/headerContainer';
 import { NewsGraphContainer } from './layout-components/newsGraphContainer';
 import { OverviewStatsContainer } from './layout-components/overviewStatsContainer';
 import { Footer } from './footer/footer';
 import { ApplicationState } from '../states';
 import { Loader } from '../util';
-import '../app-css/App.css';
+import '../css/App.css';
+import '../css/media-queries.css';
 
-const App = ({ areNewsLoading, isOverviewLoading }: AppProps) => (
+const App = ({ areNewsLoading }: AppProps) => (
   <>
     <div className="main-content">
       <HeaderContainer />
