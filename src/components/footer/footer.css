@@ -1,6 +1,7 @@
 .footer {
   text-transform: uppercase;
   background-color: #164083;
+  padding: 0.75rem 0;
 }
 
 .footer h3 {
@@ -9,29 +10,47 @@
 
 .footer ul {
   list-style: none;
-  white-space: nowrap;
-  transform: translateX(90%);
-  animation: scroll 13s infinite linear;
 }
 
-.footer li {
+.footer__markets li,
+.footer__favorites li {
   display: inline-block;
   padding-right: 1rem;
-}
-
-.footer h3 {
-  padding-bottom: 0.5em;
+  white-space: nowrap;
 }
 
 .footer__markets,
 .footer__favorites {
   width: 50%;
-  padding: 0.75rem 1.5rem;
+  padding: 0 0.5rem;
   overflow: hidden;
+  position: relative;
 }
 
-.footer__markets div,
-.footer__favorites div {
+.footer__favorites h3,
+.footer__markets h3 {
+  padding-bottom: 2rem;
+}
+
+.footer__markets ul,
+.footer__favorites ul {
+  white-space: nowrap;
+  display: table;
+  position: absolute;
+  bottom: 0;
+  left: 80%;
+}
+
+.footer__favorites ul {
+  animation: scroll 15s infinite linear;
+}
+
+.footer__markets ul {
+  animation: scroll 15s infinite linear;
+}
+
+.footer .ticker__price,
+.footer .ticker__price--change {
   display: inline;
 }
 
@@ -50,13 +69,16 @@
 
 .footer__favorites {
   display: inline-block;
+  position: relative;
 }
 
 @keyframes scroll {
   0% {
-    transform: translateX(110%);
+    transform: translateX(0%);
+    left: 100%;
   }
   100% {
-    transform: translateX(-130%);
+    transform: translateX(-100%);
+    left: 0;
   }
 }
