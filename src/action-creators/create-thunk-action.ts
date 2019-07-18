@@ -1,12 +1,13 @@
 import { Action } from 'redux';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
-export const createThunkAction = <A extends Action, T extends any, S>(
-  promise: Promise<T>,
-  actions: ThunkCreatorActions,
-  types: DispatchTypes,
+import { FetchError, TD, TA } from '../util';
+
+export const createThunkAction = <T extends string, P>(
+  promise: Promise<P>,
+  actions: PureActions<T, P>,
+  types: DispatchTypes<T>,
   key?: string
-): ThunkAction<void, S, {}, A> => async (dispatch: ThunkDispatch<S, {}, A>) => {
+): TA => async (dispatch: TD) => {
   const { resolve, reject, get } = types;
   const { setPayload, setError, setLoading } = actions;
   dispatch(setLoading(get));
@@ -20,14 +21,14 @@ export const createThunkAction = <A extends Action, T extends any, S>(
   }
 };
 
-interface DispatchTypes {
-  resolve: string;
-  reject: string;
-  get: string;
+interface DispatchTypes<T> {
+  resolve: T;
+  reject: T;
+  get: T;
 }
 
-interface ThunkCreatorActions {
-  setPayload: any;
-  setError: any;
-  setLoading: any;
+interface PureActions<T, P> {
+  setPayload: (resolve: T, response: P, key?: string) => Action;
+  setError: (reject: T, error: FetchError) => Action;
+  setLoading: (get: T) => Action;
 }

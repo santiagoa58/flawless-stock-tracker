@@ -1,13 +1,18 @@
 import { FAVORITES_ACTIONS_TYPES } from './constants';
-import { Favorites, fetchFavorites, favoritesFilter } from '../util';
 import {
-  createAction,
-  createThunkAction,
-  ActionType,
+  Favorites,
+  fetchFavorites,
+  favoritesFilter,
+  FluxStandardAction,
   FetchError,
-} from '../action-creators';
+} from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
-export type FavoritesAction = ActionType<FAVORITES_ACTIONS_TYPES, Favorites>;
+export type FavoritesAction = FluxStandardAction<
+  FAVORITES_ACTIONS_TYPES,
+  Favorites,
+  FetchError
+>;
 
 const favoritesParameter = (symbols: string) => ({
   ...favoritesFilter,
@@ -20,7 +25,7 @@ export const favoritesActions = {
     createAction({ type, payload }),
   setError: (type: FAVORITES_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
-  setLoading: (type: FAVORITES_ACTIONS_TYPES) => ({ type }),
+  setLoading: (type: FAVORITES_ACTIONS_TYPES) => createAction({ type }),
   getData: (companySymbols: string) =>
     createThunkAction(
       fetchFavorites(favoritesParameter(companySymbols)),

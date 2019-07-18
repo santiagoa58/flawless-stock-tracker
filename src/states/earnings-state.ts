@@ -1,14 +1,13 @@
-import { Earnings } from '../util';
-import { FetchError } from '../action-creators';
+import { Earnings, FetchError } from '../util';
 
 export interface EarningsState {
-  earnings?: Earnings;
-  error?: FetchError;
+  payload: Earnings;
+  error: FetchError;
   isLoading?: boolean;
 }
 
 export const EarningsDefaultState: EarningsState = {
-  earnings: undefined,
+  payload: undefined,
   error: undefined,
   isLoading: false,
 };

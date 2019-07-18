@@ -1,13 +1,18 @@
-import { FluxStandardAction } from './action-type';
+import { FluxStandardAction, FetchError } from '../util';
 
-export const createAction = <T extends string, P, E>({
+export const createAction = <T, P>({
+  type,
+  payload,
+  key,
+  error,
+}: {
+  type: T;
+  payload?: P;
+  error?: FetchError;
+  key?: string;
+}): FluxStandardAction<T, P, FetchError> => ({
   type,
   payload,
   error,
   key,
-}: {
-  type: T;
-  payload?: P;
-  error?: E;
-  key?: string;
-}): FluxStandardAction<T, P, E> => ({ type, payload, error, key });
+});

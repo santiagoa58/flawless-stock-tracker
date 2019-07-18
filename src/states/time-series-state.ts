@@ -1,12 +1,11 @@
-import { TimeSeries, TimeSeriesRange } from '../util';
-import { FetchError } from '../action-creators';
+import { TimeSeries, TimeSeriesRange, FetchError } from '../util';
 
 export type TimeSeriesData = {
   [key in TimeSeriesRange]: TimeSeries;
 };
 
 export interface TimeSeriesState extends TimeSeriesData {
-  error?: FetchError;
+  error: FetchError;
   isLoading?: boolean;
 }
 
@@ -16,7 +15,7 @@ export const timeSeriesDefaultState: TimeSeriesState = {
   ['1m']: [],
   ['1y']: [],
   ['5y']: [],
-  ['max']: [],
+  max: [],
   error: undefined,
   isLoading: false,
 };

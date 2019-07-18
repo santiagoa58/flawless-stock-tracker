@@ -1,18 +1,16 @@
-import { Reducer } from 'redux';
-
 import { FavoritesAction, FAVORITES_ACTIONS_TYPES } from '../actions';
-import { FavoritesState, favoritesDefaultState } from '../states';
+import { favoritesDefaultState } from '../states';
 
-export const favoritesReducer: Reducer<FavoritesState, FavoritesAction> = (
-  state: FavoritesState = favoritesDefaultState,
+export const favoritesReducer = (
+  state = favoritesDefaultState,
   { type, payload, error }: FavoritesAction
-): FavoritesState => {
+) => {
   const { resolve, reject, get } = FAVORITES_ACTIONS_TYPES;
   switch (type) {
     case resolve:
-      return { ...state, favorites: payload, isLoading: false };
+      return { ...state, payload, isLoading: false };
     case reject:
-      return { ...state, error: error, isLoading: false };
+      return { ...state, error, isLoading: false };
     case get:
       return { ...state, isLoading: true };
     default:

@@ -1,10 +1,12 @@
-import { createStore, applyMiddleware, Store } from 'redux';
+import { createStore, applyMiddleware, Middleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import { rootReducer } from '../reducers';
-import { ApplicationActions } from '../actions';
-import { ApplicationState } from '../states';
+import { TD } from '../util';
 
-export const configureStore = (): Store<ApplicationState, ApplicationActions> =>
-  createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+export const configureStore = () =>
+  createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(thunk as Middleware<TD>))
+  );

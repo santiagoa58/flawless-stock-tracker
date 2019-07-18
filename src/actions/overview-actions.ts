@@ -1,14 +1,17 @@
 import { OVERVIEW_ACTIONS_TYPES } from './constants';
-import { Overview, fetchOverview } from '../util';
 import {
-  createAction,
-  createThunkAction,
-  ActionType,
+  Overview,
+  fetchOverview,
   FetchError,
-} from '../action-creators';
-import { OverviewState } from '../states';
+  FluxStandardAction,
+} from '../util';
+import { createAction, createThunkAction } from '../action-creators';
 
-export type OverviewAction = ActionType<OVERVIEW_ACTIONS_TYPES, Overview>;
+export type OverviewAction = FluxStandardAction<
+  OVERVIEW_ACTIONS_TYPES,
+  Overview,
+  FetchError
+>;
 
 export const overviewActions = {
   setPayload: (type: OVERVIEW_ACTIONS_TYPES, payload: Overview) =>
@@ -18,9 +21,9 @@ export const overviewActions = {
     }),
   setError: (type: OVERVIEW_ACTIONS_TYPES, error: FetchError) =>
     createAction({ type, error }),
-  setLoading: (type: OVERVIEW_ACTIONS_TYPES) => ({ type }),
+  setLoading: (type: OVERVIEW_ACTIONS_TYPES) => createAction({ type }),
   getData: (companySymbol: string) =>
-    createThunkAction<OverviewAction, Overview, OverviewState>(
+    createThunkAction(
       fetchOverview(companySymbol),
       overviewActions,
       OVERVIEW_ACTIONS_TYPES
