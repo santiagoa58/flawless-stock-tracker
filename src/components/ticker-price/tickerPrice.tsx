@@ -2,9 +2,9 @@ import * as React from 'react';
 import './ticker-price.css';
 
 export interface PriceOutputProps {
-  latestPrice: any;
-  change: any;
-  changePercent: any;
+  latestPrice: number;
+  change: number;
+  changePercent: number;
 }
 
 export const TickerPrice: React.FunctionComponent<PriceOutputProps> = ({
@@ -18,14 +18,14 @@ export const TickerPrice: React.FunctionComponent<PriceOutputProps> = ({
     <div className="ticker__price">
       <span>
         <span className="icon--small">$</span>
-        {latestPrice}
+        {latestPrice.toFixed(2)}
       </span>
       <div className={`ticker__price--change ${priceStatus}`}>
         <span>
           <span className="icon--small">
             {isNegative ? '\u2193' : '\u2191'}
           </span>
-          {Math.abs(change)}
+          {Math.abs(change).toFixed(2)}
         </span>
         <span>
           {Math.abs(changePercent * 100).toFixed(2)}
