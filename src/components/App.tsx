@@ -3,10 +3,12 @@ import { HeaderContainer } from './header/headerContainer';
 import { NewsGraphContainer } from './layout-components/newsGraphContainer';
 import { OverviewStatsContainer } from './layout-components/overviewStatsContainer';
 import { Footer } from './footer/footer';
-import '../app-css/App.css';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../states';
 import { Loader } from '../util';
+
+import '../css/App.css';
+import '../css/media-queries.css';
 
 const App: React.SFC = ({ areNewsLoading, isOverviewLoading }: any) => {
   return (

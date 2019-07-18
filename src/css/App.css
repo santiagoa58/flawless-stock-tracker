@@ -1,8 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-
+:root {
   /* COLOR VARIABLES */
   --color-primary: #1d3c62;
   --color-secondary: #102238;
@@ -13,6 +9,12 @@
   --width-left-side: 60%;
   --width-right-side: 35%;
   --margin-component-top: 1.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
@@ -48,7 +50,7 @@ body {
 }
 
 .main-content {
-  padding: 0 5rem;
+  padding: 0 4rem;
   width: 100%;
 }
 
@@ -114,9 +116,9 @@ body {
   list-style: none;
 }
 
-.section-news__list ul li {
+.section-news__list li {
   width: 100%;
-  margin: 0.5rem 0 1rem 0;
+  margin: 1.5rem 0;
   border: 1px var(--color-white);
 }
 
@@ -134,7 +136,7 @@ body {
   color: var(--color-light-grey);
   font-size: 0.8rem;
   font-weight: 300;
-  margin-top: 0.3rem;
+  line-height: 3;
 }
 
 /* Company Stats, Company Overview, Top Peers style */

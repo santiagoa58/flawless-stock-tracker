@@ -1,0 +1,33 @@
+@media only screen and (max-width: 900px) {
+  :root {
+    --margin-component-top: 2rem;
+  }
+
+  .main-content {
+    padding: 0 2rem;
+  }
+  .chart {
+    width: 100%;
+  }
+
+  .company-wrapper {
+    margin-top: 0;
+  }
+
+  .company-wrapper__info {
+    width: 100%;
+  }
+
+  .section-keystats {
+    width: 100%;
+    margin-bottom: var(--margin-component-top);
+  }
+  .section-news__list {
+    width: 100%;
+    margin-top: var(--margin-component-top);
+  }
+
+  .section-news__list li {
+    margin: 0rem 0;
+  }
+}
