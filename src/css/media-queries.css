@@ -1,12 +1,14 @@
 @media only screen and (max-width: 900px) {
   :root {
-    --margin-component-top: 2rem;
+    --margin-component-top: 4rem;
   }
 
   .main-content {
     padding: 0 2rem;
   }
-  .chart {
+  .chart,
+  .company-wrapper__info,
+  .header__search-layout form {
     width: 100%;
   }
 
@@ -14,20 +16,46 @@
     margin-top: 0;
   }
 
-  .company-wrapper__info {
-    width: 100%;
-  }
-
-  .section-keystats {
+  .section-keystats,
+  .chart,
+  .section-news__list {
     width: 100%;
     margin-bottom: var(--margin-component-top);
   }
-  .section-news__list {
-    width: 100%;
-    margin-top: var(--margin-component-top);
-  }
 
   .section-news__list li {
-    margin: 0rem 0;
+    margin: 0;
+  }
+
+  .header__search-layout {
+    display: block;
+  }
+
+  .header__search-layout input {
+    display: inline-block;
+    width: 80%;
+    margin: 1rem 0;
+  }
+
+  .header__search-layout .ticker__price {
+    text-align: right;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .section-keystats__list {
+    display: block;
+  }
+  .section-keystats__list ul {
+    width: 100%;
+  }
+  .header-bottom,
+  .header-wrapper--top {
+    display: block;
+  }
+  .header-tabs {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-align: right;
   }
 }
