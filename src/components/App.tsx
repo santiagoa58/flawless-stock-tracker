@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { HeaderContainer } from './header/headerContainer';
 import { NewsGraphContainer } from './layout-components/newsGraphContainer';
-import { OverviewStatsContainer } from './layout-components/OverviewStatsContainer';
+import { OverviewStatsContainer } from './layout-components/overviewStatsContainer';
 import { Footer } from './footer/footer';
 import '../app-css/App.css';
 import { connect } from 'react-redux';
