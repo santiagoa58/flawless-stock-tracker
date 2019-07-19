@@ -1,8 +1,10 @@
 import { TimeSeries } from '../../util';
 
-export const getTimeSeries = (timeSeries: TimeSeries) => {
-  const chartData = timeSeries.filter(timePoint => {
-    return timePoint.close != null;
-  });
+export const getTimeSeries = (timeSeries: TimeSeries | undefined) => {
+  const chartData = timeSeries
+    ? timeSeries.filter(timePoint => {
+        return timePoint.close != null;
+      })
+    : undefined;
   return chartData;
 };

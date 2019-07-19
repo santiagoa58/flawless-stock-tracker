@@ -3,6 +3,7 @@ import * as React from 'react';
 import { FavoritesListItem } from './favoritesListItem';
 import { FavoritesState } from '../../states';
 import { Favorites } from '../../util';
+import { FavoriteStock } from '../../util/entities/favorites';
 
 export const FavoritesList = ({
   favorites,
@@ -13,21 +14,25 @@ export const FavoritesList = ({
   }, []);
   return (
     <ul>
-      {favorites &&
-        Object.values(favorites).map(({ quote }) => (
-          <FavoritesListItem
-            key={quote.symbol}
-            latestPrice={quote.latestPrice}
-            change={quote.change}
-            changePercent={quote.changePercent}
-            symbol={quote.symbol}
-          />
-        ))}
+      {favorites
+        ? favorites &&
+          Object.values(favorites).map(
+            ({ latestPrice, change, changePercent, symbol }: FavoriteStock) => (
+              <FavoritesListItem
+                key={symbol}
+                latestPrice={latestPrice}
+                change={change}
+                changePercent={changePercent}
+                symbol={String(symbol)}
+              />
+            )
+          )
+        : undefined}
     </ul>
   );
 };
 
 export interface FavoriteListProps extends FavoritesState {
-  favorites: Favorites;
+  favorites: Favorites | undefined;
   getFavorites: () => void;
 }

@@ -40,6 +40,6 @@ export const SearchInput = ({ search, companyName, symbol }: SearchProps) => {
 
 interface SearchProps {
   search: (symbol: string) => void;
-  companyName: string;
-  symbol: string;
+  companyName: string | undefined;
+  symbol: string | undefined;
 }

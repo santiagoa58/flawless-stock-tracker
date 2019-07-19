@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers, Reducer } from 'redux';
 
 import { newsReducer } from './news-reducer';
 import { overviewReducer } from './overview-reducer';
@@ -8,8 +8,13 @@ import { timeSeriesReducer } from './time-series-reducer';
 import { quoteReducer } from './quote-reducer';
 import { EarningsReducer } from './earnings-reducer';
 import { favoritesReducer } from './favorites-reducer';
+import { ApplicationActions } from '../actions';
+import { ApplicationState } from '../states';
 
-export const rootReducer = combineReducers({
+export const rootReducer: Reducer<
+  ApplicationState,
+  ApplicationActions
+> = combineReducers({
   newsState: newsReducer,
   overviewState: overviewReducer,
   peersState: peersReducer,

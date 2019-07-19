@@ -6,7 +6,7 @@ export function getDateTimeString(dateNow: Date): string {
 
 function getLocalTimeZone(dateNow: Date): string {
   const date = dateNow.toString();
-  const timeZone: string = date.match(/\(.*/g)[0].substring(1);
+  const timeZone = String(date.match(/\(.*/g))[0].substring(1);
 
   let timeZoneCaptialLetters: string[] = timeZone
     .split(' ')

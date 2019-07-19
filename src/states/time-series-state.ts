@@ -1,11 +1,11 @@
 import { TimeSeries, TimeSeriesRange, FetchError } from '../util';
 
 export type TimeSeriesData = {
-  [key in TimeSeriesRange]: TimeSeries;
+  [key in TimeSeriesRange]: TimeSeries | undefined;
 };
 
 export interface TimeSeriesState extends TimeSeriesData {
-  error: FetchError;
+  error: FetchError | undefined;
   isLoading?: boolean;
 }
 

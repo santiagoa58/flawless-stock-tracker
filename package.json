@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tests": "jest --verbose",
-    "webpack": "webpack",
+    "build": "rm -rf dist && webpack --mode production",
     "webpack-dev-server": "webpack-dev-server",
     "start": "npm run webpack-dev-server -- --env.mode development --hot --open"
   },

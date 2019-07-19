@@ -4,7 +4,7 @@ import { GraphContainer } from '../graph/graphContainer';
 import { News } from '../../util';
 
 interface LatestNewsProps {
-  newsList: News;
+  newsList: News | undefined;
 }
 
 export const NewsGraphLayout = ({ newsList }: LatestNewsProps) => {

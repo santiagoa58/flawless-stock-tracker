@@ -1,8 +1,8 @@
 import { Quote, FetchError } from '../util';
 
 export interface QuoteState {
-  payload: Quote;
-  error: FetchError;
+  payload: Quote | undefined;
+  error: FetchError | undefined;
   isLoading?: boolean;
 }
 

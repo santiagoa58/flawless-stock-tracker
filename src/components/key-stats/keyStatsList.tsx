@@ -2,8 +2,8 @@ import * as React from 'react';
 import { KeyStatsItem } from './keyStatsItem';
 
 interface KeyStatsProps {
-  companyStatsLeft: any[];
-  companyStatsRight: any[];
+  companyStatsLeft: any[] | undefined;
+  companyStatsRight: any[] | undefined;
 }
 
 export const KeyStatsList: React.FunctionComponent<KeyStatsProps> = ({
@@ -22,10 +22,12 @@ export const KeyStatsList: React.FunctionComponent<KeyStatsProps> = ({
         </ul>
 
         <ul>
-          {companyStatsRight.map(apiData => {
-            const { name, value } = apiData;
-            return <KeyStatsItem key={name} name={name} value={value} />;
-          })}
+          {companyStatsRight
+            ? companyStatsRight.map(apiData => {
+                const { name, value } = apiData;
+                return <KeyStatsItem key={name} name={name} value={value} />;
+              })
+            : undefined}
         </ul>
       </div>
     </>

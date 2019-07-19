@@ -1,9 +1,9 @@
 import { Quote, KeyStats, Earnings } from '../../util';
 
 export function keyStatsSelector(
-  stats: KeyStats,
-  quote: Quote,
-  earnings: Earnings
+  stats: KeyStats | undefined,
+  quote: Quote | undefined,
+  earnings: Earnings | undefined
 ) {
   return stats && quote
     ? {

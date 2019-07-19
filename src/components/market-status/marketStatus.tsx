@@ -2,13 +2,13 @@ import * as React from 'react';
 import { getDateTimeString, isMarketOpen } from '../../util/marketStatusUtil';
 
 export interface MarketStatusProps {
-  timeOfLatestUpdate: number;
+  timeOfLatestUpdate: number | undefined;
 }
 
-export const MarketStatus: React.SFC<MarketStatusProps> = ({
-  timeOfLatestUpdate,
-}) => {
-  const dateTime: string = getDateTimeString(new Date(timeOfLatestUpdate));
+export const MarketStatus = ({ timeOfLatestUpdate }: MarketStatusProps) => {
+  const dateTime: string = getDateTimeString(
+    new Date(Number(timeOfLatestUpdate))
+  );
   const sun = <i className="far fa-sun"></i>;
   const moon = <i className="far fa-moon"></i>;
 

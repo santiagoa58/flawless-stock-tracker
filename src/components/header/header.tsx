@@ -15,7 +15,7 @@ interface HeaderFunctionsProps {
 
 type HeaderLayoutProps = HeaderFunctionsProps & HeaderProps;
 
-export const Header: React.FunctionComponent<HeaderLayoutProps> = ({
+export const Header = ({
   latestPrice,
   change,
   changePercent,
@@ -26,7 +26,7 @@ export const Header: React.FunctionComponent<HeaderLayoutProps> = ({
   timeOfLatestUpdate,
   getLatestUpdate,
   getFavorites,
-}) => {
+}: HeaderLayoutProps) => {
   const tabsAndLogo = (
     <div className="header-wrapper--top">
       <AdaptiveLogo />
@@ -65,7 +65,7 @@ export const Header: React.FunctionComponent<HeaderLayoutProps> = ({
 
   React.useEffect(() => {
     const intervalID = setInterval(() => {
-      if (isMarketOpen(timeOfLatestUpdate)) {
+      if (isMarketOpen(Number(timeOfLatestUpdate))) {
         if (symbol) getLatestUpdate(symbol);
         getFavorites();
       }

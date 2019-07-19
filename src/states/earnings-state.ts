@@ -1,8 +1,8 @@
 import { Earnings, FetchError } from '../util';
 
 export interface EarningsState {
-  payload: Earnings;
-  error: FetchError;
+  payload: Earnings | undefined;
+  error: FetchError | undefined;
   isLoading?: boolean;
 }
 

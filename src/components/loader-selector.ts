@@ -5,7 +5,6 @@ export const getIsLoading = ({
   earningsState,
   overviewState,
   keyStatsState,
-  quoteState,
   peersState,
   timeSeriesState,
 }: ApplicationState) =>

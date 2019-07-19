@@ -33,5 +33,5 @@ const mapStateToProps = (state: ApplicationState) => ({
 export const EnhancedApp = connect(mapStateToProps)(App);
 
 interface AppProps {
-  isLoading: boolean;
+  isLoading: boolean | undefined;
 }

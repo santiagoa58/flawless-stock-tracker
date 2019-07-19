@@ -3,9 +3,11 @@ import { timeSeriesDefaultState } from '../states';
 
 export const timeSeriesReducer = (
   state = timeSeriesDefaultState,
-  { type, payload, error, key }: TimeSeriesAction
+  action: TimeSeriesAction
 ) => {
   const { resolve, reject, get } = TIME_SERIES_ACTIONS_TYPES;
+  const { type, payload, error } = action;
+  const key: string = action.key as string;
   switch (type) {
     case resolve:
       return { ...state, [key]: payload, isLoading: false };

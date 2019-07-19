@@ -1,14 +1,14 @@
 import { Overview, Quote } from '../../util';
 
 export interface HeaderProps {
-  sector: string;
-  exchange: string;
-  latestPrice: number;
-  change: number;
-  changePercent: number;
-  symbol: string;
-  companyName: string;
-  timeOfLatestUpdate: number;
+  sector: string | undefined;
+  exchange: string | undefined;
+  latestPrice: number | undefined;
+  change: number | undefined;
+  changePercent: number | undefined;
+  symbol: string | undefined;
+  companyName: string | undefined;
+  timeOfLatestUpdate: number | undefined;
 }
 
 const defaultSelector: HeaderProps = {
@@ -22,7 +22,10 @@ const defaultSelector: HeaderProps = {
   timeOfLatestUpdate: Date.now(),
 };
 
-export function headerSelector(overview: Overview, quote: Quote) {
+export function headerSelector(
+  overview: Overview | undefined,
+  quote: Quote | undefined
+) {
   return overview && quote
     ? {
         sector: overview.sector,
