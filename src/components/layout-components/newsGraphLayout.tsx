@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { NewsList } from '../news/newsList';
 import { GraphContainer } from '../graph/graphContainer';
+import { News } from '../../util';
 
 interface LatestNewsProps {
-  newsList: any;
+  newsList: News;
 }
 
-export const NewsGraphLayout: React.FunctionComponent<LatestNewsProps> = ({
-  newsList,
-}: LatestNewsProps) => {
+export const NewsGraphLayout = ({ newsList }: LatestNewsProps) => {
   return (
     <div className="section-chart-news">
       <GraphContainer />
