@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { HeaderLayout } from './headerLayout';
+import { Header } from './header';
 import { ApplicationState } from '../../states';
 import { quoteActions, favoritesActions } from '../../actions';
 import { headerSelector } from './headerSelector';
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch: TD) => ({
 export const HeaderContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(HeaderLayout);
+)(Header);

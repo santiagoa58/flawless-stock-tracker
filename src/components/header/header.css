@@ -72,7 +72,14 @@
   padding-right: 0.5rem;
 }
 
-/*SUGGESTIONS DROPDOWN*/
+.header__search-layout .fa-search:hover {
+  cursor: pointer;
+}
+.header__search-layout .fa-search {
+  color: var(--color-heading-primary);
+  font-size: 1.3rem;
+  transform: translateY(-15%);
+}
 
 /*HEADER BOTTOM*/
 .header-bottom {
@@ -82,6 +89,7 @@
 
 .header-bottom .last-update {
   color: var(--color-dimmed);
+  line-height: 1.5;
 }
 
 .header-bottom .fa-sun {
@@ -96,5 +104,6 @@
   display: inline-block;
   background-color: var(--tags-color);
   margin-right: 1rem;
+  margin-bottom: 1rem;
   padding: 0.25rem 1rem;
 }

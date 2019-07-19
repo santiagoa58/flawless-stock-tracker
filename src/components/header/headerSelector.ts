@@ -1,6 +1,6 @@
 import { Overview, Quote } from '../../util';
 
-export interface Header {
+export interface HeaderProps {
   sector: string;
   exchange: string;
   latestPrice: number;
@@ -11,7 +11,7 @@ export interface Header {
   timeOfLatestUpdate: number;
 }
 
-const defaultSelector: Header = {
+const defaultSelector: HeaderProps = {
   sector: undefined,
   exchange: undefined,
   latestPrice: undefined,
