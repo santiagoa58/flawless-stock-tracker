@@ -32,10 +32,9 @@ export const HeaderLayout: React.FunctionComponent<HeaderLayoutProps> = ({
         if (symbol) getLatestUpdate(symbol);
         getFavorites();
       }
-    }, 2000);
+    }, 5000);
     return () => clearInterval(intervalID);
   }, [symbol]);
-
   return (
     <div className="header-wrapper">
       <LogoTabsLayout />

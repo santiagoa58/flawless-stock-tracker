@@ -1,20 +1,16 @@
 import * as React from 'react';
 
-import { createSuggestions } from '../../util';
-
 export const SearchOptions = ({
-  limit,
-  symbol,
+  suggestions,
   listName,
 }: SearchOptionsProps) => {
-  const options = createSuggestions(symbol, limit).map(({ label, id }) => (
+  const options = suggestions.map(({ label, id }) => (
     <option key={id}>{`${label}`}</option>
   ));
   return <datalist id={listName}>{options}</datalist>;
 };
 
 interface SearchOptionsProps {
-  limit: number;
-  symbol: string;
   listName: string;
+  suggestions: any[];
 }

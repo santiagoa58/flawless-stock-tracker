@@ -14,7 +14,21 @@ type GraphProps = {
   [key: string]: TimeSeries;
 };
 
-export const Graph: React.FC<GraphProps> = (props: GraphProps) => {
+const areEqual = (prevProps: GraphProps, nextProps: GraphProps) => {
+  if (!prevProps.oneDay[0]) {
+    return;
+  }
+  return (
+    prevProps.oneDay[0] === nextProps.oneDay[0] &&
+    prevProps.fiveDay[0] === nextProps.fiveDay[0] &&
+    prevProps.oneMonth[0] === nextProps.oneMonth[0] &&
+    prevProps.oneYear[0] === nextProps.oneYear[0] &&
+    prevProps.fiveYear[0] === nextProps.fiveYear[0] &&
+    prevProps.max[0] === nextProps.max[0]
+  );
+};
+
+export const Graph = (props: GraphProps) => {
   const [dataChoice, setDataChoice] = React.useState('oneMonth');
 
   function selectChartData(dataSelect: string) {
@@ -80,7 +94,7 @@ export const Graph: React.FC<GraphProps> = (props: GraphProps) => {
           </div>
           <ResponsiveContainer width="100%" aspect={2}>
             <AreaChart
-              data={props[`${dataChoice}`]}
+              data={props[dataChoice]}
               margin={{
                 top: 0,
                 right: 0,
@@ -123,3 +137,5 @@ export const Graph: React.FC<GraphProps> = (props: GraphProps) => {
     </div>
   );
 };
+
+export const MemoGraph = React.memo(Graph, areEqual);

@@ -1,7 +1,7 @@
 import { TimeSeries } from '../../util';
 
 export const getTimeSeries = (timeSeries: TimeSeries) => {
-  let chartData = timeSeries.filter(function removeNullValues(timePoint) {
+  const chartData = timeSeries.filter(timePoint => {
     return timePoint.close != null;
   });
   return chartData;

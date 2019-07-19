@@ -17,8 +17,8 @@ export type SearchAction = FluxStandardAction<
 >;
 
 export const search = (companySymbol: string) => (dispatch: TD) => {
-  dispatch(newsActions.getData(companySymbol));
   dispatch(quoteActions.getData(companySymbol));
+  dispatch(newsActions.getData(companySymbol));
   dispatch(peersActions.getData(companySymbol));
   dispatch(keyStatsActions.getData(companySymbol));
   dispatch(overviewActions.getData(companySymbol));

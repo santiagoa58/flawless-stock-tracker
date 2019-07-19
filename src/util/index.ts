@@ -56,6 +56,10 @@ export { timeSeriesFilter, favoritesFilter } from './filters';
 
 export { sanitizeLabel, sanitizeSearch } from './sanitizers';
 
-export { createSuggestions } from './suggestions';
+export {
+  createSuggestions,
+  getSuggestionOrSearchText,
+  Suggestion,
+} from './suggestions';
 
 export { getDateTimeString, isMarketOpen } from './marketStatusUtil';

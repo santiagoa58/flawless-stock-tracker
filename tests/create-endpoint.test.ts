@@ -22,5 +22,7 @@ test('Succesfully create endpoint with no parameters and private config', () => 
 });
 
 test('Succesfully create endpoint with parameters and private config', () => {
-  expect(createEndpoint(PRIVATE_SERVICE, mockPath, mockParameters));
+  expect(createEndpoint(PRIVATE_SERVICE, mockPath, mockParameters)).toBe(
+    `${PRIVATE_SERVICE.hostname}/${mockPath}?token=${PRIVATE_SERVICE.key}&testKey=testValue`
+  );
 });

@@ -95,9 +95,7 @@ const mockArticle: Article = {
   hasPaywall: false,
 };
 
-const mockNews: News = {
-  news: [mockArticle],
-};
+const mockNews: News = [mockArticle];
 
 const mockEarning: Earning = {
   actualEPS: 0,

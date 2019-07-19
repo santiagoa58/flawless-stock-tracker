@@ -1,9 +1,9 @@
 import { isPartOf } from './common-typeguard';
 
-export const areNews = (testedObject: any): boolean => {
+export const areNews = (news: any): boolean => {
   const newsProperties = ['news'];
-  const firstArticle = testedObject.news[0];
-  return isArticle(firstArticle) && isPartOf(newsProperties, testedObject);
+  const firstArticle = news[0];
+  return isArticle(firstArticle) && isPartOf(newsProperties, firstArticle);
 };
 
 export const isArticle = (testedObject: any): boolean => {
