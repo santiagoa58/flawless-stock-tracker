@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { Suggestion } from '../../util';
+
 export const SearchOptions = ({
   suggestions,
   listName,
@@ -12,5 +14,5 @@ export const SearchOptions = ({
 
 interface SearchOptionsProps {
   listName: string;
-  suggestions: any[];
+  suggestions: Suggestion[];
 }

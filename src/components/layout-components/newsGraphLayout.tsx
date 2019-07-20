@@ -1,11 +1,8 @@
 import * as React from 'react';
+
 import { NewsList } from '../news/newsList';
 import { GraphContainer } from '../graph/graphContainer';
 import { News } from '../../util';
-
-interface LatestNewsProps {
-  newsList: News | undefined;
-}
 
 export const NewsGraphLayout = ({ newsList }: LatestNewsProps) => {
   return (
@@ -15,3 +12,7 @@ export const NewsGraphLayout = ({ newsList }: LatestNewsProps) => {
     </div>
   );
 };
+
+interface LatestNewsProps {
+  newsList: News | undefined;
+}

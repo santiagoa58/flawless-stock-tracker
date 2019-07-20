@@ -1,10 +1,7 @@
 import * as React from 'react';
+
 import { urlFormatter } from './urlFormatter';
 import { Overview } from '../../util/';
-
-interface OverviewProps {
-  companyInfo: Overview;
-}
 
 export const CompanyInfo: React.FunctionComponent<OverviewProps> = ({
   companyInfo,
@@ -26,3 +23,7 @@ export const CompanyInfo: React.FunctionComponent<OverviewProps> = ({
     </div>
   );
 };
+
+interface OverviewProps {
+  companyInfo: Overview;
+}

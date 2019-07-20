@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { HeaderProps } from './headerSelector';
 import { CompanyTags } from '../tags/companyTags';
 import { MarketStatus } from '../market-status/marketStatus';
@@ -7,13 +8,6 @@ import { AdaptiveLogo } from './adaptiveLogo';
 import { SearchContainer } from '../search/searchInputContainer';
 import { TickerPrice } from '../ticker-price/tickerPrice';
 import './header.css';
-
-interface HeaderFunctionsProps {
-  getLatestUpdate: (symbol: string) => void;
-  getFavorites: () => void;
-}
-
-type HeaderLayoutProps = HeaderFunctionsProps & HeaderProps;
 
 export const Header = ({
   latestPrice,
@@ -81,3 +75,10 @@ export const Header = ({
     </div>
   );
 };
+
+interface HeaderFunctionsProps {
+  getLatestUpdate: (symbol: string) => void;
+  getFavorites: () => void;
+}
+
+type HeaderLayoutProps = HeaderFunctionsProps & HeaderProps;

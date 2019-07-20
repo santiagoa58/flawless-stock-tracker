@@ -2,16 +2,12 @@ import * as React from 'react';
 
 import { TickerPrice, PriceOutputProps } from '../ticker-price/tickerPrice';
 
-export interface FavoritesType extends PriceOutputProps {
-  symbol: string;
-}
-
-export const FavoritesListItem: React.SFC<FavoritesType> = ({
+export const FavoritesListItem = ({
   latestPrice,
   change,
   changePercent,
   symbol,
-}) => {
+}: FavoritesProps) => {
   return (
     <li>
       <div className="footer__stock">
@@ -25,3 +21,7 @@ export const FavoritesListItem: React.SFC<FavoritesType> = ({
     </li>
   );
 };
+
+export interface FavoritesProps extends PriceOutputProps {
+  symbol: string;
+}

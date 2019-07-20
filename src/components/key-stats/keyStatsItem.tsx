@@ -1,10 +1,5 @@
 import * as React from 'react';
 
-interface StatsItemProps {
-  name: string;
-  value: any;
-}
-
 export const KeyStatsItem = ({ name, value }: StatsItemProps) => {
   if (name.toLowerCase().includes('range')) {
     return (
@@ -30,3 +25,8 @@ export const KeyStatsItem = ({ name, value }: StatsItemProps) => {
     </li>
   );
 };
+
+interface StatsItemProps {
+  name: string;
+  value: any;
+}

@@ -1,9 +1,16 @@
-# ![Adaptive Logo](https://weareadaptive.com/wp-content/themes/bh-core/assets/images/favicons/favicon-32x32.png) Stock Tracker ![Nasty](https://forthebadge.com/images/badges/just-plain-nasty.svg)
+# ![Adaptive Logo](https://weareadaptive.com/wp-content/themes/bh-core/assets/images/favicons/favicon-32x32.png) [Stock Tracker](https://stock-tracker-vincent-santiago.s3.us-east-2.amazonaws.com/index.html) | Stock Information at Your Fingertips
 
 ## Contributors
 
 - Vincent Boivin
 - Santiago Gomez
+
+## Reviewers
+
+- Gabriel Lemire
+- Steven McKeown
+- Yan Parenteau
+- Christi Reid
 
 ## Getting Started
 
@@ -32,8 +39,8 @@ npm run tests
 
 ## Built With
 
-- [typescript](http://www.typescriptlang.org/) - The JS with green in it
-- [webpack](https://webpack.js.org/) - The bundler
-- [jest](https://jestjs.io/) - The vanilla JS testing library
-- [enzyme](https://github.com/airbnb/enzyme) - The React components testing library
-- [npm](https://www.npmjs.com/) - The package manager
+- [Typescript](http://www.typescriptlang.org/) - Typed Superset of JavaScript
+- [Webpack](https://webpack.js.org/) - Bundler
+- [Jest](https://jestjs.io/) - JavaScript Testing Library
+- [NPM](https://www.npmjs.com/) - Package Manager
+- [AWS](https://www.aws.com/) - Cloud Provider

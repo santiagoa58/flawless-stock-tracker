@@ -1,12 +1,8 @@
 import * as React from 'react';
+
 import { KeyStatsItem } from './keyStatsItem';
 
-interface KeyStatsProps {
-  companyStatsLeft: any[] | undefined;
-  companyStatsRight: any[] | undefined;
-}
-
-export const KeyStatsList: React.FunctionComponent<KeyStatsProps> = ({
+export const KeyStatsList = ({
   companyStatsLeft,
   companyStatsRight,
 }: KeyStatsProps) => {
@@ -34,3 +30,8 @@ export const KeyStatsList: React.FunctionComponent<KeyStatsProps> = ({
   );
   return <div className="section-keystats">{keyStats}</div>;
 };
+
+interface KeyStatsProps {
+  companyStatsLeft: any[] | undefined;
+  companyStatsRight: any[] | undefined;
+}

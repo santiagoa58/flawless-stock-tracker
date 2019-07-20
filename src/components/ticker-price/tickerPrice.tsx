@@ -1,19 +1,14 @@
 import * as React from 'react';
+
 import './ticker-price.css';
 
-export interface PriceOutputProps {
-  latestPrice: number | undefined;
-  change: number | undefined;
-  changePercent: number | undefined;
-}
-
-export const TickerPrice: React.FunctionComponent<PriceOutputProps> = ({
+export const TickerPrice = ({
   latestPrice,
   change,
   changePercent,
 }: PriceOutputProps) => {
   const isNegative = change ? change <= 0 : undefined;
-  let priceStatus = isNegative ? 'negative' : 'positive';
+  const priceStatus = isNegative ? 'negative' : 'positive';
   return (
     <div className="ticker__price">
       <span>
@@ -35,3 +30,9 @@ export const TickerPrice: React.FunctionComponent<PriceOutputProps> = ({
     </div>
   );
 };
+
+export interface PriceOutputProps {
+  latestPrice: number | undefined;
+  change: number | undefined;
+  changePercent: number | undefined;
+}

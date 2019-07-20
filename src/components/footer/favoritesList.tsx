@@ -16,8 +16,9 @@ export const FavoritesList = ({
     <ul>
       {favorites
         ? favorites &&
-          Object.values(favorites).map(
-            ({ latestPrice, change, changePercent, symbol }: FavoriteStock) => (
+          Object.values(favorites).map(({ quote }: FavoriteStock) => {
+            const { symbol, latestPrice, change, changePercent } = quote;
+            return (
               <FavoritesListItem
                 key={symbol}
                 latestPrice={latestPrice}
@@ -25,8 +26,8 @@ export const FavoritesList = ({
                 changePercent={changePercent}
                 symbol={String(symbol)}
               />
-            )
-          )
+            );
+          })
         : undefined}
     </ul>
   );
