@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 interface TagsProps {
-  exchange: string;
-  sector: string;
+  exchange: string | undefined;
+  sector: string | undefined;
 }
 
 export const CompanyTags: React.FunctionComponent<TagsProps> = ({

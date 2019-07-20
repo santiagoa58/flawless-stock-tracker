@@ -1,8 +1,8 @@
 import { News, FetchError } from '../util';
 
 export interface NewsState {
-  payload: News;
-  error: FetchError;
+  payload: News | undefined;
+  error: FetchError | undefined;
   isLoading?: boolean;
 }
 

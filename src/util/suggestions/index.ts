@@ -1,1 +1,2 @@
-export { createSuggestions } from './create-suggestions';
+export { createSuggestions, Suggestion } from './create-suggestions';
+export { getSuggestionOrSearchText } from './get-suggestion';

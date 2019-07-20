@@ -10,9 +10,10 @@ export const createSuggestions = (input: string, limit: number = 10) => {
       symbol.startsWith(upperCaseInput) ||
       (name || '').toUpperCase().startsWith(upperCaseInput);
     if (startsWithInput) {
-      const suggestion: Company = {
+      const suggestion: Suggestion = {
         label: `${sanitizeLabel(name)} (${symbol})`,
         id: iexId,
+        symbol,
       };
       suggestions.push(suggestion);
       if (suggestions.length === limit) {
@@ -23,7 +24,8 @@ export const createSuggestions = (input: string, limit: number = 10) => {
   return suggestions;
 };
 
-interface Company {
+export interface Suggestion {
   label: string;
   id: string;
+  symbol: string;
 }

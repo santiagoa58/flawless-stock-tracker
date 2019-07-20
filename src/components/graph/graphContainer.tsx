@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import { Graph } from './graph';
-import { ApplicationState } from '../../states';
+import { MemoGraph } from './graph';
 import { getTimeSeries } from './time-series-selectors';
+import { ApplicationState } from '../../states';
 
 const mapStateToProps = ({ timeSeriesState }: ApplicationState) => ({
   oneDay: getTimeSeries(timeSeriesState['1d']),
@@ -13,4 +13,4 @@ const mapStateToProps = ({ timeSeriesState }: ApplicationState) => ({
   max: getTimeSeries(timeSeriesState.max),
 });
 
-export const GraphContainer = connect(mapStateToProps)(Graph);
+export const GraphContainer = connect(mapStateToProps)(MemoGraph);

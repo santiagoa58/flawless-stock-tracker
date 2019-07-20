@@ -1,8 +1,8 @@
 import { KeyStats, FetchError } from '../util';
 
 export interface KeyStatsState {
-  payload: KeyStats;
-  error: FetchError;
+  payload: KeyStats | undefined;
+  error: FetchError | undefined;
   isLoading?: boolean;
 }
 

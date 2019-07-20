@@ -1,8 +1,8 @@
 import { Peers, FetchError } from '../util';
 
 export interface PeersState {
-  payload: Peers;
-  error: FetchError;
+  payload: Peers | undefined;
+  error: FetchError | undefined;
   isLoading?: boolean;
 }
 

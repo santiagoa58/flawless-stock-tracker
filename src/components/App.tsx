@@ -1,36 +1,37 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+
 import { HeaderContainer } from './header/headerContainer';
 import { NewsGraphContainer } from './layout-components/newsGraphContainer';
 import { OverviewStatsContainer } from './layout-components/overviewStatsContainer';
 import { Footer } from './footer/footer';
 import { ApplicationState } from '../states';
 import { Loader } from '../util';
+import { getIsLoading } from './loader-selector';
 import '../css/App.css';
 import '../css/media-queries.css';
 
-const App = ({ areNewsLoading }: AppProps) => (
-  <>
-    <div className="main-content">
-      <HeaderContainer />
-      <div className="section-data">
-        {areNewsLoading && <Loader />}
-        {!areNewsLoading && <NewsGraphContainer />}
-        {!areNewsLoading && <OverviewStatsContainer />}
+const App = ({ isLoading }: AppProps) => {
+  return (
+    <>
+      <div className="main-content">
+        <HeaderContainer />
+        <div className="section-data">
+          {isLoading && <Loader />}
+          {!isLoading && <NewsGraphContainer />}
+          {!isLoading && <OverviewStatsContainer />}
+        </div>
       </div>
-    </div>
-    <Footer />
-  </>
-);
-
+      <Footer />
+    </>
+  );
+};
 const mapStateToProps = (state: ApplicationState) => ({
-  areNewsLoading: state.newsState.isLoading,
-  isOverviewLoading: state.overviewState.isLoading,
+  isLoading: getIsLoading(state),
 });
 
-interface AppProps {
-  areNewsLoading: boolean;
-  isOverviewLoading: boolean;
-}
-
 export const EnhancedApp = connect(mapStateToProps)(App);
+
+interface AppProps {
+  isLoading: boolean | undefined;
+}

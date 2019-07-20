@@ -12,7 +12,6 @@ const mapStateToProps = ({ overviewState, quoteState }: ApplicationState) =>
 const mapDispatchToProps = (dispatch: TD) => ({
   getFavorites: () =>
     dispatch(favoritesActions.getData('fb,aapl,amzn,ko,nflx')),
-
   getLatestUpdate: (symbol: string) => dispatch(quoteActions.getData(symbol)),
 });
 

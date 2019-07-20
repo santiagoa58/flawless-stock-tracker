@@ -1,10 +1,8 @@
-import { Action } from 'redux';
-
-import { FetchError, TD, TA } from '../util';
+import { TD, TA } from '../util';
 
 export const createThunkAction = <T extends string, P>(
   promise: Promise<P>,
-  actions: PureActions<T, P>,
+  actions: any,
   types: DispatchTypes<T>,
   key?: string
 ): TA => async (dispatch: TD) => {
@@ -25,10 +23,4 @@ interface DispatchTypes<T> {
   resolve: T;
   reject: T;
   get: T;
-}
-
-interface PureActions<T, P> {
-  setPayload: (resolve: T, response: P, key?: string) => Action;
-  setError: (reject: T, error: FetchError) => Action;
-  setLoading: (get: T) => Action;
 }

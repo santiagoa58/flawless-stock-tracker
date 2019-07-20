@@ -3,10 +3,8 @@ export interface Favorites {
 }
 
 export interface FavoriteStock {
-  quote: {
-    symbol: string;
-    latestPrice: number;
-    change: number;
-    changePercent: number;
-  };
+  symbol: string | undefined;
+  latestPrice: number | undefined;
+  change: number;
+  changePercent: number;
 }

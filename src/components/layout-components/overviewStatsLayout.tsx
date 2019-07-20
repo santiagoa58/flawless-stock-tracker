@@ -5,8 +5,8 @@ import { TopPeers } from '../peers/topPeers';
 import { Peers, Overview } from '../../util';
 
 interface OverviewStatsProps {
-  topPeers: Peers;
-  overview: Overview;
+  topPeers: Peers | undefined;
+  overview: Overview | undefined;
 }
 
 export const OverviewStatsLayout = ({

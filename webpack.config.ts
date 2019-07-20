@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-module.exports = ({ mode } = { mode: 'production' }) => ({
-  mode,
+module.exports = {
+  mode: 'production',
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -27,10 +27,11 @@ module.exports = ({ mode } = { mode: 'production' }) => ({
     rules: [
       {
         test: /\.jsx?$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/env'],
+            presets: ['@babel/env', 'minify'],
           },
         },
       },
@@ -39,6 +40,7 @@ module.exports = ({ mode } = { mode: 'production' }) => ({
         use: {
           loader: 'ts-loader',
         },
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -46,4 +48,4 @@ module.exports = ({ mode } = { mode: 'production' }) => ({
       },
     ],
   },
-});
+};

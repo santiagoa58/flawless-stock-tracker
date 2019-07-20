@@ -1,8 +1,8 @@
 import { Overview, FetchError } from '../util';
 
 export interface OverviewState {
-  payload: Overview;
-  error: FetchError;
+  payload: Overview | undefined;
+  error: FetchError | undefined;
   isLoading?: boolean;
 }
 
