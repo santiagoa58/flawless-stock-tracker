@@ -1,7 +1,4 @@
 import * as React from 'react';
-interface PeersProps {
-  topPeers: string[];
-}
 
 export const TopPeers: React.FunctionComponent<PeersProps> = ({
   topPeers,
@@ -17,3 +14,7 @@ export const TopPeers: React.FunctionComponent<PeersProps> = ({
     </div>
   );
 };
+
+interface PeersProps {
+  topPeers: string[];
+}

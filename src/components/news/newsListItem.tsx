@@ -1,10 +1,7 @@
 import * as React from 'react';
+
 import { Article } from '../../util';
 import { getTimePublishedFormat } from './format-time-published';
-
-interface NewsItemProps {
-  news: Article;
-}
 
 export const NewsListItem: React.FunctionComponent<NewsItemProps> = ({
   news,
@@ -23,3 +20,7 @@ export const NewsListItem: React.FunctionComponent<NewsItemProps> = ({
     </li>
   );
 };
+
+interface NewsItemProps {
+  news: Article;
+}

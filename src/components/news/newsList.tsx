@@ -1,10 +1,7 @@
 import * as React from 'react';
+
 import { Article } from '../../util';
 import { NewsListItem } from './newsListItem';
-
-export interface NewsProps {
-  newsList: Article[] | undefined;
-}
 
 export const NewsList: React.FunctionComponent<NewsProps> = ({
   newsList,
@@ -20,3 +17,7 @@ export const NewsList: React.FunctionComponent<NewsProps> = ({
     </div>
   );
 };
+
+export interface NewsProps {
+  newsList: Article[] | undefined;
+}

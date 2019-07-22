@@ -1,11 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-module.exports = {
-  mode: 'production',
+module.exports = ({ mode } = { mode: 'production' }) => ({
+  mode,
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -13,6 +15,7 @@ module.exports = {
     new webpack.ProgressPlugin(),
     new Dotenv(),
     new FriendlyErrorsWebpackPlugin(),
+    new CompressionPlugin(),
   ],
   context: __dirname,
   entry: './src/index.tsx',
@@ -48,4 +51,18 @@ module.exports = {
       },
     ],
   },
-};
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        test: /\.js(\?.*)?$/i,
+        parallel: true,
+        exclude: [/node_modules/, /tests/],
+        uglifyOptions: {
+          output: {
+            comments: false,
+          },
+        },
+      }),
+    ],
+  },
+});

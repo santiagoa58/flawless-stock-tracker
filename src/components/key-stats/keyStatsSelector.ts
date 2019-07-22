@@ -62,10 +62,12 @@ export function keyStatsSelector(
             name: 'Earnings Per Share',
           },
           {
-            value: `${Number(stats.dividendYield * 100).toFixed(2)}%`,
+            value: stats.dividendYield
+              ? `${Number(stats.dividendYield * 100).toFixed(2)}%`
+              : 'N/A',
             name: 'Dividend & Yield',
           },
         ],
       }
-    : {};
+    : undefined;
 }

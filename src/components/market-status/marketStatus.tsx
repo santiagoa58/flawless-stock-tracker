@@ -1,9 +1,6 @@
 import * as React from 'react';
-import { getDateTimeString, isMarketOpen } from '../../util/marketStatusUtil';
 
-export interface MarketStatusProps {
-  timeOfLatestUpdate: number | undefined;
-}
+import { getDateTimeString, isMarketOpen } from '../../util';
 
 export const MarketStatus = ({ timeOfLatestUpdate }: MarketStatusProps) => {
   const dateTime: string = getDateTimeString(
@@ -27,3 +24,7 @@ export const MarketStatus = ({ timeOfLatestUpdate }: MarketStatusProps) => {
     </div>
   );
 };
+
+export interface MarketStatusProps {
+  timeOfLatestUpdate: number | undefined;
+}

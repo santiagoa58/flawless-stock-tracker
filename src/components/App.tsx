@@ -26,12 +26,13 @@ const App = ({ isLoading }: AppProps) => {
     </>
   );
 };
+
 const mapStateToProps = (state: ApplicationState) => ({
   isLoading: getIsLoading(state),
 });
 
-export const EnhancedApp = connect(mapStateToProps)(App);
-
 interface AppProps {
   isLoading: boolean | undefined;
 }
+
+export const EnhancedApp = connect(mapStateToProps)(App);

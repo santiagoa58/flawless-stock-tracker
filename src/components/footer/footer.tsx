@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import './footer.css';
 import { TickerPrice } from '../ticker-price/tickerPrice';
 import { FavoritesListContainer } from './favoritesListContainer';

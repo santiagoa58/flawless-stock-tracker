@@ -1,14 +1,6 @@
 import * as React from 'react';
 
-interface TagsProps {
-  exchange: string | undefined;
-  sector: string | undefined;
-}
-
-export const CompanyTags: React.FunctionComponent<TagsProps> = ({
-  exchange,
-  sector,
-}: TagsProps) => {
+export const CompanyTags = ({ exchange, sector }: TagsProps) => {
   return (
     <div className="company-tags">
       <span>{exchange}</span>
@@ -17,3 +9,8 @@ export const CompanyTags: React.FunctionComponent<TagsProps> = ({
     </div>
   );
 };
+
+interface TagsProps {
+  exchange: string | undefined;
+  sector: string | undefined;
+}
