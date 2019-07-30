@@ -50,6 +50,8 @@ export const Header = ({
     </div>
   );
 
+  // time zone missing for timeOfLatestUpdate
+  // and UI wise, market status could be separated a bit more from latest time
   const statusAndTagsLayout = sector && (
     <div className="header-bottom">
       <CompanyTags sector={sector} exchange={exchange} />

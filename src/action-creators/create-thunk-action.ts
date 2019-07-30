@@ -12,7 +12,7 @@ export const createThunkAction = <T extends string, P>(
   try {
     const response = await promise;
     key
-      ? dispatch(setPayload(resolve, response, key))
+      ? dispatch(setPayload(resolve, response, key)) // key variable more semantic (for time frame?)
       : dispatch(setPayload(resolve, response));
   } catch (error) {
     dispatch(setError(reject, error));

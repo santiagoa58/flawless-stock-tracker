@@ -27,6 +27,9 @@ const App = ({ isLoading }: AppProps) => {
   );
 };
 
+// Loader: as long as there is one loading, loader shows for entire page
+// No individual loaders?
+
 const mapStateToProps = (state: ApplicationState) => ({
   isLoading: getIsLoading(state),
 });
