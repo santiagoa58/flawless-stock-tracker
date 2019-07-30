@@ -8,5 +8,5 @@ import { TD } from '../util';
 export const configureStore = () =>
   createStore(
     rootReducer,
-    composeWithDevTools(applyMiddleware(thunk as Middleware<TD>))
+    composeWithDevTools(applyMiddleware(thunk as Middleware<TD>)) // don't need to type, is inferred
   );

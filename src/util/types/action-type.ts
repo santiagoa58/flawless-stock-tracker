@@ -14,6 +14,7 @@ export interface FluxStandardAction<T, P, E> {
   readonly key?: string;
 }
 
+// TD, TA naming could be more semantic
 export type TD = ThunkDispatch<ApplicationState, {}, ApplicationActions>;
 
 export type TA = ThunkAction<void, ApplicationState, {}, ApplicationActions>;

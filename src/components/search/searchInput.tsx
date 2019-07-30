@@ -38,6 +38,9 @@ export const SearchInput = ({ search, companyName, symbol }: SearchProps) => {
   );
 };
 
+// UI choice: why a dropdown?
+// Selecting suggestiong doesn't search on click (need to press enter/seach icon)
+
 interface SearchProps {
   search: (symbol: string) => void;
   companyName: string | undefined;

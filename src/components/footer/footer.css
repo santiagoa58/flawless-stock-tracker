@@ -1,83 +1,88 @@
+/*
+footer favorites stock symbol is bolded but `us market` isn't
+.footer__stock is applied to  `favorites` but not to `us market` (hardcoded data) 
+*/
+
 .footer {
-  text-transform: uppercase;
-  background-color: #164083;
+    text-transform: uppercase;
+    background-color: #164083;
 }
 
 .footer h3 {
-  font-weight: 300;
+    font-weight: 300;
 }
 
 .footer ul {
-  list-style: none;
+    list-style: none;
 }
 
 .footer__markets li,
 .footer__favorites li {
-  display: inline-block;
-  padding-right: 1rem;
-  white-space: nowrap;
+    display: inline-block;
+    padding-right: 1rem;
+    white-space: nowrap;
 }
 
 .footer__markets,
 .footer__favorites {
-  width: 50%;
-  padding: 0.75rem 0.5rem;
-  overflow: hidden;
-  position: relative;
+    width: 50%;
+    padding: 0.75rem 0.5rem;
+    overflow: hidden;
+    position: relative;
 }
 
 .footer__favorites h3,
 .footer__markets h3 {
-  padding-bottom: 2rem;
+    padding-bottom: 2rem;
 }
 
 .footer__markets ul,
 .footer__favorites ul {
-  white-space: nowrap;
-  display: table;
-  position: absolute;
-  bottom: 0.5rem;
-  left: 80%;
+    white-space: nowrap;
+    display: table;
+    position: absolute;
+    bottom: 0.5rem;
+    left: 80%;
 }
 
 .footer__favorites ul {
-  animation: scroll 15s infinite linear;
+    animation: scroll 15s infinite linear;
 }
 
 .footer__markets ul {
-  animation: scroll 15s infinite linear;
+    animation: scroll 15s infinite linear;
 }
 
 .footer .ticker__price,
 .footer .ticker__price--change {
-  display: inline;
+    display: inline;
 }
 
 .footer__markets {
-  display: inline-block;
-  border-right: solid rgb(105, 137, 175, 0.35) 3px;
+    display: inline-block;
+    border-right: solid rgb(105, 137, 175, 0.35) 3px;
 }
 
 .footer__stock {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .footer__stock--symbol {
-  padding-right: 1rem;
+    padding-right: 1rem;
 }
 
 .footer__favorites {
-  display: inline-block;
-  position: relative;
+    display: inline-block;
+    position: relative;
 }
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0%);
-    left: 100%;
-  }
-  100% {
-    transform: translateX(-100%);
-    left: 0;
-  }
+    0% {
+        transform: translateX(0%);
+        left: 100%;
+    }
+    100% {
+        transform: translateX(-100%);
+        left: 0;
+    }
 }
